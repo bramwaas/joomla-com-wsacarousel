@@ -1,25 +1,25 @@
 <?php
 /**
- * @version $Id: djspacer.php 31 2015-04-29 14:25:09Z szymon $
- * @package DJ-MediaTools
- * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
+ * @version $Id: wsaspacer.php 0.0.1 2018-02-17
+ * @package WsaCarousel
+ * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://dj-extensions.com
- * @author email contact@dj-extensions.com
- * @developer Szymon Woronowski - szymon.woronowski@design-joomla.eu
+ * @author url: http://Waasdorpsoekhan.nl
+ * @author email contact@Waasdorpsoekhan.nl
+ * @developer Bram Waasdorp
  *
- * DJ-MediaTools is free software: you can redistribute it and/or modify
+ * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * DJ-MediaTools is distributed in the hope that it will be useful,
+ * WsaCarousel is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with DJ-MediaTools. If not, see <http://www.gnu.org/licenses/>.
+ * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -33,7 +33,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Form
  * @since       11.1
  */
-class JFormFieldDJSpacer extends JFormFieldSpacer
+class JFormFieldWSASpacer extends JFormFieldSpacer
 {
     /**
      * The form field type.
@@ -41,7 +41,7 @@ class JFormFieldDJSpacer extends JFormFieldSpacer
      * @var    string
      * @since  11.1
      */
-    protected $type = 'DJSpacer';
+    protected $type = 'WSASpacer';
 
     /**
      * Method to get the field input markup for a spacer.
@@ -81,7 +81,7 @@ class JFormFieldDJSpacer extends JFormFieldSpacer
         $class = $this->element['class'] ? (string) $this->element['class'] : '';
         $type = $this->element['alert_type'] ? (string) $this->element['alert_type'] : 'info';
         
-        $html[] = '<div class="' . $class . ' djspacer alert alert-'.$type.'">';
+        $html[] = '<div class="' . $class . ' wsaspacer alert alert-'.$type.'">';
         
         // Get the label text from the XML element, defaulting to the element name.
         $text = $this->element['label'] ? (string) $this->element['label'] : (string) $this->element['name'];

@@ -14,7 +14,7 @@
 		
 		<field name="catid"
 			type="categoryedit"
-			extension="com_djimageslider"
+			extension="COM_WSACAROUSEL"
 			label="JCATEGORY"
 			description="JFIELD_CATEGORY_DESC"
 			class="inputbox"
@@ -41,14 +41,14 @@
 		<field name="image"
 			type="media"
 			hide_none="1"
-			label="COM_DJIMAGESLIDER_IMAGE"
-			description="COM_DJIMAGESLIDER_IMAGE"
+			label="COM_WSACAROUSEL_IMAGE"
+			description="COM_WSACAROUSEL_IMAGE"
 			
 		/>
 		
 		<field name="description" type="editor"
-			label="COM_DJIMAGESLIDER_DESCRIPTION"
-			description="COM_DJIMAGESLIDER_DESCRIPTION_DESC"
+			label="COM_WSACAROUSEL_DESCRIPTION"
+			description="COM_WSACAROUSEL_DESCRIPTION_DESC"
 			class="inputbox"
 			filter="JComponentHelper::filterText"
 			buttons="false"
@@ -70,12 +70,12 @@
 		</field>
 		
 		<field name="publish_up" type="calendar"
-			label="COM_DJIMAGESLIDER_PUBLISH_UP" description="COM_DJIMAGESLIDER_PUBLISH_UP_DESC"
+			label="COM_WSACAROUSEL_PUBLISH_UP" description="COM_WSACAROUSEL_PUBLISH_UP_DESC"
 			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
 			filter="user_utc" />
 
 		<field name="publish_down" type="calendar"
-			label="COM_DJIMAGESLIDER_PUBLISH_DOWN" description="COM_DJIMAGESLIDER_PUBLISH_DOWN_DESC"
+			label="COM_WSACAROUSEL_PUBLISH_DOWN" description="COM_WSACAROUSEL_PUBLISH_DOWN_DESC"
 			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
 			filter="user_utc" />
 		
@@ -92,60 +92,60 @@
 	</fieldset>
 	
 	<fields name="params">
-		<fieldset name="jbasic"	label="COM_DJIMAGESLIDER_LINKING_OPTIONS"
+		<fieldset name="jbasic"	label="COM_WSACAROUSEL_LINKING_OPTIONS"
 			addfieldpath="/administrator/components/com_content/models/fields" >
 		
 			<field name="link_type" 
 				type="list" 
-				label="COM_DJIMAGESLIDER_LINK_TYPE"
-				description="COM_DJIMAGESLIDER_LINK_TYPE_DESC" 
+				label="COM_WSACAROUSEL_LINK_TYPE"
+				description="COM_WSACAROUSEL_LINK_TYPE_DESC" 
 				default=""
 			>
-				<option value="">COM_DJIMAGESLIDER_DO_NOT_LINK</option>
-				<option value="menu">COM_DJIMAGESLIDER_MENU</option>
-				<option value="url">COM_DJIMAGESLIDER_URL</option>
-				<option value="article">COM_DJIMAGESLIDER_ARTICLE</option>
-				<!--option value="djc2_item">COM_DJIMAGESLIDER_DJCATALOG2_ITEM</option-->
+				<option value="">COM_WSACAROUSEL_DO_NOT_LINK</option>
+				<option value="menu">COM_WSACAROUSEL_MENU</option>
+				<option value="url">COM_WSACAROUSEL_URL</option>
+				<option value="article">COM_WSACAROUSEL_ARTICLE</option>
+				<!--option value="djc2_item">COM_WSACAROUSEL_DJCATALOG2_ITEM</option-->
 			</field>
 			
 			<field name="link_menu" 
 				type="menuitem"
-				label="COM_DJIMAGESLIDER_MENU"
-				description="COM_DJIMAGESLIDER_MENU"
+				label="COM_WSACAROUSEL_MENU"
+				description="COM_WSACAROUSEL_MENU"
 				disable="separator,heading,alias"
 				showon="link_type:menu"
 			/>
 			<field name="link_url"
 				type="text"
-				label="COM_DJIMAGESLIDER_URL"
-				description="COM_DJIMAGESLIDER_URL"
+				label="COM_WSACAROUSEL_URL"
+				description="COM_WSACAROUSEL_URL"
 				class="inputbox"
 				size="30"
 				showon="link_type:url"
 			/>
 			<field name="link_article" 
 				type="modal_article"
-				label="COM_DJIMAGESLIDER_ARTICLE" 
-				description="COM_DJIMAGESLIDER_ARTICLE"
+				label="COM_WSACAROUSEL_ARTICLE" 
+				description="COM_WSACAROUSEL_ARTICLE"
 				showon="link_type:article"
 			/>
 			
 			<field name="link_target" 
 				type="list" 
-				label="COM_DJIMAGESLIDER_LINK_TARGET"
-				description="COM_DJIMAGESLIDER_LINK_TARGET_DESC" 
+				label="COM_WSACAROUSEL_LINK_TARGET"
+				description="COM_WSACAROUSEL_LINK_TARGET_DESC" 
 				default=""
 				showon="link_type:menu,url,article"
 			>
-				<option value="">COM_DJIMAGESLIDER_AUTO</option>
-				<option value="_self">COM_DJIMAGESLIDER_PARENT_WINDOW</option>
-				<option value="_blank">COM_DJIMAGESLIDER_NEW_WINDOW</option>
+				<option value="">COM_WSACAROUSEL_AUTO</option>
+				<option value="_self">COM_WSACAROUSEL_PARENT_WINDOW</option>
+				<option value="_blank">COM_WSACAROUSEL_NEW_WINDOW</option>
 			</field>
 			
 			<field name="link_rel" 
 				type="list" 
-				label="COM_DJIMAGESLIDER_LINK_REL"
-				description="COM_DJIMAGESLIDER_LINK_REL_DESC" 
+				label="COM_WSACAROUSEL_LINK_REL"
+				description="COM_WSACAROUSEL_LINK_REL_DESC" 
 				default=""
 				showon="link_type:menu,url,article"
 			>
@@ -166,18 +166,18 @@
 			
 		</fieldset>
 		
-		<fieldset name="attrs"	label="COM_DJIMAGESLIDER_IMAGE_ATTR_OPTIONS">
+		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS">
 			<field name="alt_attr"
 				type="text"
-				label="COM_DJIMAGESLIDER_ALT_ATTR"
-				description="COM_DJIMAGESLIDER_ALT_ATTR_DESC"
+				label="COM_WSACAROUSEL_ALT_ATTR"
+				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
 				class="inputbox"
 				size="30"
 			/>
 			<field name="title_attr"
 				type="text"
-				label="COM_DJIMAGESLIDER_TITLE_ATTR"
-				description="COM_DJIMAGESLIDER_TITLE_ATTR_DESC"
+				label="COM_WSACAROUSEL_TITLE_ATTR"
+				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
 				class="inputbox"
 				size="30"
 			/>

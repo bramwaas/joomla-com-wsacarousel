@@ -17,7 +17,7 @@ JFormHelper::loadFieldClass('list');
  *
  * @since  11.1
  */
-class JFormFieldDJFolderList extends JFormFieldList
+class JFormFieldWSAFolderList extends JFormFieldList
 {
 	/**
 	 * The form field type.
@@ -25,7 +25,7 @@ class JFormFieldDJFolderList extends JFormFieldList
 	 * @var    string
 	 * @since  11.1
 	 */
-	protected $type = 'DJFolderList';
+	protected $type = 'WSAFolderList';
 
 	/**
 	 * The filter.
