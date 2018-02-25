@@ -1,7 +1,7 @@
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
- 
+use Joomla\CMS\Factory; 
 class Com_WsaCarouselInstallerScript
 {
 	/*
@@ -15,7 +15,7 @@ class Com_WsaCarouselInstallerScript
 		
 		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
 			
-			$db = JFactory::getDBO();
+			$db = Factory::getDBO();
 			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarouselr"');
 			$ext_id = $db->loadResult();
 			// adding the schema version before update to 2.0+
@@ -27,7 +27,7 @@ class Com_WsaCarouselInstallerScript
 	}
 	
 	function getParam( $name ) {
-		$db = JFactory::getDbo();
+		$db = Factory::getDbo();
 		$db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_wsacarousel"');
 		$manifest = json_decode( $db->loadResult(), true );
 		return $manifest[ $name ];
@@ -39,7 +39,7 @@ class Com_WsaCarouselInstallerScript
 	function setParams($param_array) {
 		if ( count($param_array) > 0 ) {
 			// read the existing component value(s)
-			$db = JFactory::getDbo();
+			$db = Factory::getDbo();
 			$db->setQuery('SELECT params FROM #__extensions WHERE name = "com_wsacarousel"');
 			$params = json_decode( $db->loadResult(), true );
 			// add the new variable(s) to the existing one(s)
