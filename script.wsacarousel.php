@@ -2,7 +2,7 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
  
-class Com_DJImageSliderInstallerScript
+class Com_WsaCarouselInstallerScript
 {
 	/*
 	 * $parent is the class calling this method.
@@ -13,14 +13,14 @@ class Com_DJImageSliderInstallerScript
 	function preflight( $type, $parent ) {
 		$jversion = new JVersion();
 		
-		if(version_compare($this->getParam('version'), '2.0', 'lt')) {
+		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
 			
 			$db = JFactory::getDBO();
-			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_djimageslider"');
+			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarouselr"');
 			$ext_id = $db->loadResult();
 			// adding the schema version before update to 2.0+
 			if($ext_id) {
-				$db->setQuery("INSERT INTO #__schemas (extension_id, version_id) VALUES (".$ext_id.", '1.3')");
+				$db->setQuery("INSERT INTO #__schemas (extension_id, version_id) VALUES (".$ext_id.", '0.0.1')");
 				$db->query();
 			}
 		}
@@ -28,7 +28,7 @@ class Com_DJImageSliderInstallerScript
 	
 	function getParam( $name ) {
 		$db = JFactory::getDbo();
-		$db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_djimageslider"');
+		$db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_wsacarousel"');
 		$manifest = json_decode( $db->loadResult(), true );
 		return $manifest[ $name ];
 	}
@@ -40,7 +40,7 @@ class Com_DJImageSliderInstallerScript
 		if ( count($param_array) > 0 ) {
 			// read the existing component value(s)
 			$db = JFactory::getDbo();
-			$db->setQuery('SELECT params FROM #__extensions WHERE name = "com_djimageslider"');
+			$db->setQuery('SELECT params FROM #__extensions WHERE name = "com_wsacarousel"');
 			$params = json_decode( $db->loadResult(), true );
 			// add the new variable(s) to the existing one(s)
 			foreach ( $param_array as $name => $value ) {
@@ -50,7 +50,7 @@ class Com_DJImageSliderInstallerScript
 			$paramsString = json_encode( $params );
 			$db->setQuery('UPDATE #__extensions SET params = ' .
 				$db->quote( $paramsString ) .
-				' WHERE name = "com_djimageslider"' );
+				' WHERE name = "com_wsacarousel"' );
 				$db->query();
 		}
 	}
