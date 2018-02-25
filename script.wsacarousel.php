@@ -2,6 +2,8 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\Factory; 
+use Joomla\CMS\Version;
+
 class Com_WsaCarouselInstallerScript
 {
 	/*
@@ -11,7 +13,7 @@ class Com_WsaCarouselInstallerScript
 	 * If preflight returns false, Joomla will abort the update and undo everything already done.
 	 */
 	function preflight( $type, $parent ) {
-		$jversion = new JVersion();
+		$jversion = new Version();
 		
 		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
 			
