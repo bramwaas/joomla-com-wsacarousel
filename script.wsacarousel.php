@@ -18,7 +18,7 @@ class Com_WsaCarouselInstallerScript
 		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
 			
 			$db = Factory::getDBO();
-			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarouselr"');
+			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarousel"');
 			$ext_id = $db->loadResult();
 			// adding the schema version before update to 2.0+
 			if($ext_id) {
