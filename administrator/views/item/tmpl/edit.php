@@ -1,37 +1,43 @@
 <?php
 /**
  * @version $Id: edit.php 48 2017-08-04 11:41:27Z szymon $
- * @package DJ-ImageSlider
- * @subpackage DJ-ImageSlider Component
- * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
+ * @package WsaCarousel
+ * @subpackage WsaCarousel Component
+ * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://dj-extensions.com
- * @author email contact@dj-extensions.com
- * @developer Szymon Woronowski - szymon.woronowski@design-joomla.eu
+ * @author url: http://Waasdorpsoekhan.nl
+ * @author email contact@Waasdorpsoekhan.nl
+ * @developer A.H.C. Waasdorp
  *
  *
- * DJ-ImageSlider is free software: you can redistribute it and/or modify
+ * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * DJ-ImageSlider is distributed in the hope that it will be useful,
+ * WsaCarousel is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with DJ-ImageSlider. If not, see <http://www.gnu.org/licenses/>.
+ * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
 // No direct access.
 defined('_JEXEC') or die;
+//use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
-JHtml::_('behavior.framework');
-JHtml::_('behavior.tooltip');
-JHtml::_('behavior.formvalidation');
-if(version_compare(JVERSION, '3.0', '>=')) JHtml::_('formbehavior.chosen', 'select'); /* J!3.0 only */
+
+
+HTMLHelper::_('behavior.framework');
+HTMLHelper::_('behavior.tooltip');
+HTMLHelper::_('behavior.formvalidation');
+if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
 ?>
 
 <script type="text/javascript">
@@ -42,17 +48,17 @@ if(version_compare(JVERSION, '3.0', '>=')) JHtml::_('formbehavior.chosen', 'sele
 			Joomla.submitform(task, document.getElementById('item-form'));
 		}
 		else {
-			alert("<?php echo $this->escape(JText::_('COM_DJIMAGESLIDER_VALIDATION_FORM_FAILED'));?>");
+			alert("<?php echo $this->escape(Text::_('COM_WSACAROUSEL_VALIDATION_FORM_FAILED'));?>");
 		}
 	}
 </script>
 
-<form action="<?php echo JRoute::_('index.php?option=com_djimageslider&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+<form action="<?php echo Route::_('index.php?option=COM_WSACAROUSEL&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 	<div class="row-fluid">	
 	<div class="width-60 fltlft span7 well">
 		<fieldset class="adminform">
 		
-			<h3><?php echo empty($this->item->id) ? JText::_('COM_DJIMAGESLIDER_NEW') : JText::sprintf('COM_DJIMAGESLIDER_EDIT', $this->item->id); ?></h3>				
+			<h3><?php echo empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW') : Text::sprintf('COM_WSACAROUSEL_EDIT', $this->item->id); ?></h3>				
 			
 			<div class="tab-content">
 				
@@ -82,7 +88,7 @@ if(version_compare(JVERSION, '3.0', '>=')) JHtml::_('formbehavior.chosen', 'sele
 		
 		<fieldset class="panelform" >
 		
-			<h3><?php echo JText::_('COM_DJIMAGESLIDER_PUBLISHING_OPTIONS'); ?></h3>
+			<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
 			
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
@@ -106,7 +112,7 @@ if(version_compare(JVERSION, '3.0', '>=')) JHtml::_('formbehavior.chosen', 'sele
 		<?php echo $this->loadTemplate('params'); ?>
 		
 		<input type="hidden" name="task" value="" />
-		<?php echo JHtml::_('form.token'); ?>
+		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
 	</div>
 </form>
