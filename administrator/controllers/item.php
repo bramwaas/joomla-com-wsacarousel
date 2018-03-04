@@ -27,10 +27,11 @@
 
 // No direct access
 defined('_JEXEC') or die;
+use Joomla\CMS\MVC\Controller\FormController;
 
 jimport('joomla.application.component.controllerform');
 
-class WsaCarouselControllerItem extends JControllerForm {
+class WsaCarouselControllerItem extends FormController {
 }
 
 ?>

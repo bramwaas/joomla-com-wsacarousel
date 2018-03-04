@@ -5,7 +5,7 @@
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2018 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://Waasdorpsoekhan.nl
+ * @author url: https://www.Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
  * @developer Bram Waasdorp
  *
@@ -27,10 +27,11 @@
 
 // No direct access.
 defined('_JEXEC') or die;
+use Joomla\CMS\MVC\Controller\AdminController;
 
 jimport('joomla.application.component.controlleradmin');
 
-class WsaCarouselControllerItems extends JControllerAdmin
+class WsaCarouselControllerItems extends AdminController
 {
 	public function getModel($name = 'Item', $prefix = 'WsaCarouselModel', $config = array('ignore_request' => true))
 	{
