@@ -4,7 +4,7 @@
  * @package WsaCarousel
  * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://Waasdorpsoekhan.nl
+ * @author url: https://www.Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
  * @developer Bram Waasdorp
  *
@@ -24,6 +24,8 @@
  */
 
 defined('JPATH_PLATFORM') or die;
+use Joomla\CMS\Form\Field\SpacerField;
+use Joomla\CMS\Factory;
 
 /**
  * Form Field class for the Joomla Platform.
@@ -33,7 +35,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Form
  * @since       11.1
  */
-class JFormFieldWSASpacer extends JFormFieldSpacer
+class JFormFieldWSASpacer extends SpacerField
 {
     /**
      * The form field type.
@@ -70,7 +72,7 @@ class JFormFieldWSASpacer extends JFormFieldSpacer
     	$module = $this->form->getData()->get('module');
     	
     	if($module) {
-	    	$lang = JFactory::getLanguage();
+	    	$lang = Factory::getLanguage();
 			$lang->load($module, JPATH_ROOT, 'en-GB', true, false);
 	    	$lang->load($module, JPATH_ROOT . '/modules/'.$module, 'en-GB', true, false);
 	    	$lang->load($module, JPATH_ROOT, null, true, false);

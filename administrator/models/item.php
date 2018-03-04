@@ -1,49 +1,55 @@
 <?php
 /**
  * @version $Id: item.php 48 2017-08-04 11:41:27Z szymon $
- * @package DJ-ImageSlider
- * @subpackage DJ-ImageSlider Component
- * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
+ * @package WsaCarousel
+ * @subpackage WsaCarousel Component
+ * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://dj-extensions.com
- * @author email contact@dj-extensions.com
- * @developer Szymon Woronowski - szymon.woronowski@design-joomla.eu
+ * @author url: https://www.waasdorpsoekhan.nl
+ * @author email contact@waasdorpsoekhan.nl
+ * @developer A.H.C. Waasdorp
  *
  *
- * DJ-ImageSlider is free software: you can redistribute it and/or modify
+ * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * DJ-ImageSlider is distributed in the hope that it will be useful,
+ * WsaCarousel is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with DJ-ImageSlider. If not, see <http://www.gnu.org/licenses/>.
+ * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
 // No direct access
 defined('_JEXEC') or die;
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\AdminModel;
+use Joomla\CMS\Table\Table;
+use Joomla\CMS\Form\Form;
+use Joomla\CMS\Application\ApplicationHelper;
+
 
 jimport('joomla.application.component.modeladmin');
 
-class DJImageSliderModelItem extends JModelAdmin
+class WsaCarouselModelItem extends AdminModel
 {
-	public function getTable($type = 'Item', $prefix = 'DJImageSliderTable', $config = array())
+	public function getTable($type = 'Item', $prefix = 'WsaCarouselTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		return Table::getInstance($type, $prefix, $config);
 	}
 	
 	public function getForm($data = array(), $loadData = true)
 	{
 		jimport('joomla.form.form');
-		JForm::addFieldPath('JPATH_ADMINISTRATOR/components/com_djcatalog2/models/fields');
+		Form::addFieldPath('JPATH_ADMINISTRATOR/components/com_djcatalog2/models/fields');
 
 		// Get the form.
-		$form = $this->loadForm('com_djimageslider.item', 'item', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_WsaCarousel.item', 'item', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form)) {
 			return false;
 		}
@@ -66,16 +72,17 @@ class DJImageSliderModelItem extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_djimageslider.edit.item.data', array());
+		$data = Factory::getApplication()->getUserState('com_wsacarousel.edit.item.data', array());
 
 		if (empty($data)) {
 			$data = $this->getItem();
 
 			// Prime some default values.
 			if ($this->getState('item.id') == 0) {
-				$app = JFactory::getApplication();
-				$data->set('catid', JRequest::getInt('catid', $app->getUserState('com_djimageslider.items.filter.category')));
-			}
+				$app = Factory::getApplication();
+				$jinput = Factory::getApplication()->input;
+				//$data->set('catid', JRequest::getInt('catid', $app->getUserState('com_WsaCarousel.items.filter.category')));
+				$data->set('catid', $jinput->getInt('catid', $app->getUserState('com_wsacarousel.items.filter.category')));			}
 		}
 
 		return $data;
@@ -84,14 +91,14 @@ class DJImageSliderModelItem extends JModelAdmin
 	protected function prepareTable($table)
 	{
 		jimport('joomla.filter.output');
-		$date = JFactory::getDate();
-		$user = JFactory::getUser();
+		$date = Factory::getDate();
+		$user = Factory::getUser();
 
 		$table->title		= htmlspecialchars_decode($table->title, ENT_QUOTES);
-		$table->alias		= JApplication::stringURLSafe($table->alias);
+		$table->alias		= ApplicationHelper::stringURLSafe($table->alias);
 
 		if (empty($table->alias)) {
-			$table->alias = JApplication::stringURLSafe($table->title);
+		    $table->alias = ApplicationHelper::stringURLSafe($table->title);
 		}
 		
 		// Set the publish date to now
@@ -105,7 +112,7 @@ class DJImageSliderModelItem extends JModelAdmin
 			// Set ordering to the last item if not set
 			if (empty($table->ordering)) {
 				$db = JFactory::getDbo();
-				$db->setQuery('SELECT MAX(ordering) FROM #__djimageslider');
+				$db->setQuery('SELECT MAX(ordering) FROM #__WsaCarousel');
 				$max = $db->loadResult();
 
 				$table->ordering = $max+1;
