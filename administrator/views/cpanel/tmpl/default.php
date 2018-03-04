@@ -22,13 +22,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ * 2018-3-4 pre version 3 deleted
  */
 
 
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access'); 
+use Joomla\CMS\Language\Text;
 
-<?php if (version_compare(JVERSION, '3.0', '>=')) { ?>
+?>
 
 <?php if(!empty( $this->sidebar)): ?>
 <div id="j-sidebar-container" class="span2">
@@ -42,13 +43,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <div class="row-fluid">
 		<div class="cpanel-left span8">
 			<div id="cpanel" class="cpanel well">
-				<div class="module-title nav-header"><?php echo JText::_('COM_WSACAROUSEL_SUBMENU_CPANEL') ?></div>
+				<div class="module-title nav-header"><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL') ?></div>
 				<div class="row-striped">
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=com_categories&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category.png" alt="<?php echo JText::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'); ?></span>
+								<img src="components/COM_WSACAROUSEL/assets/icon-48-category.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES') ?>" />
+								<span><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'); ?></span>
 							</a>
 						</div>
 					</div>
@@ -56,8 +57,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=COM_WSACAROUSEL&view=items">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slides.png" alt="<?php echo JText::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_SUBMENU_SLIDES'); ?></span>
+								<img src="components/COM_WSACAROUSEL/assets/icon-48-slides.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
+								<span><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'); ?></span>
 							</a>
 						</div>
 					</div>
@@ -65,24 +66,24 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=com_categories&view=category&layout=edit&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category-add.png" alt="<?php echo JText::_('COM_WSACAROUSEL_NEW_CATEGORY') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_NEW_CATEGORY'); ?></span>
+								<img src="components/COM_WSACAROUSEL/assets/icon-48-category-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_CATEGORY') ?>" />
+								<span><?php echo Text::_('COM_WSACAROUSEL_NEW_CATEGORY'); ?></span>
 							</a>
 						</div>
 					</div>
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=COM_WSACAROUSEL&view=item&layout=edit">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slide-add.png" alt="<?php echo JText::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_NEW_SLIDE'); ?></span>
+								<img src="components/COM_WSACAROUSEL/assets/icon-48-slide-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
+								<span><?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE'); ?></span>
 							</a>
 						</div>
 					</div>
 					<div class="row-fluid">
 						<div class="icon">
-							<a href="https://waasdorpsoekhan.nl/extensions/dj-image-slider.html" target="_blank">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-help.png" alt="<?php echo JText::_('COM_WSACAROUSEL_DOCUMENTATION') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_DOCUMENTATION'); ?></span>
+							<a href="https://www.waasdorpsoekhan.nl/extensions/dj-image-slider.html" target="_blank">
+								<img src="components/com_wsacarousel/assets/icon-48-help.png" alt="<?php echo Text::_('COM_WSACAROUSEL_DOCUMENTATION') ?>" />
+								<span><?php echo Text::_('COM_WSACAROUSEL_DOCUMENTATION'); ?></span>
 							</a>
 						</div>
 					</div>
@@ -93,7 +94,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<div class="cpanel-right span4">
 			<div class="cpanel well">
 				<div class="row-fluid">
-					<iframe src="https://waasdorpsoekhan.nl/index.php?option=com_content&view=article&tmpl=component&id=437" style="border:0; width: 100%; max-width: 450px; height: 370px; margin: -10px 0; padding: 0;"></iframe>
+					<iframe src="https://www.waasdorpsoekhan.nl/index.php?option=com_content&view=article&tmpl=component&id=437" style="border:0; width: 100%; max-width: 450px; height: 370px; margin: -10px 0; padding: 0;"></iframe>
 				</div>
 			</div>
 		</div>
@@ -101,66 +102,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 </div>
 </div>
 
-<?php } else { ?>
 
-<table class="adminform">
-	<tr>
-		<td width="55%" valign="top">
-			<div class="cpanel-left">
-				<div id="cpanel">
-					<div style="float:left;">
-						<div class="icon">
-							<a href="index.php?option=com_categories&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category.png" alt="<?php echo JText::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'); ?></span>
-							</a>
-						</div>
-					</div>
-					<div style="float:left;">
-						<div class="icon">
-							<a href="index.php?option=COM_WSACAROUSEL&view=items">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slides.png" alt="<?php echo JText::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_SUBMENU_SLIDES'); ?></span>
-							</a>
-						</div>
-					</div>
-					<div style="float:left;">
-						<div class="icon">
-							<a href="index.php?option=com_categories&view=category&layout=edit&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category-add.png" alt="<?php echo JText::_('COM_WSACAROUSEL_NEW_CATEGORY') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_NEW_CATEGORY'); ?></span>
-							</a>
-						</div>
-					</div>
-					<div style="float:left;">
-						<div class="icon">
-							<a href="index.php?option=COM_WSACAROUSEL&view=item&layout=edit">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slide-add.png" alt="<?php echo JText::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_NEW_SLIDE'); ?></span>
-							</a>
-						</div>
-					</div>
-					<div style="float:left;">
-						<div class="icon">
-							<a href="https://waasdorpsoekhan.nl/extensions/dj-image-slider.html" target="_blank">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-help.png" alt="<?php echo JText::_('COM_WSACAROUSEL_DOCUMENTATION') ?>" />
-								<span><?php echo JText::_('COM_WSACAROUSEL_DOCUMENTATION'); ?></span>
-							</a>
-						</div>
-					</div>
-			
-				</div>
-			</div>
-			<div class="cpanel-right">
-				<div class="cpanel">					
-						<iframe src="https://waasdorpsoekhan.nl/index.php?option=com_content&view=article&tmpl=component&id=437" style="border:0; width: 100%; max-width: 450px; height: 370px; margin: -10px 0; padding: 0;"></iframe>
-					<div style="clear: both;" ></div>
-				</div>
-			</div>
-		</td>
-	</tr>
-</table>
-<?php } ?>
 
 <div class="clr" style="clear: both"></div>
-<?php echo wsacarouselFOOTER; ?>
+<?php echo WSACAROUSELFOOTER; ?>

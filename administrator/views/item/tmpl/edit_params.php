@@ -27,15 +27,17 @@
 
 // No direct access.
 defined('_JEXEC') or die;
+use  Joomla\CMS\Language\Text;
+
 
 $fieldSets = $this->form->getFieldsets('params');
 foreach ($fieldSets as $name => $fieldSet) : ?>
 	
 	<fieldset class="panelform" >
 		
-			<h3><?php echo JText::_($fieldSet->label); ?></h3>
+			<h3><?php echo Text::_($fieldSet->label); ?></h3>
 			<?php if (isset($fieldSet->description) && trim($fieldSet->description)) :
-				echo '<p class="tip alert alert-info">'.$this->escape(JText::_($fieldSet->description)).'</p>';
+				echo '<p class="tip alert alert-info">'.$this->escape(Text::_($fieldSet->description)).'</p>';
 			endif; ?>
 			<?php foreach ($this->form->getFieldset($name) as $field) : ?>
 				<?php echo $field->renderField(); ?>
