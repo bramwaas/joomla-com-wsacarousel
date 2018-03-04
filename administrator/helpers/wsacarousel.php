@@ -5,7 +5,7 @@
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: http://Waasdorpsoekhan.nl
+ * @author url: https://www.Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
  * @developer Bram Waasdorp
  *
@@ -23,9 +23,13 @@
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
+ * 2018-03-04 deleted pre version 3 code.
  */
 
 defined('_JEXEC') or die;
+use Joomla\CMS\Version;
+use Joomla\CMS\Toolbar\ToolbarHelper;
+use Joomla\CMS\Language\Text;
 
 abstract class WsaCarouselHelper
 {
@@ -33,49 +37,30 @@ abstract class WsaCarouselHelper
 	public static function addSubmenu($vName)
 	{
 		if($vName=='item' || $vName=='category') return;
-		$version = new JVersion;
+		$version = new Version;
 		
-		if (version_compare($version->getShortVersion(), '3.0.0', '<')) {
-			
-			JSubMenuHelper::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_CPANEL'),
-				'index.php?option=com_WsaCarousel',
-				$vName == 'cpanel'
-			);
-			JSubMenuHelper::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_SLIDES'),
-				'index.php?option=com_WsaCarousel&view=items',
-				$vName == 'items'
-			);
-			JSubMenuHelper::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_CATEGORIES'),
-				'index.php?option=com_categories&extension=com_WsaCarousel',
-				$vName == 'categories'
-			);
-	
-			
-		} else {
+ 
 			
 			JHtmlSidebar::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_CPANEL'),
-				'index.php?option=com_WsaCarousel',
+				Text::_('COM_WSACAROUSELl_SUBMENU_CPANEL'),
+				'index.php?option=COM_WSACAROUSELl',
 				$vName == 'cpanel'
 			);
 			JHtmlSidebar::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_SLIDES'),
-				'index.php?option=com_WsaCarousel&view=items',
+				Text::_('COM_WSACAROUSELl_SUBMENU_SLIDES'),
+				'index.php?option=COM_WSACAROUSELl&view=items',
 				$vName == 'items'
 			);
 			JHtmlSidebar::addEntry(
-				JText::_('COM_WsaCarousel_SUBMENU_CATEGORIES'),
-				'index.php?option=com_categories&extension=com_WsaCarousel',
+				Text::_('COM_WSACAROUSELl_SUBMENU_CATEGORIES'),
+				'index.php?option=com_categories&extension=COM_WSACAROUSELl',
 				$vName == 'categories'
 			);
-		}
+
 		
 		if ($vName=='categories') {
-			JToolBarHelper::title(
-			JText::sprintf('COM_WsaCarousel_CATEGORIES_TITLE',JText::_('com_WsaCarousel')),
+			ToolBarHelper::title(
+			Text::sprintf('COM_WSACAROUSELl_CATEGORIES_TITLE',Text::_('COM_WSACAROUSELl')),
 			'slider-categories');
 		}
 	}
