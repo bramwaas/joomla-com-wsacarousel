@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id: wsacarousel.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: wsacarousel.php 
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2018 A.H.C. Waasdorp, All rights reserved.
@@ -39,7 +39,7 @@ $db->setQuery("SELECT manifest_cache FROM #__extensions WHERE element='com_wsaca
 $version = json_decode($db->loadResult());
 $version = $version->version;
 
-define('WSACAROUSELFOOTER', '<div style="text-align: center; margin: 10px 0;">WsaCarousel (version '.$version.'), &copy; 2010-'.Factory::getDate()->format('Y').' Copyright by <a target="_blank" href="https://www.waasdorpsoekhan.nl">www.waasdorpsoekhan.nl</a>, All Rights Reserved.<br /><a target="_blank" href="https://www.waasdorpsoekhan.nl"><img src="'.Uri::base().'components/com_wsacarousel/assets/logo.png" alt="DJ-Extensions.com" style="margin: 20px 0 0;" /></a></div>');
+define('WSACAROUSELFOOTER', '<div style="text-align: center; margin: 10px 0;">WsaCarousel (version '.$version.'), &copy; 2017-'.Factory::getDate()->format('Y').' Copyright by <a target="_blank" href="https://www.waasdorpsoekhan.nl">www.waasdorpsoekhan.nl</a>, All Rights Reserved.<br /><a target="_blank" href="https://www.waasdorpsoekhan.nl"><img src="'.Uri::base().'components/com_wsacarousel/assets/logo.png" alt="www.waasdorpsoekhan.nl" style="margin: 20px 0 0;" /></a></div>');
 
 $controller	= Controller::getInstance('wsacarousel');
 

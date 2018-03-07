@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id: controller.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: controller.php 
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
