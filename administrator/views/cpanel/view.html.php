@@ -29,7 +29,7 @@ defined('_JEXEC') or die( 'Restricted access' );
 //use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
-//use Joomla\CMS\Uri;
+//use Joomla\CMS\Uri\Uri;
 //use Joomla\CMS\Language\Text;
 
 jimport( 'joomla.application.component.view');

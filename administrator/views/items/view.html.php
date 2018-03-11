@@ -32,7 +32,7 @@ jimport('joomla.application.component.view');
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
-use Joomla\CMS\Uri;
+use Joomla\CMS\Uri\Uri;
 
 
 class WsaCarouselViewItems extends HtmlView

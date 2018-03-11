@@ -26,7 +26,7 @@
  */
 use Joomla\CMS\Factory; 
 use Joomla\CMS\MVC\Controller\BaseController as Controller;
-use Joomla\CMS\Uri;
+use Joomla\CMS\Uri\Uri;
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
