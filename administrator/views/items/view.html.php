@@ -29,10 +29,16 @@
 defined('_JEXEC') or die( 'Restricted access' );
 
 jimport('joomla.application.component.view');
-use Joomla\CMS\Factory;
+// use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\Uri\Uri;
+
+if (!class_exists('ToolbarHelper', false)) {
+    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );
+}
+
+
 
 
 class WsaCarouselViewItems extends HtmlView

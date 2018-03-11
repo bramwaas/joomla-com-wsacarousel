@@ -33,6 +33,13 @@ use Joomla\CMS\Toolbar\ToolbarHelper;
 // use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Language\Text;
 
+if (!class_exists('ToolbarHelper', false)) {
+    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );
+    }
+
+
+
+
 
 jimport('joomla.application.component.view');
 class WsaCarouselViewItem extends HtmlView
