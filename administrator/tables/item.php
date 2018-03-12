@@ -36,7 +36,7 @@ use Joomla\Registry\Registry;
 class WsaCarouselTableItem extends Table
 {
 	public function __construct(&$db) {
-		parent::__construct('#__WsaCarousel', 'id', $db);
+		parent::__construct('#__wsacarousel', 'id', $db);
 	}
 
 	function bind($array, $ignore = '')
