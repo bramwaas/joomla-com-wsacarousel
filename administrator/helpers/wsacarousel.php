@@ -28,8 +28,10 @@
 
 defined('_JEXEC') or die;
 use Joomla\CMS\Version;
-use Joomla\CMS\Toolbar\ToolbarHelper;
+//use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 use Joomla\CMS\Language\Text;
+class_alias (  'JToolbarHelper' , 'ToolbarHelper' );  // v3
+
 
 abstract class WsaCarouselHelper
 {

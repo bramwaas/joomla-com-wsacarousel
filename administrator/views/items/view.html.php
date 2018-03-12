@@ -31,10 +31,10 @@ defined('_JEXEC') or die( 'Restricted access' );
 jimport('joomla.application.component.view');
 // use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
-//use Joomla\CMS\Toolbar\ToolbarHelper;
+//use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 use Joomla\CMS\Uri\Uri;
 
-    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );
+    class_alias (  'JToolbarHelper' , 'ToolbarHelper' ); //v3
 
 
 
