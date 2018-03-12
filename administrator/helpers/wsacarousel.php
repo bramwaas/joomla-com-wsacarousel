@@ -44,25 +44,25 @@ abstract class WsaCarouselHelper
  
 			
 			JHtmlSidebar::addEntry(
-				Text::_('COM_WSACAROUSELl_SUBMENU_CPANEL'),
-				'index.php?option=COM_WSACAROUSELl',
+				Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL'),
+				'index.php?option=com_wsacarousel',
 				$vName == 'cpanel'
 			);
 			JHtmlSidebar::addEntry(
-				Text::_('COM_WSACAROUSELl_SUBMENU_SLIDES'),
-				'index.php?option=COM_WSACAROUSELl&view=items',
+				Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'),
+				'index.php?option=com_wsacarousel&view=items',
 				$vName == 'items'
 			);
 			JHtmlSidebar::addEntry(
-				Text::_('COM_WSACAROUSELl_SUBMENU_CATEGORIES'),
-				'index.php?option=com_categories&extension=COM_WSACAROUSELl',
+				Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'),
+				'index.php?option=com_categories&extension=com_wsacarousel',
 				$vName == 'categories'
 			);
 
 		
 		if ($vName=='categories') {
 			ToolBarHelper::title(
-			Text::sprintf('COM_WSACAROUSELl_CATEGORIES_TITLE',Text::_('COM_WSACAROUSELl')),
+			Text::sprintf('COM_WSACAROUSEL_CATEGORIES_TITLE',Text::_('COM_WSACAROUSEL')),
 			'slider-categories');
 		}
 	}
