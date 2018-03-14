@@ -235,4 +235,4 @@ if ($isJoomla3 && $saveOrder)
 </div>
 
 <div class="clr" style="clear: both"></div>
-<?php echo DJIMAGESLIDERFOOTER; ?>
+<?php echo WSACAROUSELFOOTER; ?>
