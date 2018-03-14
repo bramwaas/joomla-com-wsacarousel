@@ -37,7 +37,7 @@ use Joomla\CMS\Language\Text;
  * @since       11.1
  */
 //class JFormFieldWSASpacer extends SpacerField
-class JFormFieldDJSpacer extends JFormFieldSpacer
+class JFormFieldWSASpacer extends JFormFieldSpacer
 
 {
     /**
