@@ -26,6 +26,7 @@
 defined('JPATH_PLATFORM') or die;
 use Joomla\CMS\Form\Field\SpacerField;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 
 /**
  * Form Field class for the Joomla Platform.
@@ -35,7 +36,9 @@ use Joomla\CMS\Factory;
  * @subpackage  Form
  * @since       11.1
  */
-class JFormFieldWSASpacer extends SpacerField
+//class JFormFieldWSASpacer extends SpacerField
+class JFormFieldDJSpacer extends JFormFieldSpacer
+
 {
     /**
      * The form field type.
@@ -87,7 +90,7 @@ class JFormFieldWSASpacer extends SpacerField
         
         // Get the label text from the XML element, defaulting to the element name.
         $text = $this->element['label'] ? (string) $this->element['label'] : (string) $this->element['name'];
-        $text = $this->translateLabel ? JText::_($text) : $text;
+        $text = $this->translateLabel ? Text::_($text) : $text;
 
 		$html[] = '<strong id="' . $this->id . '-lbl">' . $text . '</strong>';
 		
@@ -95,7 +98,7 @@ class JFormFieldWSASpacer extends SpacerField
         if (!empty($this->description))
         {
             $html[] = '<div class="small">'
-                . ($this->translateDescription ? JText::_($this->description) : $this->description)
+                . ($this->translateDescription ? Text::_($this->description) : $this->description)
             	. '</div> ';
         }
         
