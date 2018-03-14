@@ -35,7 +35,7 @@ use Joomla\CMS\Factory;
  * @subpackage  Form
  * @since       11.1
  */
-class JFormFieldWSASpacer extends SpacerField
+class JFormFieldWSA_Spacer extends SpacerField
 {
     /**
      * The form field type.

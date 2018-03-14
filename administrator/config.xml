@@ -2,8 +2,8 @@
 <config>
 
 	<!-- fieldset name="component"
-		label="COM_DJIMAGESLIDER_CONFIG_GLOBAL_SETTINGS_LABEL"
-		description="COM_DJIMAGESLIDER_CONFIG_GLOBAL_SETTINGS_DESC">
+		label="COM_WSACAROUSEL_CONFIG_GLOBAL_SETTINGS_LABEL"
+		description="COM_WSACAROUSEL_CONFIG_GLOBAL_SETTINGS_DESC">
 		
  	</fieldset-->
  	
@@ -17,7 +17,7 @@
 			label="JCONFIG_PERMISSIONS_LABEL"
 			validate="rules"
 			filter="rules"
-			component="com_djimageslider"
+			component="com_wsacarousel"
 			section="component" />
 	</fieldset>
  	

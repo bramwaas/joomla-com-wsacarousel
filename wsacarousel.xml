@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.5" method="upgrade" client="admin">
     <name>com_wsacarousel</name>
-    <creationDate>March 2018</creationDate>
+    <creationDate>14-3-2018</creationDate>
     <author>A.H.C. Waasdorp</author>
 	<copyright>Copyright (C) 2018 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
