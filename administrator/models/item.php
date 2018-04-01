@@ -49,7 +49,7 @@ class WsaCarouselModelItem extends AdminModel
 		Form::addFieldPath('JPATH_ADMINISTRATOR/components/com_djcatalog2/models/fields');
 
 		// Get the form.
-		$form = $this->loadForm('com_WsaCarousel.item', 'item', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_wsacarousel.item', 'item', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form)) {
 			return false;
 		}
@@ -71,18 +71,18 @@ class WsaCarouselModelItem extends AdminModel
 	
 	protected function loadFormData()
 	{
-		// Check the session for previously entered form data.
-		$data = Factory::getApplication()->getUserState('com_wsacarousel.edit.item.data', array());
+		// Check the session for previously entered form data. 
+	    $app = Factory::getApplication();
+	    $data = $app->getUserState('com_wsacarousel.edit.item.data', array());
 
 		if (empty($data)) {
 			$data = $this->getItem();
 
 			// Prime some default values.
 			if ($this->getState('item.id') == 0) {
-				$app = Factory::getApplication();
-				$jinput = Factory::getApplication()->input;
-				//$data->set('catid', JRequest::getInt('catid', $app->getUserState('com_WsaCarousel.items.filter.category')));
-				$data->set('catid', $jinput->getInt('catid', $app->getUserState('com_wsacarousel.items.filter.category')));			}
+				$jinput = $app->input;
+				$data->set('catid', $jinput->getInt('catid', $app->getUserState('com_wsacarousel.items.filter.category')));	
+			}
 		}
 
 		return $data;
