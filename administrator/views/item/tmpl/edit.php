@@ -119,6 +119,7 @@ else { // v3 or lower
 
 						</div>
 					</fieldset>
+				</div>	
 			</div>
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
