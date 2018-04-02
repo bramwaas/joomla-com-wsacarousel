@@ -67,75 +67,72 @@ else { // v3 or lower
 	<div>
 
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
-
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_FIELDSET_DETAILS')); ?>
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW_SLIDE') : Text::sprintf('COM_WSACAROUSEL_EDIT_SLIDE', $this->item->id)); ?>
-		
+		<div
+			class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+			<div class="col-md-9 width-60 fltlft span8 well">
+				<div class="form-vertical">
+					<fieldset class="adminform">
 
-	<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">	
-	<div class="col-md-9 width-60 fltlft span7 well">
-		<div class="form-vertical">
-		<fieldset class="adminform">
-		
-			
-			<div class="tab-content">
-				
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('catid'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('catid'); ?></div>
+
+						<div class="tab-content">
+
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('catid'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('catid'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
+							</div>
+							<div style="clear: both"></div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
+							</div>
+
+						</div>
+					</fieldset>
 				</div>
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
-				</div>
-				<div style="clear:both"></div>
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
-				</div>
-				
 			</div>
-		</fieldset>
-		</div>
-	</div>
 
-	<div class="col-md-3 width-40 fltrt span5 well">
-		<div class="card card-light">
-		<div class="card-body">
-			<fieldset class="panelform" >
+			<div class="col-md-3 width-40 fltrt span4 well">
+				<div class="card card-light">
+					<div class="card-body">
+						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
+						<fieldset class="panelform">
+
+							<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
+
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('publish_up'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('publish_up'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('publish_down'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('publish_down'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+							</div>
+
+						</fieldset>
+					<?php echo $this->loadTemplate('params'); ?>
 		
-			<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
-			
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
-				</div>
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('publish_up'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('publish_up'); ?></div>
-				</div>
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('publish_down'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('publish_down'); ?></div>
-				</div>
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
-				</div>
-			
-			</fieldset>
-			<?php echo $this->loadTemplate('params'); ?>
-		
-		</div>
-		</div>		
-		
+					</div>
+				</div>		
+			</div>
+		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 		<?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
 	</div>
-		<input type="hidden" name="task" value="" />
-		<?php echo HTMLHelper::_('form.token'); ?>
-	</div>
-	</div>
+	<input type="hidden" name="task" value="" />
+	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
 
 <div class="clr"></div>
