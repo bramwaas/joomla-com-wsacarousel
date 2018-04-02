@@ -67,7 +67,7 @@ else { // v3 or lower
 	<div>
 
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'images')); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW_SLIDE') : Text::sprintf('COM_WSACAROUSEL_EDIT_SLIDE', $this->item->id)); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_DESCRIPTION') : Text::sprintf('COM_WSACAROUSEL_DESCRIPTION', $this->item->id)); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
 				<div class="form-vertical">
@@ -95,7 +95,7 @@ else { // v3 or lower
 			</div>
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('COM_WSACAROUSEL_IMAGE')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
 			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
@@ -114,10 +114,17 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('COM_WSACAROUSEL_LINKING_OPTIONS')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-12  fltrt span12 well">
+			<div class="col-md-9  fltrt span9 well">
 			<?php foreach ($this->form->getFieldset('params') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
+			</div>
+			<div class="col-md-3  fltrt span3 well">
+				<div class="card card-light">
+					<div class="card-body">
+						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
+					</div>
+				</div>		
 			</div>
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab');  ?>
