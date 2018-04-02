@@ -32,6 +32,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Layout\LayoutHelper
 
 if(version_compare(JVERSION, '4.0', '>=')) {
     HTMLHelper::_('behavior.formvalidator');
@@ -61,6 +62,9 @@ else { // v3 or lower
 </script>
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+
+	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
+
 
 	<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">	
 	<div class="col-md-9 width-60 fltlft span7 well">
