@@ -22,7 +22,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- * 0.0.2 2018-04-02
+ * 0.0.3 2018-04-02
  *
  */
 
@@ -67,6 +67,23 @@ else { // v3 or lower
 	<div>
 
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'images')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('COM_WSACAROUSEL_IMAGE')); ?>
+		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+			<div class="col-md-9  fltlft span9 well">
+			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
+				<?php echo $field->renderField(); ?>
+			<?php endforeach; ?>
+			</div>
+			<div class="col-md-3  fltrt span3 well">
+				<div class="card card-light">
+					<div class="card-body">
+						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
+					</div>
+				</div>		
+			</div>
+		</div>	
+		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_DESCRIPTION') : Text::sprintf('COM_WSACAROUSEL_DESCRIPTION', $this->item->id)); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
@@ -90,22 +107,6 @@ else { // v3 or lower
 				<div class="card card-light">
 					<div class="card-body">
 						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
-					</div>
-				</div>		
-			</div>
-		</div>	
-		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('COM_WSACAROUSEL_IMAGE')); ?>
-		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-9  fltlft span9 well">
-			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
-				<?php echo $field->renderField(); ?>
-			<?php endforeach; ?>
-			</div>
-			<div class="col-md-3  fltrt span3 well">
-				<div class="card card-light">
-					<div class="card-body">
-						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
 					</div>
 				</div>		
 			</div>
