@@ -106,7 +106,7 @@ else { // v3 or lower
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('JGLOBAL_FIELDSET_DISPLAY_OPTIONS')); ?>
-		<?php echo $this->loadTemplate('display'); ?>
+		<?php /* echo $this->loadTemplate('display'); */ ?>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
