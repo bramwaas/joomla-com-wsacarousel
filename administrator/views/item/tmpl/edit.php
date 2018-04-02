@@ -68,14 +68,15 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_TAGS_FIELDSET_DETAILS')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_FIELDSET_DETAILS')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW_SLIDE') : Text::sprintf('COM_WSACAROUSEL_EDIT_SLIDE', $this->item->id)); ?>
+		
 
 	<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">	
 	<div class="col-md-9 width-60 fltlft span7 well">
 		<div class="form-vertical">
 		<fieldset class="adminform">
 		
-			<h3><?php echo empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW') : Text::sprintf('COM_WSACAROUSEL_EDIT', $this->item->id); ?></h3>				
 			
 			<div class="tab-content">
 				
