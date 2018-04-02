@@ -89,6 +89,7 @@
 			hide_none="1"
 			label="COM_WSACAROUSEL_IMAGE"
 			description="COM_WSACAROUSEL_IMAGE"
+			size="50"
 			
 		/>
 			<field name="alt_attr"
