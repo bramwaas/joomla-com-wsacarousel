@@ -68,19 +68,14 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW_SLIDE') : Text::sprintf('COM_WSACAROUSEL_EDIT_SLIDE', $this->item->id)); ?>
-		<div
-			class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-9 width-60 fltlft span8 well">
+		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+			<div class="col-md-9  fltlft span9 well">
 				<div class="form-vertical">
 					<fieldset class="adminform">
 
 
 						<div class="tab-content">
 
-							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('catid'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('catid'); ?></div>
-							</div>
 							<div class="control-group">
 								<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
 								<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
@@ -96,10 +91,24 @@ else { // v3 or lower
 				</div>
 			</div>
 
-			<div class="col-md-3 width-40 fltrt span4 well">
+			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
 					<div class="card-body">
 						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
+					</div>
+				</div>		
+			</div>
+		</div>	
+		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', JText::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
+		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+		</div>	
+		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', JText::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
+		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+			<div class="col-md-3  fltrt span3 well">
+				<div class="card card-light">
+					<div class="card-body">
 						<fieldset class="panelform">
 
 							<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
@@ -127,7 +136,7 @@ else { // v3 or lower
 					</div>
 				</div>		
 			</div>
-		</div>	
+		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 		<?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
 	</div>
