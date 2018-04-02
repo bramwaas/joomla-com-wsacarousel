@@ -64,7 +64,11 @@ else { // v3 or lower
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
+	<div>
 
+		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
+
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_TAGS_FIELDSET_DETAILS')); ?>
 
 	<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">	
 	<div class="col-md-9 width-60 fltlft span7 well">
@@ -75,10 +79,6 @@ else { // v3 or lower
 			
 			<div class="tab-content">
 				
-				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('title'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('title'); ?></div>
-				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('catid'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('catid'); ?></div>
@@ -128,6 +128,9 @@ else { // v3 or lower
 		</div>
 		</div>		
 		
+		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+		<?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
+	</div>
 		<input type="hidden" name="task" value="" />
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
