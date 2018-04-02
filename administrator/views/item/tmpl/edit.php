@@ -61,6 +61,7 @@ else { // v3 or lower
 </script>
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+
 	<div class="row-fluid">	
 	<div class="col-md-9 width-60 fltlft span7 well">
 		<div class="form-vertical">
@@ -96,7 +97,7 @@ else { // v3 or lower
 	<div class="col-md-3 width-40 fltrt span5 well">
 		<div class="card card-light">
 		<div class="card-body">
-		<fieldset class="panelform" >
+			<fieldset class="panelform" >
 		
 			<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
 			
@@ -117,10 +118,11 @@ else { // v3 or lower
 					<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
 				</div>
 			
-		</fieldset>
+			</fieldset>
+			<?php echo $this->loadTemplate('params'); ?>
+		
 		</div>
 		</div>		
-		<?php echo $this->loadTemplate('params'); ?>
 		
 		<input type="hidden" name="task" value="" />
 		<?php echo HTMLHelper::_('form.token'); ?>
