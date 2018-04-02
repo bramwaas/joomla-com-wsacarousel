@@ -107,7 +107,7 @@ else { // v3 or lower
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
 					<div class="card-body">
-						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
+						<?php /* echo LayoutHelper::render('joomla.edit.global', $this);  */ ?>
 					</div>
 				</div>		
 			</div>

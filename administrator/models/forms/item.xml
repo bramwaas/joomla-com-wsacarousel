@@ -37,9 +37,6 @@
 			class="inputbox"
 			size="30"
 		/>
-		<fields name="images">
-
-	<fieldset name="images" label="JGLOBAL_FIELDSET_IMAGE_OPTIONS">
 		
 		<field name="image"
 			type="media"
@@ -48,22 +45,6 @@
 			description="COM_WSACAROUSEL_IMAGE"
 			
 		/>
-	<!-- fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS"  -->
-			<field name="alt_attr"
-				type="text"
-				label="COM_WSACAROUSEL_ALT_ATTR"
-				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
-				class="inputbox"
-				size="30"
-			/>
-			<field name="title_attr"
-				type="text"
-				label="COM_WSACAROUSEL_TITLE_ATTR"
-				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
-				class="inputbox"
-				size="30"
-			/>
-	</fieldset>
 		
 		<field name="description" type="editor"
 			label="COM_WSACAROUSEL_DESCRIPTION"
@@ -72,7 +53,7 @@
 			filter="JComponentHelper::filterText"
 			buttons="false"
 		/>
-		</fields>
+		
 		<field id="published"
 			name="published"
 			type="list"
@@ -185,5 +166,21 @@
 			
 		</fieldset>
 		
+		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS">
+			<field name="alt_attr"
+				type="text"
+				label="COM_WSACAROUSEL_ALT_ATTR"
+				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
+			<field name="title_attr"
+				type="text"
+				label="COM_WSACAROUSEL_TITLE_ATTR"
+				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
+		</fieldset>
 	</fields>
 </form>
