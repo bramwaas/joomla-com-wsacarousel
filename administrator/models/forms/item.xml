@@ -82,7 +82,7 @@
 		/>
 			
 	</fieldset>
-	<filedset name="images"
+	<fieldset name="images"
 			addfieldpath="/administrator/components/com_content/models/fields" 	>
 			<field name="image"
 			type="media"
@@ -106,7 +106,7 @@
 				size="30"
 			/>
 	
-	</filedset>	
+	</fieldset>	
 	<fieldset name="params"
 			addfieldpath="/administrator/components/com_content/models/fields" >
 		
