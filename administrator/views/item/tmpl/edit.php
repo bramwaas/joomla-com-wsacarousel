@@ -32,7 +32,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
-use Joomla\CMS\Layout\LayoutHelper
+use Joomla\CMS\Layout\LayoutHelper;
 
 if(version_compare(JVERSION, '4.0', '>=')) {
     HTMLHelper::_('behavior.formvalidator');
