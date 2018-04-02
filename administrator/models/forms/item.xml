@@ -166,7 +166,8 @@
 			
 		</fieldset>
 		
-		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS">
+	</fields>
+	<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS">
 			<field name="alt_attr"
 				type="text"
 				label="COM_WSACAROUSEL_ALT_ATTR"
@@ -181,6 +182,5 @@
 				class="inputbox"
 				size="30"
 			/>
-		</fieldset>
-	</fields>
+	</fieldset>
 </form>

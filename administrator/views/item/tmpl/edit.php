@@ -107,12 +107,10 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('JGLOBAL_FIELDSET_DISPLAY_OPTIONS')); ?>
 		<div class="col-md-12  fltrt span12 well">
-			<?php $this->fieldset = 'jbasic'; ?>
-			<?php echo LayoutHelper::render('joomla.edit.fieldset', $this); ?>
+			<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
-		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
