@@ -100,11 +100,18 @@ else { // v3 or lower
 			</div>
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', JText::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', JText::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
+
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('JGLOBAL_FIELDSET_DISPLAY_OPTIONS')); ?>
+		<?php echo $this->loadTemplate('display'); ?>
+		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+
+		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
+		
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
