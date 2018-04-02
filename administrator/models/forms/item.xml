@@ -105,8 +105,7 @@
 			
 	</fieldset>
 	
-	<fields name="params">
-		<fieldset name="jbasic"	label="COM_WSACAROUSEL_LINKING_OPTIONS"
+	<fieldset name="params">
 			addfieldpath="/administrator/components/com_content/models/fields" >
 		
 			<field name="link_type" 
@@ -119,7 +118,6 @@
 				<option value="menu">COM_WSACAROUSEL_MENU</option>
 				<option value="url">COM_WSACAROUSEL_URL</option>
 				<option value="article">COM_WSACAROUSEL_ARTICLE</option>
-				<!--option value="djc2_item">COM_WSACAROUSEL_DJCATALOG2_ITEM</option-->
 			</field>
 			
 			<field name="link_menu" 
@@ -180,5 +178,4 @@
 			
 		</fieldset>
 		
-	</fields>
 </form>

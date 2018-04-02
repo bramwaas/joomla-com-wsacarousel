@@ -133,7 +133,9 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('COM_WSACAROUSEL_LINKING_OPTIONS')); ?>
 		<div class="col-md-12  fltrt span12 well">
-			<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
+			<?php foreach ($this->form->getFieldset('params') as $field) : ?>
+				<?php echo $field->renderField(); ?>
+			<?php endforeach; ?>
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab');  ?>
 
