@@ -107,19 +107,17 @@ else { // v3 or lower
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('JGLOBAL_FIELDSET_DISPLAY_OPTIONS')); ?>
 		<?php /* echo $this->loadTemplate('display'); */ ?>
+					<?php echo $this->loadTemplate('params'); ?>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-3  fltrt span3 well">
+			<div class="col-md-7  fltrt span7 well">
 				<div class="card card-light">
 					<div class="card-body">
 						<fieldset class="panelform">
-
-							<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
-
 							<div class="control-group">
 								<div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
 								<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
@@ -138,11 +136,17 @@ else { // v3 or lower
 							</div>
 
 						</fieldset>
-					<?php echo $this->loadTemplate('params'); ?>
 		
 					</div>
 				</div>		
 			</div>
+			<div class="col-md-6  fltrt span6 well">
+				<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
+			</div>
+			<div class="col-md-6  fltrt span6 well">
+				<?php echo LayoutHelper::render('joomla.edit.metadata', $this); ?>
+			</div>
+			
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 		<?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
