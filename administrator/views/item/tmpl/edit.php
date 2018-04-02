@@ -103,12 +103,7 @@ else { // v3 or lower
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
-					<?php echo $this->form->renderField('images'); ?>
-					<?php foreach ($this->form->getGroup('images') as $field) : ?>
-						<?php echo $field->renderField(); ?>
-					<?php endforeach; ?>
 			</div>
-		</div>	
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
 					<div class="card-body">
