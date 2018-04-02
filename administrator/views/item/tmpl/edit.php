@@ -62,7 +62,7 @@ else { // v3 or lower
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 
-	<div class="row-fluid">	
+	<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">	
 	<div class="col-md-9 width-60 fltlft span7 well">
 		<div class="form-vertical">
 		<fieldset class="adminform">
