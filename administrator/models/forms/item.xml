@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<form
-	addfieldpath="/administrator/components/com_djcatalog2/models/fields">
+<form>
 	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
 		<field name="id"
 			type="text"
@@ -38,27 +37,6 @@
 			size="30"
 		/>
 		
-		<field name="image"
-			type="media"
-			hide_none="1"
-			label="COM_WSACAROUSEL_IMAGE"
-			description="COM_WSACAROUSEL_IMAGE"
-			
-		/>
-			<field name="alt_attr"
-				type="text"
-				label="COM_WSACAROUSEL_ALT_ATTR"
-				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
-				class="inputbox"
-				size="30"
-			/>
-			<field name="title_attr"
-				type="text"
-				label="COM_WSACAROUSEL_TITLE_ATTR"
-				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
-				class="inputbox"
-				size="30"
-			/>
 		
 		<field name="description" type="editor"
 			label="COM_WSACAROUSEL_DESCRIPTION"
@@ -104,7 +82,31 @@
 		/>
 			
 	</fieldset>
+	<filedset name ="images"
+			addfieldpath="/administrator/components/com_content/models/fields" 	>
+			<field name="image"
+			type="media"
+			hide_none="1"
+			label="COM_WSACAROUSEL_IMAGE"
+			description="COM_WSACAROUSEL_IMAGE"
+			
+		/>
+			<field name="alt_attr"
+				type="text"
+				label="COM_WSACAROUSEL_ALT_ATTR"
+				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
+			<field name="title_attr"
+				type="text"
+				label="COM_WSACAROUSEL_TITLE_ATTR"
+				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
 	
+	</filedset>	
 	<fieldset name="params">
 			addfieldpath="/administrator/components/com_content/models/fields" >
 		

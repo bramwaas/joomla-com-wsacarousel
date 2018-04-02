@@ -98,28 +98,9 @@ else { // v3 or lower
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
-				<div class="form-vertical">
-					<fieldset class="adminform">
-
-
-						<div class="tab-content">
-
-							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
-							</div>
-							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('title_attr'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('title_attr'); ?></div>
-							</div>
-							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('alt_attr'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('alt_attr'); ?></div>
-							</div>
-
-						</div>
-					</fieldset>
-				</div>	
+			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
+				<?php echo $field->renderField(); ?>
+			<?php endforeach; ?>
 			</div>
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
@@ -132,10 +113,12 @@ else { // v3 or lower
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('COM_WSACAROUSEL_LINKING_OPTIONS')); ?>
-		<div class="col-md-12  fltrt span12 well">
+		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+			<div class="col-md-12  fltrt span12 well">
 			<?php foreach ($this->form->getFieldset('params') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
+			</div>
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab');  ?>
 
