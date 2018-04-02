@@ -22,6 +22,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
+ * 0.0.2 2018-04-02
  *
  */
 
@@ -32,12 +33,18 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
+if(version_compare(JVERSION, '4.0', '>=')) {
+    HTMLHelper::_('behavior.formvalidator');
+    HTMLHelper::_('behavior.keepalive');
+    HTMLHelper::_('behavior.tabstate');
+}
+else { // v3 or lower
+    HTMLHelper::_('behavior.framework');
+    HTMLHelper::_('behavior.tooltip');
+    HTMLHelper::_('behavior.formvalidation');
+    if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
+}
 
-
-HTMLHelper::_('behavior.framework');
-HTMLHelper::_('behavior.tooltip');
-HTMLHelper::_('behavior.formvalidation');
-if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
 ?>
 
 <script type="text/javascript">
@@ -53,9 +60,10 @@ if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 
 	}
 </script>
 
-<form action="<?php echo Route::_('index.php?option=COM_WSACAROUSEL&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 	<div class="row-fluid">	
-	<div class="width-60 fltlft span7 well">
+	<div class="col-md-9 width-60 fltlft span7 well">
+		<div class="form-vertical">
 		<fieldset class="adminform">
 		
 			<h3><?php echo empty($this->item->id) ? Text::_('COM_WSACAROUSEL_NEW') : Text::sprintf('COM_WSACAROUSEL_EDIT', $this->item->id); ?></h3>				
@@ -82,10 +90,12 @@ if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 
 				
 			</div>
 		</fieldset>
+		</div>
 	</div>
 
-	<div class="width-40 fltrt span5 well">
-		
+	<div class="col-md-3 width-40 fltrt span5 well">
+		<div class="card card-light">
+		<div class="card-body">
 		<fieldset class="panelform" >
 		
 			<h3><?php echo JText::_('COM_WSACAROUSEL_PUBLISHING_OPTIONS'); ?></h3>
@@ -108,7 +118,8 @@ if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 
 				</div>
 			
 		</fieldset>
-		
+		</div>
+		</div>		
 		<?php echo $this->loadTemplate('params'); ?>
 		
 		<input type="hidden" name="task" value="" />
