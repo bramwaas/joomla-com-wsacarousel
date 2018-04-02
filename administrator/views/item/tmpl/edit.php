@@ -77,11 +77,6 @@ else { // v3 or lower
 						<div class="tab-content">
 
 							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
-							</div>
-							<div style="clear: both"></div>
-							<div class="control-group">
 								<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
 								<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
 							</div>
@@ -103,6 +98,27 @@ else { // v3 or lower
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('JGLOBAL_FIELDSET_IMAGE_OPTIONS')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
+				<div class="form-vertical">
+					<fieldset class="adminform">
+
+
+						<div class="tab-content">
+
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('title_attr'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('title_attr'); ?></div>
+							</div>
+							<div class="control-group">
+								<div class="control-label"><?php echo $this->form->getLabel('alt_attr'); ?></div>
+								<div class="controls"><?php echo $this->form->getInput('alt_attr'); ?></div>
+							</div>
+
+						</div>
+					</fieldset>
 			</div>
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
