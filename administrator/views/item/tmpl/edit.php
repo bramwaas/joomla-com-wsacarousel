@@ -22,7 +22,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- * 0.0.3 2018-04-02
+ * 0.0.3 2018-04-04
  *
  */
 
@@ -78,6 +78,7 @@ else { // v3 or lower
 				<div class="card card-light">
 					<div class="card-body">
 						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
+						<?php echo LayoutHelper::render('joomla.edit.metadata', $this); ?>
 					</div>
 				</div>		
 			</div>
@@ -102,14 +103,6 @@ else { // v3 or lower
 					</fieldset>
 				</div>
 			</div>
-
-			<div class="col-md-3  fltrt span3 well">
-				<div class="card card-light">
-					<div class="card-body">
-						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
-					</div>
-				</div>		
-			</div>
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
@@ -120,27 +113,15 @@ else { // v3 or lower
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
 			</div>
-			<div class="col-md-3  fltrt span3 well">
-				<div class="card card-light">
-					<div class="card-body">
-						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
-					</div>
-				</div>		
-			</div>
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab');  ?>
 
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-7  fltrt span7 well">
+			<div class="col-md-9  fltrt span9 well">
 				<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
 			</div>
-			<div class="col-md-5  fltrt span5 well">
-				<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
-				<?php echo LayoutHelper::render('joomla.edit.metadata', $this); ?>
-			</div>
-			
 		</div>
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 		<?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
