@@ -113,7 +113,7 @@ class WsaCarouselViewItem extends HtmlView
                     $toolbarButtons[] = ['apply', 'tag.apply'];
                     $toolbarButtons[] = ['save', 'tag.save'];
                     
-                    //if ($canDo->get('core.create'))
+                    if ($canDo->get('core.create'))
                     {
                         $toolbarButtons[] = ['save2new', 'tag.save2new'];
                     }
@@ -136,7 +136,7 @@ class WsaCarouselViewItem extends HtmlView
                  }
                  */
                 ToolbarHelper::cancel('tag.cancel', 'JTOOLBAR_CLOSE');
-                
+            }
 		} // end v4
 		else 
 		
