@@ -84,9 +84,24 @@ class WsaCarouselViewItem extends HtmlView
 		$text = $isNew ? Text::_( 'COM_WSACAROUSEL_NEW' ) : Text::_( 'COM_WSACAROUSEL_EDIT' );
 		ToolBarHelper::title(   Text::_( 'COM_WSACAROUSEL_ITEM' ).': <small><small>[ ' . $text.' ]</small></small>', 'generic.png' );
 		
-//		if (version_compare(JVERSION, '4.0', '>=')) { // v4
-//		} // end v4
-//		else 
+		if (version_compare(JVERSION, '4.0', '>=')) { // v4
+
+		{
+		    ToolbarHelper::saveGroup(
+		        [
+		            ['apply', 'tag.apply'],
+		            ['save', 'tag.save'],
+		            ['save2new', 'tag.save2new']
+		        ],
+		        'btn-success'
+		        );
+		    
+		    ToolbarHelper::cancel('tag.cancel');
+		}
+		
+		
+		} // end v4
+		else 
 		
 		{ // v3
 		if ($isNew)  {
