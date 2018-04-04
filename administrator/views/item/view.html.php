@@ -104,12 +104,13 @@ class WsaCarouselViewItem extends HtmlView
 		    else
 		    {
 		        // Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
-		        $itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
+		        //$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
+		        $itemEditable = true;
 		        
 		        $toolbarButtons = [];
 		        
 		        // Can't save the record if it's checked out and editable
-		        if (!$checkedOut && $itemEditable)
+		        //if (!$checkedOut && $itemEditable)
 		        {
 		            $toolbarButtons[] = ['apply', 'tag.apply'];
 		            $toolbarButtons[] = ['save', 'tag.save'];
@@ -121,7 +122,7 @@ class WsaCarouselViewItem extends HtmlView
 		        }
 		        
 		        // If an existing item, can save to a copy.
-		        if ($canDo->get('core.create'))
+		        //if ($canDo->get('core.create'))
 		        {
 		            $toolbarButtons[] = ['save2copy', 'tag.save2copy'];
 		        }
