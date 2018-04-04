@@ -46,7 +46,7 @@ else { // v3 or lower
     if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
 }
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php
-$this->ignore_fieldsets = array('images',  'jbasic', 'jmetadata', 'item_associations');
+$this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 
 ?>
 
