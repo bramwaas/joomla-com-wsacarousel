@@ -102,7 +102,6 @@
 			
 	</fieldset>
 	<fieldset name="slide"
-	        description="COM_WSACAROUSEL_ITEM_DESC"
 			addfieldpath="/administrator/components/com_content/models/fields" 	>
 		<field name="image"
 			type="media"
@@ -127,7 +126,6 @@
 	</fieldset>	
 	<fields name ="params">
 		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS" 
-	        description="COM_WSACAROUSEL_IMAGE_ATTRS_DESC"
 			addfieldpath="/administrator/components/com_content/models/fields">
 			<field name="alt_attr"
 				type="text"
