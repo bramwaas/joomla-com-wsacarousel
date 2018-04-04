@@ -84,63 +84,11 @@ class WsaCarouselViewItem extends HtmlView
 		$text = $isNew ? Text::_( 'COM_WSACAROUSEL_NEW' ) : Text::_( 'COM_WSACAROUSEL_EDIT' );
 		ToolBarHelper::title(   Text::_( 'COM_WSACAROUSEL_ITEM' ).': <small><small>[ ' . $text.' ]</small></small>', 'generic.png' );
 		
-		if (version_compare(JVERSION, '4.0', '>=')) { // v4
-		    // For new records, check the create permission.
-		    if ($isNew)
-		    {
-		        ToolbarHelper::saveGroup(
-		            [
-		                ['apply', 'tag.apply'],
-		                ['save', 'tag.save'],
-		                ['save2new', 'tag.save2new']
-		            ],
-		            'btn-success'
-		            );
-		        
-		        ToolbarHelper::cancel('tag.cancel');
-		    }
-		    
-		    // If not checked out, can save the item.
-		    else
-		    {
-		        // Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
-		        //$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
-		        $itemEditable = true;
-		        
-		        $toolbarButtons = [];
-		        
-		        // Can't save the record if it's checked out and editable
-		        //if (!$checkedOut && $itemEditable)
-		        {
-		            $toolbarButtons[] = ['apply', 'tag.apply'];
-		            $toolbarButtons[] = ['save', 'tag.save'];
-		            
-		            if ($canDo->get('core.create'))
-		            {
-		                $toolbarButtons[] = ['save2new', 'tag.save2new'];
-		            }
-		        }
-		        
-		        // If an existing item, can save to a copy.
-		        //if ($canDo->get('core.create'))
-		        {
-		            $toolbarButtons[] = ['save2copy', 'tag.save2copy'];
-		        }
-		        
-		        ToolbarHelper::saveGroup(
-		            $toolbarButtons,
-		            'btn-success'
-		            );
-/*		        
-		        if (ComponentHelper::isEnabled('com_contenthistory') && $this->state->params->get('save_history', 0) && $itemEditable)
-		        {
-		            ToolbarHelper::versions('com_tags.tag', $this->item->id);
-		        }
-*/		        
-		        ToolbarHelper::cancel('tag.cancel', 'JTOOLBAR_CLOSE');
-		    }
-		} // end v4
-		else { // v3
+//		if (version_compare(JVERSION, '4.0', '>=')) { // v4
+//		} // end v4
+//		else 
+		
+		{ // v3
 		if ($isNew)  {
 			// For new records, check the create permission.
 			//if ($canDo->get('core.create')) {
