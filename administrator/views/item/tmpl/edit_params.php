@@ -35,7 +35,7 @@ foreach ($fieldSets as $name => $fieldSet) : ?>
 	
 	<fieldset class="panelform" >
 		
-			<h3><?php echo Text::_($fieldSet->label); ?></h3>
+			<!-- h3><?php echo Text::_($fieldSet->label); ?></h3 -->
 			<?php if (isset($fieldSet->description) && trim($fieldSet->description)) :
 				echo '<p class="tip alert alert-info">'.$this->escape(Text::_($fieldSet->description)).'</p>';
 			endif; ?>

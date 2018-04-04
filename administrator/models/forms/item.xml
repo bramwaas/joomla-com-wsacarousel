@@ -109,8 +109,10 @@
 			/>
 	
 	</fieldset>	
-	<fieldset name="params"
+	<fields name ="params">
+	<fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
 			addfieldpath="/administrator/components/com_content/models/fields" >
+			
 		
 			<field name="link_type" 
 				type="list" 
@@ -181,5 +183,6 @@
 			</field>
 			
 		</fieldset>
+	</fields>	
 		
 </form>
