@@ -68,11 +68,11 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>
 
-		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'images')); ?>
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'images', Text::_('COM_WSACAROUSEL_IMAGE')); ?>
+		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
+		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_ITEM')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
-			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
+			<?php foreach ($this->form->getFieldset('slide') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
 			</div>
@@ -87,29 +87,13 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
-
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_DESCRIPTION') : Text::sprintf('COM_WSACAROUSEL_DESCRIPTION', $this->item->id)); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltlft span9 well">
-				<div class="form-vertical">
-					<fieldset class="adminform">
-
-
-						<div class="tab-content">
-
-							<div class="control-group">
-								<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
-								<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
-							</div>
-
-						</div>
-					</fieldset>
-				</div>
-			</div>
-		</div>	
-		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
+
+			</div>
+		</div>	
 
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
