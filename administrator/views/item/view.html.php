@@ -101,18 +101,42 @@ class WsaCarouselViewItem extends HtmlView
 		
             else
             {
+                // Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
+                //$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
+                $itemEditable = true;
+                
+                $toolbarButtons = [];
+                
+                // Can't save the record if it's checked out and editable
+                //if (!$checkedOut && $itemEditable)
+                {
+                    $toolbarButtons[] = ['apply', 'tag.apply'];
+                    $toolbarButtons[] = ['save', 'tag.save'];
+                    
+                    //if ($canDo->get('core.create'))
+                    {
+                        $toolbarButtons[] = ['save2new', 'tag.save2new'];
+                    }
+                }
+                
+                // If an existing item, can save to a copy.
+                //if ($canDo->get('core.create'))
+                {
+                    $toolbarButtons[] = ['save2copy', 'tag.save2copy'];
+                }
+                
                 ToolbarHelper::saveGroup(
-                    [
-                        ['apply', 'tag.apply'],
-                        ['save', 'tag.save'],
-                        ['save2new', 'tag.save2new']
-                    ],
+                    $toolbarButtons,
                     'btn-success'
                     );
+                /*
+                 if (ComponentHelper::isEnabled('com_contenthistory') && $this->state->params->get('save_history', 0) && $itemEditable)
+                 {
+                 ToolbarHelper::versions('com_tags.tag', $this->item->id);
+                 }
+                 */
+                ToolbarHelper::cancel('tag.cancel', 'JTOOLBAR_CLOSE');
                 
-                ToolbarHelper::cancel('tag.cancel');
-            }
-            
 		} // end v4
 		else 
 		
