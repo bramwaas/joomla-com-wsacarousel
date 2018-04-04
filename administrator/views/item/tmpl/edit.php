@@ -87,15 +87,8 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
-		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-9  fltlft span9 well">
-
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
-			</div>
-		</div>	
-
-		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
 			<div class="col-md-9  fltrt span9 well">
