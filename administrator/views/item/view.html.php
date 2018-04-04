@@ -108,12 +108,12 @@ class WsaCarouselViewItem extends HtmlView
                 $toolbarButtons = [];
                 
                 // Can't save the record if it's checked out and editable
-                //if (!$checkedOut && $itemEditable)
+                if (!$checkedOut && $itemEditable)
                 {
                     $toolbarButtons[] = ['apply', 'tag.apply'];
                     $toolbarButtons[] = ['save', 'tag.save'];
                     
-                    if ($canDo->get('core.create'))
+                    //if ($canDo->get('core.create'))
                     {
                         $toolbarButtons[] = ['save2new', 'tag.save2new'];
                     }
