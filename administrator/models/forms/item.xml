@@ -81,6 +81,30 @@
 			type="hidden"
 			filter="unset"
 		/>
+		
+	<field
+		name="access"
+		type="accesslevel"
+		label="JFIELD_ACCESS_LABEL"
+	/>
+
+	<field
+		name="language"
+		type="contentlanguage"
+		label="JFIELD_LANGUAGE_LABEL"
+		>
+		<option value="*">JALL</option>
+	</field>
+
+	<field 
+		name="version_note"
+		type="text"
+		label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+		maxlength="255"
+		size="45"
+		labelclass="control-label"
+	/>
+		
 			
 	</fieldset>
 	<fieldset name="images"
@@ -96,6 +120,8 @@
 	
 	</fieldset>	
 	<fields name ="params">
+		<fieldset 
+			addfieldpath="/administrator/components/com_content/models/fields" >
 		<!-- fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS" -->
 			<field name="alt_attr"
 				type="text"
@@ -184,7 +210,7 @@
 				<option value="tag">tag</option>
 			</field>
 			
-		<!-- /fieldset -->
+		</fieldset>
 		
 	</fields>
 </form>
