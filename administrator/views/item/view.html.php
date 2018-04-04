@@ -47,10 +47,42 @@ if (version_compare(JVERSION, '4.0', '>=')) {
 jimport('joomla.application.component.view');
 class WsaCarouselViewItem extends HtmlView
 {
-	protected $form;
-	protected $item;
-	protected $state;
-
+    /**
+     * The \JForm object
+     *
+     * @var  \JForm
+     */
+    protected $form;
+    
+    /**
+     * The active item
+     *
+     * @var  object
+     */
+    protected $item;
+    
+    /**
+     * The model state
+     *
+     * @var  \JObject
+     */
+    protected $state;
+    
+    /**
+     * Flag if an association exists
+     *
+     * @var  boolean
+     */
+    protected $assoc;
+    
+    /**
+     * The actions the user is authorised to perform
+     *
+     * @var    \JObject
+     * @since  4.0.0
+     */
+    protected $canDo;
+    
 	public function display($tpl = null)
 	{
 		// Initialiase variables.
