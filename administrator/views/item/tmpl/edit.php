@@ -75,7 +75,6 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
-			<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 			</div>
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
@@ -87,6 +86,8 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 			</div>
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
+
+		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_DESCRIPTION') : Text::sprintf('COM_WSACAROUSEL_DESCRIPTION', $this->item->id)); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
