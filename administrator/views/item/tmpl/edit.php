@@ -87,7 +87,6 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
-		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_WSACAROUSEL_DESCRIPTION') : Text::sprintf('COM_WSACAROUSEL_DESCRIPTION', $this->item->id)); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
@@ -110,6 +109,7 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
+		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
