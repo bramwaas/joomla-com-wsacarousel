@@ -93,6 +93,10 @@
 			size="50"
 			
 		/>
+	
+	</fieldset>	
+	<fields name ="params">
+		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS">
 			<field name="alt_attr"
 				type="text"
 				label="COM_WSACAROUSEL_ALT_ATTR"
@@ -107,10 +111,9 @@
 				class="inputbox"
 				size="30"
 			/>
-	
-	</fieldset>	
-	<fields name ="params">
-	<fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
+		</fieldset>
+
+		<fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
 			addfieldpath="/administrator/components/com_content/models/fields" >
 			
 		
@@ -183,6 +186,6 @@
 			</field>
 			
 		</fieldset>
-	</fields>	
 		
+	</fields>
 </form>
