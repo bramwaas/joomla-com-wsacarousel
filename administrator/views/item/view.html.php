@@ -89,14 +89,14 @@ class WsaCarouselViewItem extends HtmlView
 		    {
 		          ToolbarHelper::saveGroup(
 		              [
-		                  ['apply', 'tag.apply'],
-		                  ['save', 'tag.save'],
-		                  ['save2new', 'tag.save2new']
+		                  ['apply', 'item.apply'],
+		                  ['save', 'item.save'],
+		                  ['save2new', 'item.save2new']
 		              ],
 		              'btn-success'
 		              );
 		    
-		          ToolbarHelper::cancel('tag.cancel');
+		          ToolbarHelper::cancel('item.cancel');
             }
 		
             else
@@ -110,19 +110,19 @@ class WsaCarouselViewItem extends HtmlView
                 // Can't save the record if it's checked out and editable
                 if (!$checkedOut && $itemEditable)
                 {
-                    $toolbarButtons[] = ['apply', 'tag.apply'];
-                    $toolbarButtons[] = ['save', 'tag.save'];
+                    $toolbarButtons[] = ['item', 'tag.apply'];
+                    $toolbarButtons[] = ['item', 'tag.save'];
                     
                     //if ($canDo->get('core.create'))
                     {
-                        $toolbarButtons[] = ['save2new', 'tag.save2new'];
+                        $toolbarButtons[] = ['save2new', 'item.save2new'];
                     }
                 }
                 
                 // If an existing item, can save to a copy.
                 //if ($canDo->get('core.create'))
                 {
-                    $toolbarButtons[] = ['save2copy', 'tag.save2copy'];
+                    $toolbarButtons[] = ['save2copy', 'item.save2copy'];
                 }
                 
                 ToolbarHelper::saveGroup(
@@ -135,7 +135,7 @@ class WsaCarouselViewItem extends HtmlView
                  ToolbarHelper::versions('com_tags.tag', $this->item->id);
                  }
                  */
-                ToolbarHelper::cancel('tag.cancel', 'JTOOLBAR_CLOSE');
+                ToolbarHelper::cancel('item.cancel', 'JTOOLBAR_CLOSE');
             }
 		} // end v4
 		else 
