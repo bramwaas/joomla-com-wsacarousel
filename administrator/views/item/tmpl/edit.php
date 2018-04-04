@@ -46,7 +46,7 @@ else { // v3 or lower
     if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
 }
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php
-$this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
+$this->ignore_fieldsets = array('images',  'jbasic', 'jmetadata', 'item_associations');
 
 ?>
 
@@ -75,6 +75,7 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 			<?php foreach ($this->form->getFieldset('images') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
+			<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 			</div>
 			<div class="col-md-3  fltrt span3 well">
 				<div class="card card-light">
@@ -108,13 +109,6 @@ $this->ignore_fieldsets = array('images',  'jmetadata', 'item_associations');
 		</div>	
 		<?php echo HTMLHelper::_('bootstrap.endTab'); ?>
 
-		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'attrib-jbasic', Text::_('COM_WSACAROUSEL_LINKING_OPTIONS')); ?>
-		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
-			<div class="col-md-9  fltrt span9 well">
-						<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
-			</div>
-		</div>
-		<?php echo HTMLHelper::_('bootstrap.endTab');  ?>
 
 		
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>

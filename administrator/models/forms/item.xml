@@ -115,7 +115,6 @@
 
 		<!--  fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
 			addfieldpath="/administrator/components/com_content/models/fields" -->
-		<fieldset name ="linking"		>	
 		
 			<field name="link_type" 
 				type="list" 
@@ -185,7 +184,7 @@
 				<option value="tag">tag</option>
 			</field>
 			
-		</fieldset>
+		<!-- /fieldset -->
 		
 	</fields>
 </form>
