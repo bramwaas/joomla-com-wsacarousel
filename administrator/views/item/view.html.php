@@ -29,11 +29,11 @@
 defined('_JEXEC') or die( 'Restricted access' );
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
-//use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
+use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 // use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Language\Text;
 
-    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );  //v3
+if(version_compare(JVERSION, '4.0', '<'))  class_alias (  'JToolbarHelper' , 'ToolbarHelper' );  //v3
 
 
 
