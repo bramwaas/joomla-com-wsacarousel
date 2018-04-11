@@ -9,6 +9,7 @@
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
     <version>0.0.4</version>
 	<description>WsaCarousel component</description>
+	<namespace>Joomla\Component\Wsacarousel</namespace>
 	
 	<install>
 		<sql>
@@ -35,22 +36,23 @@
 		</submenu>
 		
     	<files folder="administrator">
-        	<filename>wsacarousel.php</filename>
-            <filename>controller.php</filename>
-			<filename>index.html</filename>
-			<filename>config.xml</filename>
 			<filename>access.xml</filename>
-			<folder>Controller</folder>
-			<folder>Model</folder>
-			<folder>View</folder>
-			<folder>Table</folder>
+			<filename>config.xml</filename>
+            <filename>controller.php</filename>
+         	<filename>dispatcher.php</filename>
+			<filename>index.html</filename>
+        	<filename>wsacarousel.php</filename>
 			<folder>assets</folder>
+			<folder>Controller</folder>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>language</folder>
+			<folder>Model</folder>
             <folder>models</folder>
             <folder>sql</folder>
+			<folder>Table</folder>
             <folder>tables</folder>
+			<folder>View</folder>
             <folder>views</folder>
         </files>
         
