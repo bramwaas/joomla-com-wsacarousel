@@ -15,14 +15,14 @@ class Com_WsaCarouselInstallerScript
 	function preflight( $type, $parent ) {
 		$jversion = new Version();
 		
-		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
+		if(version_compare($this->getParam('version'), '0.0.4', 'lt')) {
 			
 			$db = Factory::getDBO();
 			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarousel"');
 			$ext_id = $db->loadResult();
 			// adding the schema version before update to 2.0+
 			if($ext_id) {
-				$db->setQuery("INSERT INTO #__schemas (extension_id, version_id) VALUES (".$ext_id.", '0.0.1')");
+				$db->setQuery("INSERT INTO #__schemas (extension_id, version_id) VALUES (".$ext_id.", '0.0.4')");
 				$db->query();
 			}
 		}

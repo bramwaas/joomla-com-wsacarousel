@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.5" method="upgrade" client="admin">
     <name>com_wsacarousel</name>
-    <creationDate>14-3-2018</creationDate>
+    <creationDate>11-04-2018</creationDate>
     <author>A.H.C. Waasdorp</author>
 	<copyright>Copyright (C) 2018 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 	<description>WsaCarousel component</description>
 	
 	<install>
@@ -40,6 +40,10 @@
 			<filename>index.html</filename>
 			<filename>config.xml</filename>
 			<filename>access.xml</filename>
+			<folder>Controller</folder>
+			<folder>Model</folder>
+			<folder>View</folder>
+			<folder>Table</folder>
 			<folder>assets</folder>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
