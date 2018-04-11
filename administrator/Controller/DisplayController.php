@@ -58,10 +58,12 @@ class DisplayController extends BaseController
 		if ($view == 'wsacarousel' && $layout == 'edit' && !$this->checkEditId('com_wsacarousel.edit.item', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
+			/* nog even niet controleren
 			$this->setMessage(Text::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id), 'error');
 			$this->setRedirect(Route::_('index.php?option=com_wsacarousel&view=cpanel', false));
 
 			return false;
+			*/
 		}
 
 		parent::display();
