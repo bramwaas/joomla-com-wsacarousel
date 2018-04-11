@@ -31,7 +31,7 @@ defined('_JEXEC') or die( 'Restricted access' );
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;   //v4
 //use Joomla\CMS\Uri\Uri;
-//use Joomla\CMS\Language\Text;
+use Joomla\CMS\Language\Text;
 
 //    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );  // v3
 
@@ -46,12 +46,12 @@ class HtmlView extends BaseHtmlView
 {
 	function display($tpl = null)
 	{
-		ToolBarHelper::title( JText::_('COM_WSACAROUSEL'));
+		ToolBarHelper::title( Text::_('COM_WSACAROUSEL'));
 		
 		ToolBarHelper::preferences('COM_WSACAROUSEL', 550, 875);
 		
-		if (class_exists('JHtmlSidebar')){
-			$this->sidebar = JHtmlSidebar::render();
+		if (class_exists('HtmlSidebar')){
+			$this->sidebar = HtmlSidebar::render();
 		}
 		
 		parent::display($tpl);
