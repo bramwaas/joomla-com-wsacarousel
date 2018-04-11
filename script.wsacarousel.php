@@ -15,7 +15,7 @@ class Com_WsaCarouselInstallerScript
 	function preflight( $type, $parent ) {
 		$jversion = new Version();
 		
-		if(version_compare($this->getParam('version'), '0.0.4', 'lt')) {
+		if(version_compare($this->getParam('version'), '0.0.1', 'lt')) {
 			
 			$db = Factory::getDBO();
 			$db->setQuery('SELECT extension_id FROM #__extensions WHERE name = "com_wsacarousel"');
