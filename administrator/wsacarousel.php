@@ -32,7 +32,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 
 // Include dependancies
-jimport('joomla.application.component.controller');
+//jimport('joomla.application.component.controller');
 
 $db = Factory::getDBO();
 $db->setQuery("SELECT manifest_cache FROM #__extensions WHERE element='com_wsacarousel' LIMIT 1");
