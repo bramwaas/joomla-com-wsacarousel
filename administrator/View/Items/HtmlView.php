@@ -55,12 +55,12 @@ class HtmlView extends BaseHtmlView
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
 //			JError::raiseError(500, implode("\n", $errors));   // no joomla 4.0 alternative use standard php.
-		    throw new Exception(implode("\n", $errors), 500);
+		    throw new \Exception(implode("\n", $errors), 500);
 			return false;
 		}
 
-		if (class_exists('JHtmlSidebar')){
-			$this->sidebar = JHtmlSidebar::render();
+		if (class_exists('\JHtmlSidebar')){
+			$this->sidebar = \JHtmlSidebar::render();
 		}
 		
 		foreach($this->items as $item) {

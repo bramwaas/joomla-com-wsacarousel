@@ -50,8 +50,8 @@ class HtmlView extends BaseHtmlView
 		
 		ToolBarHelper::preferences('COM_WSACAROUSEL', 550, 875);
 		
-		if (class_exists('HtmlSidebar')){
-			$this->sidebar = HtmlSidebar::render();
+		if (class_exists('\JHtmlSidebar')){
+			$this->sidebar = \JHtmlSidebar::render();
 		}
 		
 		parent::display($tpl);
