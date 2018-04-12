@@ -31,8 +31,10 @@ defined('_JEXEC') or die( 'Restricted access' );
 
 //jimport('joomla.application.component.view');
 // use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
+
 use Joomla\CMS\Uri\Uri;
 
 //    class_alias (  'JToolbarHelper' , 'ToolbarHelper' ); //v3
@@ -77,7 +79,7 @@ class HtmlView extends BaseHtmlView
 	
 	protected function addToolbar()
 	{
-		ToolBarHelper::title(JText::_('COM_WSACAROUSEL_SLIDES'), 'generic.png');
+		ToolBarHelper::title(Text::_('COM_WSACAROUSEL_SLIDES'), 'generic.png');
 
 		ToolBarHelper::addNew('item.add','JTOOLBAR_NEW');
 		ToolBarHelper::editList('item.edit','JTOOLBAR_EDIT');
