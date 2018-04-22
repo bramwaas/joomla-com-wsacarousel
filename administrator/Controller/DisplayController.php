@@ -10,9 +10,11 @@ namespace Joomla\Component\Wsacarousel\Administrator\Controller;
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 
 
 /**
@@ -47,6 +49,15 @@ class DisplayController extends BaseController
 //	    require_once JPATH_COMPONENT.'/helpers/wsacarousel.php';
 //	    WsaCarouselHelper::addSubmenu($jinput->getCmd('view', 'cpanel'));
 //	    parent::display();
+	    
+	    
+	    
+	    $db = Factory::getDBO();
+	    $db->setQuery("SELECT manifest_cache FROM #__extensions WHERE element='com_wsacarousel' LIMIT 1");
+	    $version = json_decode($db->loadResult());
+	    $version = $version->version;
+	    
+	    define('WSACAROUSELFOOTER', '<div style="text-align: center; margin: 10px 0;">WsaCarousel (version '.$version.'), &copy; 2018-'.Factory::getDate()->format('Y').' Copyright by <a target="_blank" href="https://www.waasdorpsoekhan.nl">www.waasdorpsoekhan.nl</a>, All Rights Reserved.<br /><a target="_blank" href="https://www.waasdorpsoekhan.nl"><img src="'.Uri::base().'components/com_wsacarousel/assets/logo.png" alt="www.waasdorpsoekhan.nl" style="margin: 20px 0 0;" /></a></div>');
 	    
 	    
 	    

@@ -25,5 +25,6 @@ class WsacarouselDispatcher extends Dispatcher
 	 *
 	 * @since  4.0.0
 	 */
+    
 	protected $namespace = 'Joomla\\Component\\Wsacarousel';
 }
