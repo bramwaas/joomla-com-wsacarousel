@@ -63,7 +63,7 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 	}
 </script>
 
-<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>

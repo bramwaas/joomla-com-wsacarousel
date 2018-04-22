@@ -45,7 +45,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 
 if ($isJoomla3 && $saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=COM_WSACAROUSEL&task=items.saveOrderAjax&tmpl=component';
+	$saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component';
 	HTMLHelper::_('sortablelist.sortable', 'slidesList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 ?>
