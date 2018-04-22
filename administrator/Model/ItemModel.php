@@ -1,13 +1,12 @@
 <?php
 /**
  * @version 0.0.3
- * $Id: ItemModel.php 
- * @package WsaCarousel
+ * @package     Joomla.Administrator
  * @subpackage com_wsacarousel
  * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
- * @author email contact@waasdorpsoekhan.nl
+ * @author email: contact@waasdorpsoekhan.nl
  * @developer A.H.C. Waasdorp
  *
  *
@@ -29,14 +28,22 @@ namespace Joomla\Component\Wsacarousel\Administrator\Model;
 
 // No direct access
 defined('_JEXEC') or die;
+use Joomla\CMS\Access\Rules;
+use Joomla\CMS\Application\ApplicationHelper;
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\Registry\Registry;
+use Joomla\String\StringHelper;
 use Joomla\CMS\Table\Table;
 //use Joomla\CMS\Form\Form;
-use Joomla\CMS\Application\ApplicationHelper;
 
-
-
+/**
+ * Wsacarousel Component Item Model
+ *
+ * @since  3.1
+ */
 class ItemModel extends AdminModel
 {
     /**
@@ -96,6 +103,31 @@ class ItemModel extends AdminModel
     protected function canEditState($record)
     {
         return parent::canEditState($record);
+    }
+    
+    /**
+     * Auto-populate the model state.
+     *
+     * @note Calling getState in this method will result in recursion.
+     *
+     * @return  void
+     *
+     * @since   3.1
+     */
+    protected function populateState()
+    {
+        $app = Factory::getApplication();
+        
+//        $parentId = $app->input->getInt('parent_id');
+//        $this->setState('tag.parent_id', $parentId);
+        
+        // Load the User state.
+        $pk = $app->input->getInt('id');
+        $this->setState($this->getName() . '.id', $pk);
+        
+        // Load the parameters.
+        $params = ComponentHelper::getParams('com_wsacarousel');
+        $this->setState('params', $params);
     }
     
     

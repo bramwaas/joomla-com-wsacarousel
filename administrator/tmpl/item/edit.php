@@ -2,7 +2,7 @@
 /**
  * @version $Id: edit.php 48 2017-08-04 11:41:27Z szymon $
  * @package WsaCarousel
- * @subpackage WsaCarousel Component
+ * @subpackage WsaCarousel Component edt item view.
  * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://Waasdorpsoekhan.nl
@@ -49,7 +49,7 @@ else { // v3 or lower
 $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associations');
 
 ?>
-
+<!-- 
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
@@ -62,12 +62,12 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		}
 	}
 </script>
+-->
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>
-
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_ITEM')); ?>
 		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
