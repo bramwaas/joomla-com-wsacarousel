@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * 0.0.3 2018-04-04
- *
+ * copy of: administrator/tmpl/item/edit.php
  */
 
 // No direct access.
@@ -62,6 +62,7 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		}
 	}
 </script>
+<!-- source = administrator/views/item/tmpl/edit.php JVERSION=<?php echo JVERSION; ?>-->
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 
