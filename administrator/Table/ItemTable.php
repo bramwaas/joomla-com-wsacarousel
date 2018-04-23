@@ -5,6 +5,7 @@
  *
  * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * extended copy of administrator/tables/item.php
  */
 namespace Joomla\Component\Wsacarousel\Administrator\Table;
 
