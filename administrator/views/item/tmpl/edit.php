@@ -49,7 +49,7 @@ else { // v3 or lower
 $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associations');
 
 ?>
-
+<?php if(version_compare(JVERSION, '4.0', '>=')) {echo '<!-- ';}?>
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
@@ -62,6 +62,8 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		}
 	}
 </script>
+<?php if(version_compare(JVERSION, '4.0', '>=')) {echo ' --> ';}?>
+
 <!-- source = administrator/views/item/tmpl/edit.php JVERSION=<?php echo JVERSION; ?>-->
 
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
