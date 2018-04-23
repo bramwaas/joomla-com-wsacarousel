@@ -52,6 +52,7 @@
             <folder>sql</folder>
 			<folder>Table</folder>
             <folder>tables</folder>
+            <folder>tmpl</folder>
 			<folder>View</folder>
             <folder>views</folder>
         </files>
