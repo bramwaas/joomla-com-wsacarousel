@@ -9,6 +9,10 @@
  * @author email contact@waasdorpsoekhan.nl
  * @developer A.H.C. Waasdorp
  *
+ * administrator/views/items/tmpl/default.php default layout for items
+ * that can be used by all JVERSION s. Used for JVERSION < 4.0
+ * preferred default layout for items JVERSION>=4.0: administrator/tmpl/items/default.php 
+ * will be used by JVERSION >= 4.0. if available.
  *
  * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

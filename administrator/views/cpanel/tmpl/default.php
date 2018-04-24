@@ -9,6 +9,10 @@
  * @author email contact@waasdorpsoekhan.nl
  * @developer A.H.C. Waasdorp
  *
+ * administrator/views/cpanel/tmpl/default.php default layout for cpanel
+ * that can be used by all JVERSION s. Used for JVERSION < 4.0
+ * preferred default layout for cpanel JVERSION>=4.0: administrator/tmpl/cpanel/default.php 
+ * will be used by JVERSION >= 4.0. if available.
  *
  * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

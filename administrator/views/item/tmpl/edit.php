@@ -9,6 +9,10 @@
  * @author email contact@Waasdorpsoekhan.nl
  * @developer A.H.C. Waasdorp
  *
+ * administrator/views/item/tmpl/edit.php edit layout for item
+ * that can be used by all JVERSION s. Used for JVERSION < 4.0
+ * preferred edit layout for item JVERSION>=4.0: administrator/tmpl/item/edit.php 
+ * will be used by JVERSION < 4.0.
  *
  * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
