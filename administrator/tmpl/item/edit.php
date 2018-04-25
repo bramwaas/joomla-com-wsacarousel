@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id: edit.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: edit.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component edt item view.
  * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
@@ -13,6 +13,7 @@
  * not used by JVERSION < 4.0.
  * copied and adjusted to joomla 4 from: administrator/views/item/tmpl/edit.php 
  * that can be used by all JVERSION s.
+ * if(version_compare(JVERSION, '4.0', '>=')) {} removed because versio is always >=4.0
  *
  * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +27,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- * 0.0.3 2018-04-04
+ * 0.0.4 2018-04-25
  * 
 
  */
@@ -39,44 +40,25 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Layout\LayoutHelper;
 
-if(version_compare(JVERSION, '4.0', '>=')) {
-    HTMLHelper::_('behavior.formvalidator');
-    HTMLHelper::_('behavior.keepalive');
-    HTMLHelper::_('behavior.tabstate');
-}
-else { // v3 or lower
-    HTMLHelper::_('behavior.framework');
-    HTMLHelper::_('behavior.tooltip');
-    HTMLHelper::_('behavior.formvalidation');
-    if(version_compare(JVERSION, '3.0', '>=')) HTMLHelper::_('formbehavior.chosen', 'select'); /* J!3.0 only */
-}
+//// 
+HTMLHelper::_('behavior.formvalidator');
+HTMLHelper::_('behavior.keepalive');
+HTMLHelper::_('behavior.tabstate');
+ 
+
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php
 $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associations');
 
 ?>
-<?php if(version_compare(JVERSION, '4.0', '>=')) {echo '<!-- ';}?>
-<script type="text/javascript">
-	Joomla.submitbutton = function(task)
-	{
-		if (task == 'item.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
-			<?php echo $this->form->getField('description')->save(); ?>
-			Joomla.submitform(task, document.getElementById('item-form'));
-		}
-		else {
-			alert("<?php echo $this->escape(Text::_('COM_WSACAROUSEL_VALIDATION_FORM_FAILED'));?>");
-		}
-	}
-</script>
-<?php if(version_compare(JVERSION, '4.0', '>=')) {echo ' --> ';}?>
 
-<!-- source = administrator/tmpl/item/edit.php JVERSION=<?php echo JVERSION; ?>-->
+
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_ITEM')); ?>
-		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+		<div class="row">
 			<div class="col-md-9  fltlft span9 well">
 			<?php foreach ($this->form->getFieldset('slide') as $field) : ?>
 				<?php echo $field->renderField(); ?>
@@ -96,7 +78,7 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
-		<div class="<?php if(version_compare(JVERSION, '4.0', '>=')) echo 'row'; else echo 'row-fluid';?>">
+		<div class="row">
 			<div class="col-md-9  fltrt span9 well">
 				<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
 			</div>
@@ -109,3 +91,4 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 </form>
 
 <div class="clr"></div>
+<?php echo WSACAROUSELFOOTER; ?>

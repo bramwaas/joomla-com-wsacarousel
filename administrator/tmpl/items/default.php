@@ -13,6 +13,7 @@
  * not used by JVERSION < 4.0.
  * copied and adjusted to joomla 4 from: administrator/views/items/tmpl/default.php 
  * that can be used by all JVERSION s.
+ * version_compare(JVERSION, '3.0', '>=') removed because version is always >= 4.0
  *
  * WsaCarousel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,11 +35,12 @@ defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Language\Text;
 
-$isJoomla3 = version_compare(JVERSION, '3.0', '>=');
+
 HTMLHelper::_('behavior.tooltip');
 HTMLHelper::_('behavior.modal');
-if($isJoomla3) HTMLHelper::_('formbehavior.chosen', 'select');
+HTMLHelper::_('formbehavior.chosen', 'select');
 
 $user		= Factory::getUser();
 $userId		= $user->get('id');
@@ -66,25 +68,25 @@ if ($isJoomla3 && $saveOrder)
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&view=items'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar" class="btn-toolbar">
 		<div class="filter-search fltlft btn-group pull-left">
-			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" placeholder="<?php echo JText::_('COM_WSACAROUSEL_SEARCH_IN_TITLE'); ?>" />
+			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo Text::_('JSEARCH_FILTER_LABEL'); ?></label>
+			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" placeholder="<?php echo Text::_('COM_WSACAROUSEL_SEARCH_IN_TITLE'); ?>" />
 		</div>
 		<div class="filter-search fltlft btn-group pull-left">
-			<button type="submit" class="btn"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" class="btn" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+			<button type="submit" class="btn"><?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?></button>
+			<button type="button" class="btn" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?></button>
 		</div>
 		<div class="btn-group pull-right hidden-phone">
 			<?php echo $this->pagination->getLimitBox(); ?>
 		</div>
 		<div class="filter-select fltrt btn-group pull-right">
 			<select name="filter_published" class="inputbox input-medium" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
+				<option value=""><?php echo Text::_('JOPTION_SELECT_PUBLISHED');?></option>
 				<?php echo HTMLHelper::_('select.options', array(HTMLHelper::_('select.option', '1', 'JPUBLISHED'),HTMLHelper::_('select.option', '0', 'JUNPUBLISHED')), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
 		</div>
 		<div class="filter-select fltrt btn-group pull-right">
 			<select name="filter_category" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY');?></option>
+				<option value=""><?php echo Text::_('JOPTION_SELECT_CATEGORY');?></option>
 				<?php echo HTMLHelper::_('select.options', HTMLHelper::_('category.options', 'COM_WSACAROUSEL'), 'value', 'text', $this->state->get('filter.category'));?>
 			</select>
 		</div>
@@ -103,7 +105,7 @@ if ($isJoomla3 && $saveOrder)
 					<input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" />
 				</th>
 				<th width="8%">
-					<?php echo JText::_('COM_WSACAROUSEL_IMAGE'); ?>
+					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
 				</th>
 				<th>
 					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
