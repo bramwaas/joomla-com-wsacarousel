@@ -51,8 +51,8 @@ use Joomla\CMS\Language\Text;
 				<div class="row-striped">
 					<div class="row-fluid">
 						<div class="icon">
-							<a href="index.php?option=com_categories&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES') ?>" />
+							<a href="index.php?option=com_categories&extension=com_wsacarousel">
+								<img src="components/com_wsacarousel/assets/icon-48-category.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'); ?></span>
 							</a>
 						</div>
@@ -61,7 +61,7 @@ use Joomla\CMS\Language\Text;
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=COM_WSACAROUSEL&view=items">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slides.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
+								<img src="components/com_wsacarousel/assets/icon-48-slides.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'); ?></span>
 							</a>
 						</div>
@@ -69,8 +69,8 @@ use Joomla\CMS\Language\Text;
 					
 					<div class="row-fluid">
 						<div class="icon">
-							<a href="index.php?option=com_categories&view=category&layout=edit&extension=COM_WSACAROUSEL">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-category-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_CATEGORY') ?>" />
+							<a href="index.php?option=com_categories&view=category&layout=edit&extension=com_wsacarousel">
+								<img src="components/com_wsacarousel/assets/icon-48-category-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_CATEGORY') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_NEW_CATEGORY'); ?></span>
 							</a>
 						</div>
@@ -78,14 +78,14 @@ use Joomla\CMS\Language\Text;
 					<div class="row-fluid">
 						<div class="icon">
 							<a href="index.php?option=COM_WSACAROUSEL&view=item&layout=edit">
-								<img src="components/COM_WSACAROUSEL/assets/icon-48-slide-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
+								<img src="components/com_wsacarousel/assets/icon-48-slide-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE'); ?></span>
 							</a>
 						</div>
 					</div>
 					<div class="row-fluid">
 						<div class="icon">
-							<a href="https://www.waasdorpsoekhan.nl/extensions/dj-image-slider.html" target="_blank">
+							<a href="https://www.waasdorpsoekhan.nl/extensions/com_wsacarousel.html" target="_blank">
 								<img src="components/com_wsacarousel/assets/icon-48-help.png" alt="<?php echo Text::_('COM_WSACAROUSEL_DOCUMENTATION') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_DOCUMENTATION'); ?></span>
 							</a>
