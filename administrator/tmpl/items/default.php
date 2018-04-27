@@ -49,7 +49,7 @@ $listDirn	= $this->state->get('list.direction');
 $canOrder	= $user->authorise('core.edit.state', 'COM_WSACAROUSEL.category');
 $saveOrder	= $listOrder == 'a.ordering';
 
-if ($isJoomla3 && $saveOrder)
+if ($saveOrder)
 {
 	$saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component';
 	HTMLHelper::_('sortablelist.sortable', 'slidesList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
@@ -96,13 +96,14 @@ if ($isJoomla3 && $saveOrder)
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>
 			<tr>
-			<?php if($isJoomla3) { ?>
 				<th width="1%" class="nowrap center hidden-phone">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>
-			<?php } ?>
 				<th width="1%">
 					<input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" />
+				</th>
+				<th width="5%">
+					<?php echo HTMLHelper::_('grid.sort', 'JPUBLISHED', 'a.published', $listDirn, $listOrder); ?>
 				</th>
 				<th width="8%">
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
@@ -110,17 +111,12 @@ if ($isJoomla3 && $saveOrder)
 				<th>
 					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>				
-				<th width="5%">
-					<?php echo HTMLHelper::_('grid.sort', 'JPUBLISHED', 'a.published', $listDirn, $listOrder); ?>
-				</th>
-			<?php if(!$isJoomla3) { ?>
 				<th width="10%">
 					<?php echo HTMLHelper::_('grid.sort',  'JGRID_HEADING_ORDERING', 'a.ordering', $listDirn, $listOrder); ?>
 					<?php if ($canOrder && $saveOrder) :?>
 						<?php echo HTMLHelper::_('grid.order',  $this->items, 'filesave.png', 'items.saveorder'); ?>
 					<?php endif; ?>
 				</th>
-			<?php } ?>
 				<th width="10%">
 					<?php echo HTMLHelper::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
@@ -149,7 +145,6 @@ if ($isJoomla3 && $saveOrder)
 
 			?>
 			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
-			<?php if($isJoomla3) { ?>
 				<td class="order nowrap center hidden-phone">
 							<?php
 							$iconClass = '';
@@ -169,9 +164,11 @@ if ($isJoomla3 && $saveOrder)
 								<input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
 							<?php endif; ?>
 				</td>
-			<?php } ?>
 				<td class="center">
 					<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
+				</td>
+				<td class="center">
+					<?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'items.', true, 'cb'	); ?>
 				</td>
 				<td align="center">
 					<?php if ($item->image) : ?>
@@ -183,7 +180,7 @@ if ($isJoomla3 && $saveOrder)
 						<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'items.', $canCheckin); ?>
 					<?php endif; ?>
 					<?php if ($canEdit || $canEditOwn) : ?>
-						<a href="<?php echo Route::_('index.php?option=COM_WSACAROUSEL&task=item.edit&id='.(int) $item->id); ?>">
+						<a href="<?php echo Route::_('index.php?option=com_wsacarousel&task=item.edit&id='.(int) $item->id); ?>">
 							<?php echo $this->escape($item->title); ?></a>
 					<?php else : ?>
 						<?php echo $this->escape($item->title); ?>
@@ -198,10 +195,6 @@ if ($isJoomla3 && $saveOrder)
 						} ?>
 					</div>
 				</td>
-				<td class="center">
-					<?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'items.', true, 'cb'	); ?>
-				</td>
-			<?php if(!$isJoomla3) { ?>
 				<td class="order" nowrap="nowrap">
 					<?php if ($canChange) : ?>
 						<?php if ($saveOrder) :?>
@@ -219,7 +212,6 @@ if ($isJoomla3 && $saveOrder)
 						<?php echo $item->ordering; ?>
 					<?php endif; ?>
 				</td>
-			<?php } ?>
 				<td align="center">
 					<?php echo $item->category_title; ?>
 				</td>
