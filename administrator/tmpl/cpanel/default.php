@@ -61,7 +61,7 @@ use Joomla\CMS\Language\Text;
 					
 					<div class="row">
 						<div class="icon">
-							<a href="index.php?option=COM_WSACAROUSEL&view=items">
+							<a href="index.php?option=com_wsacarousel&view=items">
 								<img src="components/com_wsacarousel/assets/icon-48-slides.png" alt="<?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'); ?></span>
 							</a>
@@ -78,7 +78,7 @@ use Joomla\CMS\Language\Text;
 					</div>
 					<div class="row">
 						<div class="icon">
-							<a href="index.php?option=COM_WSACAROUSEL&view=item&layout=edit">
+							<a href="index.php?option=com_wsacarousel&view=item&layout=edit">
 								<img src="components/com_wsacarousel/assets/icon-48-slide-add.png" alt="<?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE') ?>" />
 								<span><?php echo Text::_('COM_WSACAROUSEL_NEW_SLIDE'); ?></span>
 							</a>
