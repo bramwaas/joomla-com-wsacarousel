@@ -175,7 +175,7 @@ if ($isJoomla3 && $saveOrder)
 				</td>
 				<td align="center">
 					<?php if ($item->image) : ?>
-						<a href="#" data-toggle="tooltip" data-html="true"  title="<?php echo $this->escape($item->title); ?>::<?php echo htmlspecialchars($item->preview); ?>"><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></button>
+						<a href="#" data-toggle="tooltip" data-html="true"  title='<?php /* echo $this->escape($item->title), '::'; */?><?php echo htmlspecialchars($item->preview); ?>'><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
 					<?php endif; ?>
 				</td>
 				<td>
