@@ -59,17 +59,17 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 		<?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 		<?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'details', Text::_('COM_WSACAROUSEL_ITEM')); ?>
 		<div class="row">
-			<div class="col-md-9  fltlft span9 well">
+			<div class="col-md-9  fltlft span9 card card-light">
+					<div class="card-body">
 			<?php foreach ($this->form->getFieldset('slide') as $field) : ?>
 				<?php echo $field->renderField(); ?>
 			<?php endforeach; ?>
+				</div>		
 			</div>
-			<div class="col-md-3  fltrt span3 well">
-				<div class="card card-light">
+			<div class="col-md-3  fltrt span3 card card-light">
 					<div class="card-body">
 						<?php echo LayoutHelper::render('joomla.edit.global', $this);   ?>
 						<?php echo LayoutHelper::render('joomla.edit.metadata', $this); ?>
-					</div>
 				</div>		
 			</div>
 		</div>	

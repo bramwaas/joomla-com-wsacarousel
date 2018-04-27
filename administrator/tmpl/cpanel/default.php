@@ -46,8 +46,8 @@ use Joomla\CMS\Language\Text;
 <?php endif;?>
 	
 <div class="row">
-		<div class="cpanel-left col-md-8">
-			<div id="cpanel" class="cpanel well">
+		<div class="cpanel-left card card-light col-md-8">
+			<div id="cpanel" class="cpanel card-body">
 				<div class="module-title nav-header"><?php echo Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL') ?></div>
 				<div class="row-striped">
 					<div class="row">
@@ -96,8 +96,8 @@ use Joomla\CMS\Language\Text;
 			</div>
 		</div>
 			
-		<div class="cpanel-right col-md-4">
-			<div class="cpanel well">
+		<div class="cpanel-right card card-light col-md-4">
+			<div class="cpanel card-body">
 				<div class="row">
 					<iframe src="https://www.waasdorpsoekhan.nl/index.php?option=com_content&view=article&tmpl=component&id=437" style="border:0; width: 100%; max-width: 450px; height: 370px; margin: -10px 0; padding: 0;"></iframe>
 				</div>
