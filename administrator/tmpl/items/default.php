@@ -175,7 +175,7 @@ if ($isJoomla3 && $saveOrder)
 				</td>
 				<td align="center">
 					<?php if ($item->image) : ?>
-						<a class="modal hasTip" href="<?php echo $item->image; ?>" title="<?php echo $this->escape($item->title); ?>::<?php echo htmlspecialchars($item->preview); ?>"><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
+						<button class="xmodalx xhasTipx" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="right" data-content="<img src='<?php echo $item->image; ?> >'" title="<?php echo $this->escape($item->title); ?>::<?php echo htmlspecialchars($item->preview); ?>"><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></button>
 					<?php endif; ?>
 				</td>
 				<td>
