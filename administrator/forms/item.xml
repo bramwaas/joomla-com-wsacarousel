@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- V 0.0.3 2018-04-04 -->
+<form>
+	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
+		<field name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		
+		<field name="catid"
+			type="categoryedit"
+			extension="com_wsacarousel"
+			addfieldprefix="Joomla\Component\Categories\Administrator\Field"
+			label="JCATEGORY"
+			description="JFIELD_CATEGORY_DESC"
+			class="inputbox"
+			required="true"
+		/>
+		
+		<field name="title"
+			type="text"
+			label="JGLOBAL_TITLE"
+			description="JGLOBAL_TITLE"
+			class="inputbox"
+			size="30"
+			required="true"
+		 />
+		 
+		 <field name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		
+		
+		<field id="published"
+			name="published"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="inputbox"
+			size="1"
+			default="1"
+		>
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>			
+		</field>
+		
+		<field name="publish_up" type="calendar"
+			label="COM_WSACAROUSEL_PUBLISH_UP" description="COM_WSACAROUSEL_PUBLISH_UP_DESC"
+			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+			filter="user_utc" />
+
+		<field name="publish_down" type="calendar"
+			label="COM_WSACAROUSEL_PUBLISH_DOWN" description="COM_WSACAROUSEL_PUBLISH_DOWN_DESC"
+			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+			filter="user_utc" />
+		
+		<field name="checked_out"
+			type="hidden"
+			filter="unset"
+		/>
+
+		<field name="checked_out_time"
+			type="hidden"
+			filter="unset"
+		/>
+		
+	<field
+		name="access"
+		type="accesslevel"
+		label="JFIELD_ACCESS_LABEL"
+	/>
+
+	<field
+		name="language"
+		type="contentlanguage"
+		label="JFIELD_LANGUAGE_LABEL"
+		>
+		<option value="*">JALL</option>
+	</field>
+
+	<field 
+		name="version_note"
+		type="text"
+		label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+		maxlength="255"
+		size="45"
+		labelclass="control-label"
+	/>
+		
+			
+	</fieldset>
+	<fieldset name="slide"
+			addfieldpath="/administrator/components/com_content/models/fields" 	>
+		<field name="image"
+			type="media"
+			hide_none="1"
+			label="COM_WSACAROUSEL_IMAGE"
+			labelclass="control-label"
+			description="COM_WSACAROUSEL_IMAGE"
+			size="50"
+			
+		/>
+		<field name="description" type="editor"
+			label="COM_WSACAROUSEL_DESCRIPTION"
+			labelclass="control-label"
+			description="COM_WSACAROUSEL_DESCRIPTION_DESC"
+			rows="3"
+			cols="40"
+			class="inputbox"
+			filter="JComponentHelper::filterText"
+			buttons="false"
+		/>
+	
+	</fieldset>	
+	<fields name ="params">
+		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS" 
+			class="col-md-9  fltlft span9 wel"
+ 	        description="COM_WSACAROUSEL_IMAGE_ATTRS_DESC"   
+			addfieldpath="/administrator/components/com_content/models/fields">
+			<field name="alt_attr"
+				type="text"
+				label="COM_WSACAROUSEL_ALT_ATTR"
+				description="COM_WSACAROUSEL_ALT_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
+			<field name="title_attr"
+				type="text"
+				label="COM_WSACAROUSEL_TITLE_ATTR"
+				description="COM_WSACAROUSEL_TITLE_ATTR_DESC"
+				class="inputbox"
+				size="30"
+			/>
+		</fieldset>
+
+		<fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
+			addfieldpath="/administrator/components/com_content/models/fields">
+		
+			<field name="link_type" 
+				type="list" 
+				label="COM_WSACAROUSEL_LINK_TYPE"
+				description="COM_WSACAROUSEL_LINK_TYPE_DESC" 
+				default=""
+			>
+				<option value="">COM_WSACAROUSEL_DO_NOT_LINK</option>
+				<option value="menu">COM_WSACAROUSEL_MENU</option>
+				<option value="url">COM_WSACAROUSEL_URL</option>
+				<option value="article">COM_WSACAROUSEL_ARTICLE</option>
+			</field>
+			
+			<field name="link_menu" 
+				type="menuitem"
+				label="COM_WSACAROUSEL_MENU"
+				description="COM_WSACAROUSEL_MENU"
+				disable="separator,heading,alias"
+				showon="link_type:menu"
+			/>
+			<field name="link_url"
+				type="text"
+				label="COM_WSACAROUSEL_URL"
+				description="COM_WSACAROUSEL_URL"
+				class="inputbox"
+				size="30"
+				showon="link_type:url"
+			/>
+			<field name="link_article" 
+				type="modal_article"
+				label="COM_WSACAROUSEL_ARTICLE" 
+				description="COM_WSACAROUSEL_ARTICLE"
+				showon="link_type:article"
+			/>
+			
+			<field name="link_target" 
+				type="list" 
+				label="COM_WSACAROUSEL_LINK_TARGET"
+				description="COM_WSACAROUSEL_LINK_TARGET_DESC" 
+				default=""
+				showon="link_type:menu,url,article"
+			>
+				<option value="">COM_WSACAROUSEL_AUTO</option>
+				<option value="_self">COM_WSACAROUSEL_PARENT_WINDOW</option>
+				<option value="_blank">COM_WSACAROUSEL_NEW_WINDOW</option>
+			</field>
+			
+			<field name="link_rel" 
+				type="list" 
+				label="COM_WSACAROUSEL_LINK_REL"
+				description="COM_WSACAROUSEL_LINK_REL_DESC" 
+				default=""
+				showon="link_type:menu,url,article"
+			>
+				<option value="">JNONE</option>
+				<option value="alternate">alternate</option>
+				<option value="author">author</option>
+				<option value="bookmark">bookmark</option>
+				<option value="help">help</option>
+				<option value="license">license</option>
+				<option value="next">next</option>
+				<option value="nofollow">nofollow</option>
+				<option value="noreferrer">noreferrer</option>
+				<option value="prefetch">prefetch</option>
+				<option value="prev">prev</option>
+				<option value="search">search</option>
+				<option value="tag">tag</option>
+			</field>
+			
+		</fieldset>
+		
+	</fields>
+</form>
