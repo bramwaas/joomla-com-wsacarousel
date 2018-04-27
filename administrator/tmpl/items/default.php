@@ -66,7 +66,7 @@ if ($saveOrder)
 <?php endif;?>
 	
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&view=items'); ?>" method="post" name="adminForm" id="adminForm">
-	<fieldset id="filter-bar" class="btn-toolbar">
+	<fieldset id="filter-bar" class="btn-toolbar d-md-block">
 		<div class="filter-search fltlft btn-group pull-left">
 			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo Text::_('JSEARCH_FILTER_LABEL'); ?></label>
 			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" placeholder="<?php echo Text::_('COM_WSACAROUSEL_SEARCH_IN_TITLE'); ?>" />
@@ -111,12 +111,6 @@ if ($saveOrder)
 				<th>
 					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>				
-				<th width="10%">
-					<?php echo HTMLHelper::_('grid.sort',  'JGRID_HEADING_ORDERING', 'a.ordering', $listDirn, $listOrder); ?>
-					<?php if ($canOrder && $saveOrder) :?>
-						<?php echo HTMLHelper::_('grid.order',  $this->items, 'filesave.png', 'items.saveorder'); ?>
-					<?php endif; ?>
-				</th>
 				<th width="10%">
 					<?php echo HTMLHelper::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
@@ -194,23 +188,6 @@ if ($saveOrder)
 							echo substr($desc,0,120); if(strlen($desc) > 120) echo '...';
 						} ?>
 					</div>
-				</td>
-				<td class="order" nowrap="nowrap">
-					<?php if ($canChange) : ?>
-						<?php if ($saveOrder) :?>
-							<?php if ($listDirn == 'asc') : ?>
-								<span><?php echo $this->pagination->orderUpIcon($i, ($item->catid == @$this->items[$i-1]->catid),'items.orderup', 'JLIB_HTML_MOVE_UP', $ordering); ?></span>
-								<span><?php echo $this->pagination->orderDownIcon($i, $n, ($item->catid == @$this->items[$i+1]->catid), 'items.orderdown', 'JLIB_HTML_MOVE_DOWN', $ordering); ?></span>
-							<?php elseif ($listDirn == 'desc') : ?>
-								<span><?php echo $this->pagination->orderUpIcon($i, ($item->catid == @$this->items[$i-1]->catid),'items.orderdown', 'JLIB_HTML_MOVE_UP', $ordering); ?></span>
-								<span><?php echo $this->pagination->orderDownIcon($i, $n, ($item->catid == @$this->items[$i+1]->catid), 'items.orderup', 'JLIB_HTML_MOVE_DOWN', $ordering); ?></span>
-							<?php endif; ?>
-						<?php endif; ?>
-						<?php $disabled = $saveOrder ?  '' : 'disabled="disabled"'; ?>
-						<input type="text" name="order[]" size="5" value="<?php echo $item->ordering;?>" <?php echo $disabled ?> class="text-area-order input-mini" />
-					<?php else : ?>
-						<?php echo $item->ordering; ?>
-					<?php endif; ?>
 				</td>
 				<td align="center">
 					<?php echo $item->category_title; ?>
