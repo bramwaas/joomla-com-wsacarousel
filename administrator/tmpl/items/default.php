@@ -96,14 +96,14 @@ if ($saveOrder)
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>
 			<tr>
-				<th width="1%" class="nowrap center hidden-phone">
+				<th width="1%" class="nowrap text-center hidden-phone">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>
 				<th width="1%">
 					<input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" />
 				</th>
-				<th width="5%">
-					<?php echo HTMLHelper::_('grid.sort', 'JPUBLISHED', 'a.published', $listDirn, $listOrder); ?>
+				<th width="2%" class="nowrap text-center">
+					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 				</th>
 				<th width="8%">
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
@@ -145,7 +145,7 @@ if ($saveOrder)
 
 			?>
 			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
-				<td class="order nowrap center hidden-phone">
+				<td class="order nowrap text-center hidden-phone">
 							<?php
 							$iconClass = '';
 							if (!$canChange)
@@ -164,13 +164,13 @@ if ($saveOrder)
 								<input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
 							<?php endif; ?>
 				</td>
-				<td class="center">
+				<td class="text-center">
 					<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
 				</td>
-				<td class="center">
+				<td class="text-center">
 					<?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'items.', true, 'cb'	); ?>
 				</td>
-				<td align="center">
+				<td align="text-center">
 					<?php if ($item->image) : ?>
 						<a href="#" data-toggle="tooltip" data-html="true"  title='<?php /* echo $this->escape($item->title), '::'; */?><?php echo htmlspecialchars($item->preview); ?>'><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
 					<?php endif; ?>
