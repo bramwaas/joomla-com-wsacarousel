@@ -110,7 +110,7 @@ if ($saveOrder && !empty($this->items))
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>
 			<tr>
-				<th width="1%" class="nowrap text-center  d-none d-md-table-cell xhidden-phonex">
+				<th width="1%" class="nowrap text-center  d-none d-md-table-cell">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>  
 				<th width="1%">
