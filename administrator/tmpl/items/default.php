@@ -36,14 +36,15 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Session\Session;
 
 
 HTMLHelper::_('behavior.tooltip');
 HTMLHelper::_('behavior.modal');
 HTMLHelper::_('formbehavior.chosen', 'select');
 
-JHtml::_('behavior.multiselect');
-JHtml::_('behavior.tabstate');
+HTMLHelper::_('behavior.multiselect');
+HTMLHelper::_('behavior.tabstate');
 
 
 $user		= Factory::getUser();
@@ -62,7 +63,7 @@ if ($saveOrder)
 /* van com_banner */
 if ($saveOrder && !empty($this->items))
 {
-    $saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component' . JSession::getFormToken() . '=1';
+    $saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component' . Session::getFormToken() . '=1';
     HTMLHelper::_('draggablelist.draggable');
 }
 
@@ -109,15 +110,11 @@ if ($saveOrder && !empty($this->items))
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>
 			<tr>
-		<!-- 	<th style="width:1%" class="nowrap text-center d-none d-md-table-cell">
-						<?php echo JHtml::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
-				</th>-->
-<!-- van com_banners -->
-				<th width="1%" class="nowrap text-center hidden-phone">
+				<th width="1%" class="nowrap text-center  d-none d-md-table-cell xhidden-phonex">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>  
 				<th width="1%">
-									<?php echo JHtml::_('grid.checkall'); ?>
+									<?php echo HTMLHelper::_('grid.checkall'); ?>
 				</th>
 				<th width="2%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
@@ -143,18 +140,18 @@ if ($saveOrder && !empty($this->items))
 				</td>
 			</tr>
 		</tfoot>
-	<!-- 	<tbody> -->
 		<tbody <?php if ($saveOrder) :?> class="js-draggable" data-url="<?php echo $saveOrderingUrl; ?>" 
-		     data-direction="<?php echo strtolower($listDirn); ?>" data-nested="true"<?php endif; ?>> <!-- van com_banners -->
+		     data-direction="<?php echo strtolower($listDirn); ?>" data-nested="true"<?php endif; ?>> 
 		<?php 
 		$n = count($this->items);
 		foreach ($this->items as $i => $item) :
 			$ordering	= ($listOrder == 'a.ordering');
-			$canCreate	= $user->authorise('core.create',		'COM_WSACAROUSEL.category.'.$item->catid);
-			$canEdit	= $user->authorise('core.edit',			'COM_WSACAROUSEL.category.'.$item->catid);
+			$item->cat_link = Route::_('index.php?option=com_categories&extension=com_wsacarousel&task=edit&type=other&cid[]=' . $item->catid);
+			$canCreate	= $user->authorise('core.create',		'com_wsacarousel.category.'.$item->catid);
+			$canEdit	= $user->authorise('core.edit',			'com_wsacarousel.category.'.$item->catid);
 			$canCheckin	= $user->authorise('core.manage',		'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
-			$canEditOwn	= true; //$user->authorise('core.edit.own',		'COM_WSACAROUSEL.category.'.$item->catid) && $item->created_by == $userId;
-			$canChange	= $user->authorise('core.edit.state',	'COM_WSACAROUSEL.category.'.$item->catid) && $canCheckin;
+			$canEditOwn	= true; //$user->authorise('core.edit.own',		'com_wsacarousel.category.'.$item->catid) && $item->created_by == $userId;
+			$canChange	= $user->authorise('core.edit.state',	'com_wsacarousel.category.'.$item->catid) && $canCheckin;
 
 			?>
 								<tr class="row<?php echo $i % 2; ?>" data-dragable-group="<?php echo $item->catid; ?>"><!-- van com_banners -->
@@ -170,7 +167,7 @@ if ($saveOrder && !empty($this->items))
 										}
 										elseif (!$saveOrder)
 										{
-											$iconClass = ' inactive tip-top hasTooltip" title="' . JHtml::_('tooltipText', 'JORDERINGDISABLED');
+										    $iconClass = ' inactive tip-top hasTooltip" title="' . HTMLHelper::_('tooltipText', 'JORDERINGDISABLED');
 										}
 										?>
 										<span class="sortable-handler <?php echo $iconClass ?>">
