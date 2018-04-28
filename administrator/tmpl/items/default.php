@@ -110,7 +110,7 @@ if ($saveOrder && !empty($this->items))
 		<thead>
 			<tr>
 								<th style="width:1%" class="nowrap text-center d-none d-md-table-cell">
-									<?php echo JHtml::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+									<?php echo JHtml::_('grid.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
 								</th>
 <!-- van com_banners -->
 		<!-- 		<th width="1%" class="nowrap text-center hidden-phone">
@@ -121,19 +121,19 @@ if ($saveOrder && !empty($this->items))
 									<?php echo JHtml::_('grid.checkall'); ?>
 				</th>
 				<th width="2%" class="nowrap text-center">
-					<?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 				</th>
 				<th width="8%">
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
 				</th>
 				<th>
-					<?php echo HTMLHelper::_('searchtools.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>				
 				<th width="10%">
-					<?php echo HTMLHelper::_('searchtools.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%">
-					<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>
 			</tr>
 		</thead>
@@ -182,25 +182,6 @@ if ($saveOrder && !empty($this->items))
 												value="<?php echo $item->ordering; ?>" class="width-20 text-area-order">
 										<?php endif; ?>
 									</td> <!-- van com_banners -->
-	<!-- 		<td class="order nowrap text-center hidden-phone">
-							<?php
-							$iconClass = '';
-							if (!$canChange)
-							{
-								$iconClass = ' inactive';
-							}
-							elseif (!$saveOrder)
-							{
-							    $iconClass = ' inactive tip-top hasTooltip" title="' . HTMLHelper::tooltipText('JORDERINGDISABLED');
-							}
-							?>
-							<span class="sortable-handler<?php echo $iconClass ?>">
-								<i class="icon-move"></i>
-							</span>
-							<?php if ($canChange && $saveOrder) : ?>
-								<input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
-							<?php endif; ?>
-				</td>  -->	
 				<td class="text-center">
 					<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
 				</td>
