@@ -48,12 +48,21 @@ $listOrder	= $this->state->get('list.ordering');
 $listDirn	= $this->state->get('list.direction');
 $canOrder	= $user->authorise('core.edit.state', 'COM_WSACAROUSEL.category');
 $saveOrder	= $listOrder == 'a.ordering';
-
+/*
 if ($saveOrder)
 {
 	$saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component';
 	HTMLHelper::_('sortablelist.sortable', 'slidesList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
+*/
+/* van com_banner */
+if ($saveOrder && !empty($this->items))
+{
+    $saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component' . JSession::getFormToken() . '=1';
+    HTMLHelper::_('draggablelist.draggable');
+}
+
+
 ?>
 
 <?php if(!empty( $this->sidebar)): ?>
@@ -96,6 +105,10 @@ if ($saveOrder)
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>
 			<tr>
+								<th style="width:1%" class="nowrap text-center d-none d-md-table-cell">
+									<?php echo JHtml::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+								</th>
+<!-- van com_banners -->
 				<th width="1%" class="nowrap text-center hidden-phone">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>
@@ -126,7 +139,9 @@ if ($saveOrder)
 				</td>
 			</tr>
 		</tfoot>
-		<tbody>
+	<!-- 	<tbody> -->
+		<tbody <?php if ($saveOrder) :?> class="js-draggable" data-url="<?php echo $saveOrderingUrl; ?>" 
+		     data-direction="<?php echo strtolower($listDirn); ?>" data-nested="true"<?php endif; ?>> <!-- van com_banners -->
 		<?php 
 		$n = count($this->items);
 		foreach ($this->items as $i => $item) :
@@ -138,7 +153,30 @@ if ($saveOrder)
 			$canChange	= $user->authorise('core.edit.state',	'COM_WSACAROUSEL.category.'.$item->catid) && $canCheckin;
 
 			?>
-			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
+								<tr class="row<?php echo $i % 2; ?>" data-dragable-group="<?php echo $item->catid; ?>"><!-- van com_banners -->
+
+		<!--  <tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>"> -->
+									<td class="order nowrap text-center d-none d-md-table-cell">
+										<?php
+										$iconClass = '';
+
+										if (!$canChange)
+										{
+											$iconClass = ' inactive';
+										}
+										elseif (!$saveOrder)
+										{
+											$iconClass = ' inactive tip-top hasTooltip" title="' . JHtml::_('tooltipText', 'JORDERINGDISABLED');
+										}
+										?>
+										<span class="sortable-handler <?php echo $iconClass ?>">
+											<span class="icon-menu" aria-hidden="true"></span>
+										</span>
+										<?php if ($canChange && $saveOrder) : ?>
+											<input type="text" style="display:none" name="order[]" size="5"
+												value="<?php echo $item->ordering; ?>" class="width-20 text-area-order">
+										<?php endif; ?>
+									</td> <!-- van com_banners -->
 				<td class="order nowrap text-center hidden-phone">
 							<?php
 							$iconClass = '';
