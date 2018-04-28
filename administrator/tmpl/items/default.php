@@ -110,14 +110,13 @@ if ($saveOrder && !empty($this->items))
 		<thead>
 			<tr>
 				<th style="width:1%" class="nowrap text-center d-none d-md-table-cell">
-						<?php echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+						<?php echo JHtml::_('searchtools.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
 				</th>
 <!-- van com_banners -->
 		<!-- 		<th width="1%" class="nowrap text-center hidden-phone">
 					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>  -->
 				<th width="1%">
-			<!-- 		<input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" /> -->
 									<?php echo JHtml::_('grid.checkall'); ?>
 				</th>
 				<th width="2%" class="nowrap text-center">
