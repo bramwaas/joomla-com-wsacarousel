@@ -1,3 +1,6 @@
+/*
+ * even niet
+ *
 ALTER TABLE `#__wsacarousel` 
 ADD  `checked_out_time` datetime NOT NULL default '0000-00-00 00:00:00',
 ADD  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -10,4 +13,4 @@ ADD  KEY `idx_state` (`state`),
 ADD  KEY `idx_metakey_prefix` (`metakey_prefix`(100)),
 ADD  KEY `idx_catid` (`catid`),
 ADD  KEY `idx_language` (`language`);
-  
+  */
