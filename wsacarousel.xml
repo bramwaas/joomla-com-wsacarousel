@@ -33,6 +33,9 @@
 		<submenu>
 			<menu link="option=com_wsacarousel&amp;view=items" alt="WsaCarousel/Slides" img="components/com_wsacarousel/assets/icon-16-menu-slides.png">COM_WSACAROUSEL_SLIDES</menu>
 			<menu link="option=com_categories&amp;extension=com_wsacarousel" alt="WsaCarousel/Categories" img="class:category">COM_WSACAROUSEL_CATEGORIES</menu>
+			<menu link="option=com_wsacarousel&amp;view=item&amp;layout=edit" alt="WsaCarousel/NewSlide" img="components/com_wsacarousel/assets/icon-48-slide-add.png">COM_WSACAROUSEL_NEW_SLIDE</menu>
+			<menu link="option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_wsacarousel" alt="WsaCarousel/NewCategorie" img="components/com_wsacarousel/assets/icon-48-category-add.png">COM_WSACAROUSEL_NEW_CATEGORY</menu>
+			<menu link="https://www.waasdorpsoekhan.nl/extensions/com_wsacarousel.html" alt="WsaCarousel/Slides" img="components/com_wsacarousel/assets/icon-48-help.png">COM_WSACAROUSEL_DOCUMENTATION</menu>
 		</submenu>
 		
     	<files folder="administrator">

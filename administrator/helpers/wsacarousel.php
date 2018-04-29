@@ -39,27 +39,29 @@ abstract class WsaCarouselHelper
 	public static function addSubmenu($vName)
 	{
 		if($vName=='item' || $vName=='category') return;
-		$version = new Version;
-		
- 
 			
-			JHtmlSidebar::addEntry(
+			\JHtmlSidebar::addEntry(
 				Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL'),
 				'index.php?option=com_wsacarousel',
 				$vName == 'cpanel'
 			);
-			JHtmlSidebar::addEntry(
+			\JHtmlSidebar::addEntry(
 				Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'),
 				'index.php?option=com_wsacarousel&view=items',
 				$vName == 'items'
 			);
-			JHtmlSidebar::addEntry(
+			\JHtmlSidebar::addEntry(
 				Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'),
 				'index.php?option=com_categories&extension=com_wsacarousel',
 				$vName == 'categories'
 			);
 
-		
+			\JHtmlSidebar::addEntry(
+			    'helpers/wsacarousel.php ',
+			    'index.php?option=com_categories&extension=com_wsacarousel',
+			    $vName == 'categories'
+			    );
+			
 		if ($vName=='categories') {
 			ToolBarHelper::title(
 			Text::sprintf('COM_WSACAROUSEL_CATEGORIES_TITLE',Text::_('COM_WSACAROUSEL')),
