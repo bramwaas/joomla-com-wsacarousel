@@ -1,8 +1,8 @@
 <?php 
 /**
- * @version $Id: default.php 48 2017-08-04 11:41:27Z szymon $
- * @package WsaCarousel
- * @subpackage WsaCarousel Component
+ * @version $Id: default.php 
+ * @package     Joomla.Administrator
+ * @subpackage  com_wsacarousel
  * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
@@ -38,6 +38,8 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Session\Session;
 
+// Include the component HTML helpers. (not yet available)
+// HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
 HTMLHelper::_('behavior.tooltip');
 HTMLHelper::_('behavior.modal');
@@ -71,10 +73,10 @@ if ($saveOrder && !empty($this->items))
 ?>
 
 <?php if(!empty( $this->sidebar)): ?>
-<div id="j-sidebar-container" class="span2">
+<div id="j-sidebar-container" class="col-md-2">
 	<?php echo $this->sidebar; ?>
 </div>
-<div id="j-main-container" class="span10">
+<div id="j-main-container" class="col-md-10">
 <?php else: ?>
 <div id="j-main-container">
 <?php endif;?>
@@ -150,13 +152,11 @@ if ($saveOrder && !empty($this->items))
 			$canCreate	= $user->authorise('core.create',		'com_wsacarousel.category.'.$item->catid);
 			$canEdit	= $user->authorise('core.edit',			'com_wsacarousel.category.'.$item->catid);
 			$canCheckin	= $user->authorise('core.manage',		'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
-			$canEditOwn	= true; //$user->authorise('core.edit.own',		'com_wsacarousel.category.'.$item->catid) && $item->created_by == $userId;
+			$canEditOwn	= $user->authorise('core.edit.own',		'com_wsacarousel.category.'.$item->catid) && $item->created_by == $userId;
 			$canChange	= $user->authorise('core.edit.state',	'com_wsacarousel.category.'.$item->catid) && $canCheckin;
 
 			?>
-								<tr class="row<?php echo $i % 2; ?>" data-dragable-group="<?php echo $item->catid; ?>"><!-- van com_banners -->
-
-		<!--  <tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>"> -->
+								<tr class="row<?php echo $i % 2; ?>" data-dragable-group="<?php echo $item->catid; ?>">
 									<td class="order nowrap text-center d-none d-md-table-cell">
 										<?php
 										$iconClass = '';
@@ -184,7 +184,7 @@ if ($saveOrder && !empty($this->items))
 				<td class="text-center">
 					<?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'items.', true, 'cb'	); ?>
 				</td>
-				<td align="text-center">
+				<td align="center">
 					<?php if ($item->image) : ?>
 						<a href="#" data-toggle="tooltip" data-html="true"  title='<?php /* echo $this->escape($item->title), '::'; */?><?php echo htmlspecialchars($item->preview); ?>'><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
 					<?php endif; ?>
