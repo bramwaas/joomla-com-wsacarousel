@@ -57,14 +57,9 @@ $listOrder	= $this->state->get('list.ordering');
 $listDirn	= $this->state->get('list.direction');
 $canOrder	= $user->authorise('core.edit.state', 'com_wsacarousel.category');
 $saveOrder	= $listOrder == 'a.ordering';
-/*
-if ($saveOrder)
-{
-	$saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component';
-	HTMLHelper::_('sortablelist.sortable', 'slidesList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
-}
-*/
-/* van com_banner */
+
+
+/*  */
 if ($saveOrder && !empty($this->items))
 {
     $saveOrderingUrl = 'index.php?option=com_wsacarousel&task=items.saveOrderAjax&tmpl=component' . Session::getFormToken() . '=1';
@@ -74,16 +69,17 @@ if ($saveOrder && !empty($this->items))
 
 ?>
 
-<?php if(!empty( $this->sidebar)): ?>
-<div id="j-sidebar-container" class="col-md-2">
-	<?php echo $this->sidebar; ?>
-</div>
-<div id="j-main-container" class="col-md-10">
-<?php else: ?>
-<div id="j-main-container">
-<?php endif;?>
+
 	
 <form action="<?php echo Route::_('index.php?option=com_wsacarousel&view=items'); ?>" method="post" name="adminForm" id="adminForm">
+	<div class="row">
+		<?php if (!empty($this->sidebar)) { ?>
+		<div id="j-sidebar-container" class="col-md-2">
+			<?php echo $this->sidebar; ?>
+		</div>
+		<?php } ?>
+		<div class="<?php if (!empty($this->sidebar)) {echo 'col-md-10'; } else { echo 'col-md-12'; } ?>">
+			<div id="j-main-container" class="j-main-container">
 	<fieldset id="filter-bar" class="btn-toolbar d-md-block">
 		<div class="filter-search fltlft btn-group pull-left">
 			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo Text::_('JSEARCH_FILTER_LABEL'); ?></label>
@@ -228,8 +224,9 @@ if ($saveOrder && !empty($this->items))
 		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
+		</div>
+	</div>
 </form>
-</div>
 
 <div class="clr" style="clear: both"></div>
 <?php echo WSACAROUSELFOOTER; ?>
