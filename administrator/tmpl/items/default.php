@@ -121,13 +121,13 @@ if ($saveOrder && !empty($this->items))
 				<th width="2%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 				</th>
-				<th width="8%">
+				<th width="5%" class="nowrap text-center">
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
 				</th>
 				<th>
 					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>				
-				<th width="10%">
+				<th width="5%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%">
@@ -184,7 +184,7 @@ if ($saveOrder && !empty($this->items))
 				<td class="text-center">
 					<?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'items.', true, 'cb'	); ?>
 				</td>
-				<td align="center">
+				<td class="text-center">
 					<?php if ($item->image) : ?>
 						<a href="#" data-toggle="tooltip" data-html="true"  title='<?php /* echo $this->escape($item->title), '::'; */?><?php echo htmlspecialchars($item->preview); ?>'><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
 					<?php endif; ?>
@@ -209,10 +209,10 @@ if ($saveOrder && !empty($this->items))
 						} ?>
 					</div>
 				</td>
-				<td align="center">
+				<td class="text-center">
 					<?php echo $item->category_title; ?>
 				</td>
-				<td align="center">
+				<td class="text-center">
 					<?php echo $item->id; ?>
 				</td>
 			</tr>
