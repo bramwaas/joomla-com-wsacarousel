@@ -15,10 +15,10 @@ use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-
+use Joomla\Component\Wsacarousel\Administrator\Helper\WsacarouselHelper;
 
 /**
- * Tags view class for the Tags package.
+ * Wsacarousel view class for the Tags package.
  *
  * @since  3.1
  */
@@ -46,10 +46,6 @@ class DisplayController extends BaseController
 	{
 //	    $jinput = Factory::getApplication()->input;
 	    
-//	    require_once JPATH_COMPONENT.'/helpers/wsacarousel.php';
-//	    WsaCarouselHelper::addSubmenu($jinput->getCmd('view', 'cpanel'));
-//	    parent::display();
-	    
 	    
 	    
 	    $db = Factory::getDBO();
@@ -76,7 +72,8 @@ class DisplayController extends BaseController
 			return false;
 			*/
 		}
-
+		// Load the submenu.
+		WsacarouselHelper::addSubmenu($vName);
 		parent::display();
 
 		return $this;
