@@ -94,7 +94,7 @@ if ($saveOrder && !empty($this->items))
 		<thead>
 			<tr>
 				<th width="1%" class="nowrap text-center  d-none d-md-table-cell">
-					<?php echo HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
+					<?php echo HTMLHelper::_('searchtools.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 				</th>  
 				<th width="1%">
 									<?php echo HTMLHelper::_('grid.checkall'); ?>
@@ -106,13 +106,13 @@ if ($saveOrder && !empty($this->items))
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
 				</th>
 				<th>
-					<?php echo HTMLHelper::_('grid.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('searchtools.sort',  'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>				
 				<th width="10%" class="nowrap text-center">
-					<?php echo HTMLHelper::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('searchtools.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%" class="nowrap text-center">
-					<?php echo HTMLHelper::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>
 			</tr>
 		</thead>
@@ -204,8 +204,10 @@ if ($saveOrder && !empty($this->items))
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />
+		<php? /*
 		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
 		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+		*/ ?>
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
 		</div>
