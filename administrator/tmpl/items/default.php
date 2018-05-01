@@ -34,8 +34,9 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 
 // Include the component HTML helpers. (not yet available)
@@ -80,6 +81,11 @@ if ($saveOrder && !empty($this->items))
 		<?php } ?>
 		<div class="<?php if (!empty($this->sidebar)) {echo 'col-md-10'; } else { echo 'col-md-12'; } ?>">
 			<div id="j-main-container" class="j-main-container">
+				<?php
+				// Search tools bar
+				echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this));
+				?>
+			
 	<fieldset id="filter-bar" class="btn-toolbar d-md-block">
 		<div class="filter-search fltlft btn-group pull-left">
 			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo Text::_('JSEARCH_FILTER_LABEL'); ?></label>
