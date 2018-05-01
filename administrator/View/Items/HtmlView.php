@@ -47,12 +47,43 @@ class HtmlView extends BaseHtmlView
 	protected $items;
 	protected $pagination;
 	protected $state;
+	/**
+	 * Form object for search filters
+	 *
+	 * @var  \JForm
+	 */
+	public $filterForm;
+	
+	/**
+	 * The active search filters
+	 *
+	 * @var  array
+	 */
+	public $activeFilters;
+
+	/**
+	 * The sidebar markup
+	 *
+	 * @var  string
+	 */
+	protected $sidebar;
+	
+	/**
+	 * Display the view.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise an Error object.
+	 */
+	
 	
 	public function display($tpl = null)
 	{
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 		$this->state		= $this->get('State');
+		$this->filterForm    = $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
@@ -66,7 +97,9 @@ class HtmlView extends BaseHtmlView
 		}
 		
 		foreach($this->items as $item) {
-			$item->thumb = 'components/com_wsacarousel/assets/icon-image.png';						
+		    $item->order_up = true;
+		    $item->order_dn = true;
+		    $item->thumb = 'components/com_wsacarousel/assets/icon-image.png';						
 			if(strcasecmp(substr($item->image, 0, 4), 'http') != 0 && !empty($item->image)) {
 				$item->image = Uri::root(true).'/'.$item->image;
 			}

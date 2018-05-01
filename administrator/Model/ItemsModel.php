@@ -81,7 +81,7 @@ class ItemsModel extends ListModel
      *
      * @since    3.1
      */
-    protected function populateState($ordering = null, $direction = null)
+    protected function populateState($ordering = 'a.ordering', $direction = 'asc')
 	{
 		// Initialise variables.
 		$app = Factory::getApplication();
@@ -96,7 +96,7 @@ class ItemsModel extends ListModel
 		$this->setState('filter.category', $category);
 		
 		// List state information.
-		parent::populateState('a.ordering', 'asc');
+		parent::populateState($ordering , $direction);
 	}
 
 	/**

@@ -123,7 +123,7 @@ if ($saveOrder && !empty($this->items))
 									<?php echo HTMLHelper::_('grid.checkall'); ?>
 				</th>
 				<th width="2%" class="nowrap text-center">
-					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%" class="nowrap text-center">
 					<?php echo Text::_('COM_WSACAROUSEL_IMAGE'); ?>
