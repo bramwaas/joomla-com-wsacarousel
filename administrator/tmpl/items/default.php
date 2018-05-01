@@ -43,9 +43,11 @@ use Joomla\CMS\Session\Session;
 
 HTMLHelper::_('behavior.tooltip');
 HTMLHelper::_('behavior.modal');
-HTMLHelper::_('formbehavior.chosen', 'select');
-
 HTMLHelper::_('behavior.multiselect');
+HTMLHelper::_('formbehavior.chosen', 'select');
+HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_TAG')));
+HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_CATEGORY')));
+
 HTMLHelper::_('behavior.tabstate');
 
 
