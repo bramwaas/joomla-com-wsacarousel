@@ -120,7 +120,7 @@ if ($saveOrder && !empty($this->items))
 				<th width="1%">
 									<?php echo HTMLHelper::_('grid.checkall'); ?>
 				</th>
-				<th width="5%" class="nowrap text-center">
+				<th width="2%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%" class="nowrap text-center">
