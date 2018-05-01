@@ -85,33 +85,10 @@ if ($saveOrder && !empty($this->items))
 				// Search tools bar
 				echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this));
 				?>
+				<?php if (empty($this->items)) : ?>
+					<joomla-alert type="warning"><?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></joomla-alert>
+				<?php else : ?>
 			
-	<fieldset id="filter-bar" class="btn-toolbar d-md-block">
-		<div class="filter-search fltlft btn-group pull-left">
-			<label class="filter-search-lbl element-invisible" for="filter_search"><?php echo Text::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" placeholder="<?php echo Text::_('COM_WSACAROUSEL_SEARCH_IN_TITLE'); ?>" />
-		</div>
-		<div class="filter-search fltlft btn-group pull-left">
-			<button type="submit" class="btn"><?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" class="btn" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?></button>
-		</div>
-		<div class="btn-group pull-right hidden-phone">
-			<?php echo $this->pagination->getLimitBox(); ?>
-		</div>
-		<div class="filter-select fltrt btn-group pull-right">
-			<select name="filter_published" class="inputbox input-medium" onchange="this.form.submit()">
-				<option value=""><?php echo Text::_('JOPTION_SELECT_PUBLISHED');?></option>
-				<?php echo HTMLHelper::_('select.options', array(HTMLHelper::_('select.option', '1', 'JPUBLISHED'),HTMLHelper::_('select.option', '0', 'JUNPUBLISHED')), 'value', 'text', $this->state->get('filter.published'), true);?>
-			</select>
-		</div>
-		<div class="filter-select fltrt btn-group pull-right">
-			<select name="filter_category" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo Text::_('JOPTION_SELECT_CATEGORY');?></option>
-				<?php echo HTMLHelper::_('select.options', HTMLHelper::_('category.options', 'COM_WSACAROUSEL'), 'value', 'text', $this->state->get('filter.category'));?>
-			</select>
-		</div>
-	</fieldset>
-	<div class="clr"> </div>
 	
 	<table class="adminlist table table-striped" id="slidesList">
 		<thead>

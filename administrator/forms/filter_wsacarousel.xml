@@ -4,6 +4,13 @@
 	<fields name="filter">
 
 		<field
+			name="test"
+			type="text"
+			label="test f f_wsa"
+			description=""
+			hint="JSEARCH_FILTER"
+		/>
+		<field
 			name="search"
 			type="text"
 			label="COM_WSACAROUSEL_FILTER_SEARCH_LABEL"
