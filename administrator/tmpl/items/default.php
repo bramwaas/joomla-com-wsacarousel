@@ -81,10 +81,9 @@ if ($saveOrder && !empty($this->items))
 		<?php } ?>
 		<div class="<?php if (!empty($this->sidebar)) {echo 'col-md-10'; } else { echo 'col-md-12'; } ?>">
 			<div id="j-main-container" class="j-main-container">
-				<?php /*
+				<?php 
 				// Search tools bar
 				echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this));
-				*/
 				?>
 			
 	<fieldset id="filter-bar" class="btn-toolbar d-md-block">
