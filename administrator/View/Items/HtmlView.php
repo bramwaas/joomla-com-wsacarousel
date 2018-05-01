@@ -37,9 +37,6 @@ use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 
 use Joomla\CMS\Uri\Uri;
 
-//    class_alias (  'JToolbarHelper' , 'ToolbarHelper' ); //v3
-
-
 
 
 class HtmlView extends BaseHtmlView
