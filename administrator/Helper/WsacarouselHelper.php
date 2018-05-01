@@ -54,12 +54,6 @@ class WsacarouselHelper extends ContentHelper
             'index.php?option=com_categories&extension=com_wsacarousel',
             $vName == 'categories'
             );
-
-        \JHtmlSidebar::addEntry(
-            'Helper/WsacarouselHelper.php ',
-            'index.php?option=com_categories&extension=com_wsacarousel',
-            $vName == 'categories'
-            );
         
         
         if ($vName=='categories') {

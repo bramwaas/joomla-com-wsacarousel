@@ -56,12 +56,6 @@ abstract class WsaCarouselHelper
 				$vName == 'categories'
 			);
 
-			\JHtmlSidebar::addEntry(
-			    'helpers/wsacarousel.php ',
-			    'index.php?option=com_categories&extension=com_wsacarousel',
-			    $vName == 'categories'
-			    );
-			
 		if ($vName=='categories') {
 			ToolBarHelper::title(
 			Text::sprintf('COM_WSACAROUSEL_CATEGORIES_TITLE',Text::_('COM_WSACAROUSEL')),

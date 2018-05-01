@@ -94,7 +94,6 @@ if ($saveOrder && !empty($this->items))
 		<thead>
 			<tr>
 				<th width="1%" class="nowrap text-center  d-none d-md-table-cell">
-					<?php /* echo HTMLHelper::_('searchtools.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); */ ?>
 					<?php echo HTMLHelper::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
 				</th>  
 				<th width="1%">
@@ -208,8 +207,7 @@ if ($saveOrder && !empty($this->items))
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
 		</div>
+	<?php echo WSACAROUSELFOOTER; ?>
 	</div>
 </form>
 
-<div class="clr" style="clear: both"></div>
-<?php echo WSACAROUSELFOOTER; ?>
