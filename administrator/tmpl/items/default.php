@@ -200,6 +200,7 @@ if ($saveOrder && !empty($this->items))
 		<?php endforeach; ?>
 		</tbody>
 	</table>
+				<?php endif; ?>
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />
