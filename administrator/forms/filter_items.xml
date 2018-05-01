@@ -6,7 +6,7 @@
 		<field
 			name="search"
 			type="text"
-			label="COM_WSACAROUSEL_FILTER_SEARCH_LABEL test"
+			label="COM_WSACAROUSEL_FILTER_SEARCH_LABEL"
 			description="COM_WSACAROUSE_FILTER_SEARCH_DESC"
 			hint="JSEARCH_FILTER"
 		/>
