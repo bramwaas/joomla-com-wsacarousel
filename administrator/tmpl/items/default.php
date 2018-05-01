@@ -94,7 +94,8 @@ if ($saveOrder && !empty($this->items))
 		<thead>
 			<tr>
 				<th width="1%" class="nowrap text-center  d-none d-md-table-cell">
-					<?php echo HTMLHelper::_('searchtools.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
+					<?php /* echo HTMLHelper::_('searchtools.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); */ ?>
+					<?php echo HTMLHelper::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
 				</th>  
 				<th width="1%">
 									<?php echo HTMLHelper::_('grid.checkall'); ?>
@@ -204,10 +205,6 @@ if ($saveOrder && !empty($this->items))
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />
-		<php? /*
-		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-		*/ ?>
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</div>
 		</div>
