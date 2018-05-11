@@ -65,7 +65,7 @@ jQuery(document).ready(function(){
 });   
 });"
 ;    
-$doc->addScriptDeclaration($decl);
+$document->addScriptDeclaration($decl);
 
 
 
