@@ -51,6 +51,23 @@ HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeho
 
 HTMLHelper::_('behavior.tabstate');
 
+// Include javascript and css for BS4 tootips
+// why does behavior tootip this not ???
+$document = Factory::getDocument();
+$document->addScript("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", array('version'=>''),
+    array('id'=>'popper.js' ));
+$decl =
+"
+jQuery(document).ready(function(){
+    jQuery('[data-toggle=\"tooltip\"]').tooltip({
+    container: 'body'
+
+});   
+});"
+;    
+$doc->addScriptDeclaration($decl);
+
+
 
 $user		= Factory::getUser();
 $userId		= $user->get('id');
