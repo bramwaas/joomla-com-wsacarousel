@@ -51,7 +51,7 @@ HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeho
 
 HTMLHelper::_('behavior.tabstate');
 
-// Include javascript and css for BS4 tootips
+// Include javascript and css for BS4 tooltips with images.
 // why does behavior tootip this not ???
 $document = Factory::getDocument();
 $document->addScript("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", array('version'=>''),
@@ -66,6 +66,15 @@ jQuery(document).ready(function(){
 });"
 ;    
 $document->addScriptDeclaration($decl);
+// make tooltipe wider to support images off 300 px width
+$decl= 
+"
+.tooltip-inner {
+    max-width: 100%; 
+    width: inherit;  
+}
+";
+$document->addStyleDeclaration($decl);
 
 
 
