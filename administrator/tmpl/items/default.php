@@ -184,7 +184,12 @@ if ($saveOrder && !empty($this->items))
 				</td>
 				<td class="text-center">
 					<?php if ($item->image) : ?>
-						<a href="#" data-toggle="tooltip" data-html="true"  title='<?php /* echo $this->escape($item->title), '::'; */?><?php echo htmlspecialchars($item->preview); ?>'><img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" /></a>
+						<a href="#" data-toggle="tooltip" data-html="true"  
+							title='<figure class="figure"><?php echo htmlspecialchars($item->preview); ?>
+							<figcaption class="figure-caption"><?php echo $this->escape($item->title); ?></figcaption>
+								</figure>'>
+							<img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" />
+							</a>
 					<?php endif; ?>
 				</td>
 				<td>
