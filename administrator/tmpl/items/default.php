@@ -61,9 +61,7 @@ $decl =
 jQuery(document).ready(function(){
     jQuery('[data-toggle=\"tooltip\"]').tooltip({
     container: 'body',
-    placement: 'bottom',
-    trigger: 'hover focus'
-
+    placement: 'bottom'
 });   
 });"
 ;    
