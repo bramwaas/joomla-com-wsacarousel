@@ -28,7 +28,7 @@
 			>
 			<option value="">JOPTION_SELECT_CATEGORY</option>
 		</field>
-<!-- 
+
 		<field
 			name="access"
 			type="accesslevel"
@@ -36,7 +36,7 @@
 			>
 			<option value="">JOPTION_SELECT_ACCESS</option>
 		</field>
-
+<!-- 
 		<field
 			name="language"
 			type="contentlanguage"
@@ -78,6 +78,8 @@
 			-->
 			<option value="category_title ASC">JCATEGORY_ASC</option>
 			<option value="category_title DESC">JCATEGORY_DESC</option>
+			<option value="a.access ASC">JGRID_HEADING_ACCESS_ASC</option>
+			<option value="a.access DESC">JGRID_HEADING_ACCESS_DESC</option>
 			<option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
 			<option value="a.id DESC">JGRID_HEADING_ID_DESC</option>
 		</field>
