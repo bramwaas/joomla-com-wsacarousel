@@ -40,11 +40,6 @@ class WsacarouselHelper extends ContentHelper
         
         
         \JHtmlSidebar::addEntry(
-            Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL'),
-            'index.php?option=com_wsacarousel',
-            $vName == 'cpanel'
-            );
-        \JHtmlSidebar::addEntry(
             Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'),
             'index.php?option=com_wsacarousel&view=items',
             $vName == 'items'
