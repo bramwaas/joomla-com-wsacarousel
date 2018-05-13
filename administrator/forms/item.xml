@@ -38,15 +38,6 @@
 			class="inputbox"
 			size="30"
 		/>
-<!-- from contact.xml -->
-		<field
-			name="access"
-			type="accesslevel"
-			label="JFIELD_ACCESS_LABEL"
-			size="1"
-		/>
-<!-- end from contact.xml -->
-		
 		<field 	id="published"
 			name="published"
 			type="list"
@@ -87,6 +78,7 @@
 		name="access"
 		type="accesslevel"
 		label="JFIELD_ACCESS_LABEL"
+		size="1"
 	/>
 
 	<field
