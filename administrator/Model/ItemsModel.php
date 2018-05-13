@@ -134,7 +134,8 @@ class ItemsModel extends ListModel
 		// Create a new query object.
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
-
+		$user = Factory::getUser();
+		
 		// Select the required fields from the table.
 		$query->select(
 			$this->getState(
@@ -142,16 +143,44 @@ class ItemsModel extends ListModel
 				'a.*'
 			)
 		);
-		$query->from('#__wsacarousel AS a');
-		
-		// Join over the categories.
-		$query->select('c.title AS category_title');
-		$query->join('LEFT', '#__categories AS c ON c.id = a.catid');
+		$query->from($db->quoteName('#__wsacarousel', 'a'));
 		
 		// Join over the users for the checked out user.
-		$query->select('uc.name AS editor');
-		$query->join('LEFT', '#__users AS uc ON uc.id=a.checked_out');
+		$query->select($db->quoteName('uc.name', 'editor'))
+		->join(
+		    'LEFT',
+		    $db->quoteName('#__users', 'uc') . ' ON ' . $db->quoteName('uc.id') . ' = ' . $db->quoteName('a.checked_out')
+		    );
+// new from contacts		
+		// Join over the asset groups.
+		$query->select($db->quoteName('ag.title', 'access_level'))
+		->join(
+		    'LEFT',
+		    $db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
+		    );
+		// end from contacts
 		
+		// Join over the categories.
+		$query->select($db->quoteName('c.title', 'category_title'))
+		->join(
+		    'LEFT',
+		    $db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
+		    );
+// new from contacts		
+		// Filter by access level.
+		if ($access = $this->getState('filter.access'))
+		{
+		    $query->where($db->quoteName('a.access') . ' = ' . (int) $access);
+		}
+		
+		// Implement View Level Access
+		if (!$user->authorise('core.admin'))
+		{
+		    $groups = implode(',', $user->getAuthorisedViewLevels());
+		    $query->where($db->quoteName('a.access') . ' IN (' . $groups . ')');
+		}
+		
+// end from contacts		
 		// Filter by published state
 		$published = $this->getState('filter.published');
 		if (is_numeric($published)) {
