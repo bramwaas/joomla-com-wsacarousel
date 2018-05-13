@@ -218,9 +218,6 @@ if ($saveOrder && !empty($this->items))
 						<?php echo Text::sprintf('JGLOBAL_LIST_ALIAS', $this->escape($item->alias)); ?>
 					</span>
 					<div class="small">
-						<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
-					</div>
-					<div class="smallsub small">
 						<?php 
 						$desc = strip_tags($item->description);
 						if(function_exists('mb_substr')) {
@@ -231,7 +228,7 @@ if ($saveOrder && !empty($this->items))
 					</div>
 				</td>
 				<td class="text-center">
-					<?php echo $item->category_title; ?>
+					<?php echo $this->escape($item->category_title); ?>
 				</td>
 				<td class="text-center">
 					<?php echo $item->id; ?>

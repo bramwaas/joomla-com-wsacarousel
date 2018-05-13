@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id: view.html.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: /View/HtmlView.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
@@ -22,14 +22,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ * 2018-11-04 composed from views/items/view.html.php and J4 com_tags and com_banners /View/HtmlView.php
+ * 2018-05-13
  */
 namespace Joomla\Component\Wsacarousel\Administrator\View\Items;
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die( 'Restricted access' );
 
-//jimport('joomla.application.component.view');
 // use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -100,7 +100,7 @@ class HtmlView extends BaseHtmlView
 			if(strcasecmp(substr($item->image, 0, 4), 'http') != 0 && !empty($item->image)) {
 				$item->image = Uri::root(true).'/'.$item->image;
 			}
-			$item->preview = '<figure class="figure"><img src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" /><figcaption class="figure-caption"><?php echo $this->escape($item->title); ?></figcaption></figure>';
+			$item->preview = '<figure class="figure"><img src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" /><figcaption class="figure-caption">' .  $this->escape($item->title) . '</figcaption></figure>';
 		}
 		
 		$this->addToolbar();		
