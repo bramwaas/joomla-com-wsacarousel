@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `#__wsacarousel` (
   `ordering` int(11) NOT NULL default '0',
   `params` text NOT NULL,
   `language` char(7) NOT NULL DEFAULT '',
+  `access` int(10) unsigned NOT NULL DEFAULT 0,
   `published` tinyint(1) NOT NULL default '0',
   `publish_up` datetime NOT NULL default '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -22,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `#__wsacarousel` (
   
   
   PRIMARY KEY  (`id`),
+  KEY `idx_access` (`access`),
   KEY `catid` (`catid`,`published`)
   KEY `idx_state` (`state`),
   KEY `idx_metakey_prefix` (`metakey_prefix`(100)),
