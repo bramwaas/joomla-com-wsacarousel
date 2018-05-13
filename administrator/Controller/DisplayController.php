@@ -30,7 +30,7 @@ class DisplayController extends BaseController
 	 * @var    string
 	 * @since  1.6
 	 */
-	protected $default_view = 'cpanel';
+	protected $default_view = 'items';
 
 	/**
 	 * Method to display a view.
