@@ -142,6 +142,9 @@ if ($saveOrder && !empty($this->items))
 				<th width="10%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('searchtools.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
+				<th style="width:10%" class="nowrap d-none d-md-table-cell text-center">
+					<?php echo HTMLHelper::_('searchtools.sort',  'JGRID_HEADING_ACCESS', 'a.access', $listDirn, $listOrder); ?>
+				</th>
 				<th width="1%" class="nowrap text-center">
 					<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>
@@ -229,6 +232,9 @@ if ($saveOrder && !empty($this->items))
 				</td>
 				<td class="text-center">
 					<?php echo $this->escape($item->category_title); ?>
+				</td>
+				<td class="small d-none d-md-table-cell text-center">
+					<?php echo $this->escape($item->access_title); ?>
 				</td>
 				<td class="text-center">
 					<?php echo $item->id; ?>
