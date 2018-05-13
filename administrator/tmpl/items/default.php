@@ -69,10 +69,15 @@ $document->addScriptDeclaration($decl);
 // make tooltipe wider to support images off 300 px width
 $decl= 
 "
+.item-thumb {
+    border: 1px solid #ccc; 
+    padding: 1px;
+}
 .tooltip-inner {
     max-width: 100%; 
     width: inherit;  
 }
+
 ";
 $document->addStyleDeclaration($decl);
 
@@ -194,10 +199,8 @@ if ($saveOrder && !empty($this->items))
 				<td class="text-center">
 					<?php if ($item->image) : ?>
 						<a href="#" data-toggle="tooltip" data-html="true"  
-							title='<figure class="figure"><?php echo htmlspecialchars($item->preview); ?>
-							<figcaption class="figure-caption"><?php echo $this->escape($item->title); ?></figcaption>
-								</figure>'>
-							<img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>" style="border: 1px solid #ccc; padding: 1px;" />
+							title='<?php echo htmlspecialchars($item->preview); ?>'>
+							<img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" />
 							</a>
 					<?php endif; ?>
 				</td>
@@ -211,6 +214,12 @@ if ($saveOrder && !empty($this->items))
 					<?php else : ?>
 						<?php echo $this->escape($item->title); ?>
 					<?php endif; ?>
+					<span class="small break-word">
+						<?php echo Text::sprintf('JGLOBAL_LIST_ALIAS', $this->escape($item->alias)); ?>
+					</span>
+					<div class="small">
+						<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
+					</div>
 					<div class="smallsub small">
 						<?php 
 						$desc = strip_tags($item->description);

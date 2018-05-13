@@ -100,7 +100,7 @@ class HtmlView extends BaseHtmlView
 			if(strcasecmp(substr($item->image, 0, 4), 'http') != 0 && !empty($item->image)) {
 				$item->image = Uri::root(true).'/'.$item->image;
 			}
-			$item->preview = '<img src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" />';
+			$item->preview = '<figure class="figure"><img src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" /><figcaption class="figure-caption"><?php echo $this->escape($item->title); ?></figcaption></figure>';
 		}
 		
 		$this->addToolbar();		
