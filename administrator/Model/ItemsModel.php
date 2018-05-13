@@ -151,6 +151,13 @@ class ItemsModel extends ListModel
 		    'LEFT',
 		    $db->quoteName('#__users', 'uc') . ' ON ' . $db->quoteName('uc.id') . ' = ' . $db->quoteName('a.checked_out')
 		    );
+		// Join over the users for the author. (from com_tags)
+		$query->select('ua.name AS author_name')
+		->join('LEFT', '#__users AS ua ON ua.id = a.created_user_id')
+		
+		->select('ug.title AS access_title')
+		->join('LEFT', '#__viewlevels AS ug on ug.id = a.access');
+		
 // new from contacts		
 		// Join over the asset groups.
 		$query->select($db->quoteName('ag.title', 'access_level'))
