@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `#__wsacarousel` (
   KEY `idx_access` (`access`),
   KEY `catid` (`catid`,`published`)
 --  KEY `idx_state` (`state`),
-  KEY `idx_metakey_prefix` (`metakey_prefix`(100)),
+--  KEY `idx_metakey_prefix` (`metakey_prefix`(100)),
   KEY `idx_catid` (`catid`),
   KEY `idx_language` (`language`)
   
