@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id: wsacarousel.php 0.0.1 2018-02-17
+ * @version $Id: wsacarousel.php 0.0.1 2018-05-14
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
  * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
@@ -24,6 +24,7 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  * 2018-03-04 deleted pre version 3 code.
+ * 2018-05-14 removed cpanel option
  */
 
 defined('_JEXEC') or die;
@@ -39,12 +40,13 @@ abstract class WsaCarouselHelper
 	public static function addSubmenu($vName)
 	{
 		if($vName=='item' || $vName=='category') return;
-			
+/* 	not necessary all optios of cpanel are alreaydy available in other menus.		
 			\JHtmlSidebar::addEntry(
 				Text::_('COM_WSACAROUSEL_SUBMENU_CPANEL'),
 				'index.php?option=com_wsacarousel',
 				$vName == 'cpanel'
 			);
+*/			
 			\JHtmlSidebar::addEntry(
 				Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'),
 				'index.php?option=com_wsacarousel&view=items',
