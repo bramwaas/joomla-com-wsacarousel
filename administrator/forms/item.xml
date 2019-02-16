@@ -121,6 +121,14 @@
 			filter="JComponentHelper::filterText"
 			buttons="false"
 		/>
+		<field name="delay"
+			type="text"
+			label="COM_WSACAROUSEL_NEXT_SLIDE_DELAY"
+			description="COM_WSACAROUSEL_NEXT_SLIDE_DELAY_DESC"
+			class="inputbox"
+			size="30"
+			required="false"
+		 />
 	
 	</fieldset>	
 	<fields name ="params">
