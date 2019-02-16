@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `#__wsacarousel` (
   `alias` varchar(255) NOT NULL default '',
   `image` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `delay` int(10) unsigned NOT NULL DEFAULT 0;
   `ordering` int(11) NOT NULL default '0',
   `params` text NOT NULL,
   `language` char(7) NOT NULL DEFAULT '',
