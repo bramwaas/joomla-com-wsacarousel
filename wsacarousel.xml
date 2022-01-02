@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.5" method="upgrade" client="admin">
+<!-- 2022-01-02 1.0.1 start  adjustments for Joomla 4 to begin with correct namespaces and path src 
+    with class directories for this component's Joomla 4 classes-->
     <name>com_wsacarousel</name>
     <creationDate>17-02-2019</creationDate>
     <author>A.H.C. Waasdorp</author>
@@ -7,9 +9,9 @@
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 	<description>WsaCarousel component</description>
-	<namespace>Joomla\Component\Wsacarousel</namespace>
+    <namespace path="src/">WaasdorpSoekhan\Component\Wsacarousel</namespace>
 	
 	<install>
 		<sql>
@@ -46,19 +48,15 @@
 			<filename>index.html</filename>
         	<filename>wsacarousel.php</filename>
 			<folder>assets</folder>
-			<folder>Controller</folder>
 			<folder>controllers</folder>
 			<folder>forms</folder>
-			<folder>Helper</folder>
 			<folder>helpers</folder>
 			<folder>language</folder>
-			<folder>Model</folder>
             <folder>models</folder>
             <folder>sql</folder>
-			<folder>Table</folder>
+            <folder>src</folder>
             <folder>tables</folder>
             <folder>tmpl</folder>
-			<folder>View</folder>
             <folder>views</folder>
         </files>
         
