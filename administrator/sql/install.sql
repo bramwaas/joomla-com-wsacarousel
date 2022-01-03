@@ -32,4 +32,4 @@ CREATE TABLE IF NOT EXISTS `#__wsacarousel` (
   KEY `idx_catid` (`catid`),
   KEY `idx_language` (`language`)
   
-) DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8mb4_unicode_ci;
+) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
