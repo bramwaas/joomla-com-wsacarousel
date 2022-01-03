@@ -6,13 +6,14 @@
  * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Helper;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Helper;
 
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ContentHelper;
+use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Version;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 use Joomla\CMS\Language\Text;
@@ -39,12 +40,12 @@ class WsacarouselHelper extends ContentHelper
         
         
         
-        \JHtmlSidebar::addEntry(
+        Sidebar::addEntry(
             Text::_('COM_WSACAROUSEL_SUBMENU_SLIDES'),
             'index.php?option=com_wsacarousel&view=items',
             $vName == 'items'
             );
-        \JHtmlSidebar::addEntry(
+        Sidebar::addEntry(
             Text::_('COM_WSACAROUSEL_SUBMENU_CATEGORIES'),
             'index.php?option=com_categories&extension=com_wsacarousel',
             $vName == 'categories'
@@ -70,6 +71,8 @@ class WsacarouselHelper extends ContentHelper
 	public static function countItems(&$items)
 	{
 		$db = Factory::getDbo();
+		// $db = Factory::getContainer()->get('DatabaseDriver');  // does not work in J3
+		
 
 		foreach ($items as $item)
 		{

@@ -1,9 +1,9 @@
 <?php
 /**
- * @version 0.0.3
+ * @version 1.0.1
  * @package     Joomla.Administrator
  * @subpackage  com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 -2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -24,17 +24,15 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Model;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Model;
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die( 'Restricted access' );
-use Joomla\CMS\Component\ComponentHelper;
+//use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\ListModel;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 
-
-//jimport('joomla.application.component.modellist');
 
 class ItemsModel extends ListModel
 {
@@ -44,7 +42,6 @@ class ItemsModel extends ListModel
      * @param   array                $config   An optional associative array of configuration settings.
      * @param   MVCFactoryInterface  $factory  The factory.
      *
-     * @see     \JControllerLegacy
      * @since   1.6
      */
     public function __construct($config = array(),MVCFactoryInterface $factory = null)
@@ -84,7 +81,7 @@ class ItemsModel extends ListModel
     protected function populateState($ordering = 'a.ordering', $direction = 'asc')
 	{
 		// Initialise variables.
-		$app = Factory::getApplication();
+//		$app = Factory::getApplication();
 
 		$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
 		$this->setState('filter.search', $search);

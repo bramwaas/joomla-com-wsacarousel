@@ -1,15 +1,15 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_tags
+ * @subpackage  com_wsacarousel
  *
- * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2022 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * extended copy of administrator/tables/item.php
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Table;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Table;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Factory;
@@ -18,7 +18,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Table\Table;
 use Joomla\Database\DatabaseDriver;
 use Joomla\Registry\Registry;
-use Joomla\String\StringHelper;
+use Joomla\String\String as Stringhelper;
 
 
 /**
@@ -31,7 +31,7 @@ class ItemTable extends Table
 	/**
 	 * Constructor
 	 *
-	 * @param   \JDatabaseDriver  $db  A database connector object
+	 * @param   DatabaseDriver  $db  A database connector object
 	 */
 	public function __construct(DatabaseDriver $db)
 	{
@@ -49,7 +49,7 @@ class ItemTable extends Table
 	 *
 	 * @return  mixed  Null if operation was satisfactory, otherwise returns an error string
 	 *
-	 * @see     \JTable::bind
+	 * @see     Table::bind
 	 * @since   3.1
 	 */
 	public function bind($array, $ignore = '')

@@ -28,9 +28,10 @@
 namespace Joomla\Component\Wsacarousel\Administrator\View\Item;
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
+\defined('_JEXEC') or die( 'Restricted access' );
 use Joomla\CMS\Factory;
-use Joomla\CMS\Component\ComponentHelper;
+//use Joomla\CMS\Component\ComponentHelper;
+//use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
@@ -45,9 +46,9 @@ use Joomla\CMS\Language\Text;
 class HtmlView extends BaseHtmlView
 {
     /**
-     * The \JForm object
+     * The Form object
      *
-     * @var  \JForm
+     * // @var  Joomla\CMS\Form\Form
      */
     protected $form;
     
@@ -61,7 +62,7 @@ class HtmlView extends BaseHtmlView
     /**
      * The model state
      *
-     * @var  \JObject
+     * //@var  \JObject
      */
     protected $state;
     
@@ -75,7 +76,7 @@ class HtmlView extends BaseHtmlView
     /**
      * The actions the user is authorised to perform
      *
-     * @var    \JObject
+     * //@var    \JObject
      * @since  4.0.0
      */
     protected $canDo;

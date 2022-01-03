@@ -5,6 +5,7 @@
  *
  * @copyright   (C) 2011 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * 2022-01-02   copied from com_wsaonepage and adapted, but is not used yet
  */
 
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Service\Html;
@@ -36,7 +37,7 @@ class AdministratorService
      * @return  string  The language HTML
      *
      * @throws  \Exception
-     * // TODO find out what is needed and replace function from com_content by a function for con_wsacarousel 
+     * // TODO find out what is needed and replace function from com_content by a function for com_wsacarousel 
      */
     public function association($id)
     {

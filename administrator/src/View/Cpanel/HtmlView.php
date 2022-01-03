@@ -1,9 +1,9 @@
 <?php 
 /**
- * @version $Id: view.html.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: 1.0.1
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -24,23 +24,14 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\View\Cpanel;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Cpanel;
 
-defined('_JEXEC') or die( 'Restricted access' );
+\defined('_JEXEC') or die( 'Restricted access' );
 //use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;   //v4
-//use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Language\Text;
-
-//    class_alias (  'JToolbarHelper' , 'ToolbarHelper' );  // v3
-
-
-
-
-//jimport( 'joomla.application.component.view');
-//jimport( 'joomla.application.categories');
-//jimport('joomla.html.pane');
 
 class HtmlView extends BaseHtmlView
 {
@@ -50,8 +41,8 @@ class HtmlView extends BaseHtmlView
 		
 		ToolBarHelper::preferences('COM_WSACAROUSEL', 550, 875);
 		
-		if (class_exists('\JHtmlSidebar')){
-			$this->sidebar = \JHtmlSidebar::render();
+		if (class_exists('Sidebar')){
+			$this->sidebar = Sidebar::render();
 		}
 		
 		parent::display($tpl);

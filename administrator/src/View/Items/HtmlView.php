@@ -3,7 +3,7 @@
  * @version $Id: /View/HtmlView.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.com, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@www.waasdorpsoekhan.nl
@@ -24,13 +24,15 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * 2018-11-04 composed from views/items/view.html.php and J4 com_tags and com_banners /View/HtmlView.php
  * 2018-05-13
+ * 2022-01-03 v1.0.1
  */
-namespace Joomla\Component\Wsacarousel\Administrator\View\Items;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items;
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
+\defined('_JEXEC') or die( 'Restricted access' );
 
 // use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
@@ -47,7 +49,7 @@ class HtmlView extends BaseHtmlView
 	/**
 	 * Form object for search filters
 	 *
-	 * @var  \JForm
+	 * // @var  \JForm
 	 */
 	public $filterForm;
 	
@@ -89,8 +91,8 @@ class HtmlView extends BaseHtmlView
 			return false;
 		}
 
-		if (class_exists('\JHtmlSidebar')){
-			$this->sidebar = \JHtmlSidebar::render();
+		if (class_exists('Sidebar')){
+			$this->sidebar = Sidebar::render();
 		}
 		
 		foreach($this->items as $item) {

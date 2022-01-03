@@ -3,7 +3,7 @@
  * @package     WsaCarousel
  * @subpackage  com_wsacarousel
  *
- * @copyright Copyright (C) 2018 Waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2018 - 2022 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
@@ -23,13 +23,13 @@
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * */
-namespace Joomla\Component\Wsacarousel\Administrator\Controller;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Controller;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\FormController;
-use Joomla\Session\Session;
+use Joomla\CMS\Session\Session;
 
 
 /**
@@ -50,7 +50,7 @@ class ItemController extends FormController
      */
     protected function allowAdd($data = array())
     {
-        return $this->app->getIdentity()->authorise('core.create', 'com_tags');
+        return $this->app->getIdentity()->authorise('core.create', 'com_wsacarousel');
     }
     
     /**
@@ -83,10 +83,10 @@ class ItemController extends FormController
         Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
         
         // Set the model
-        $model = $this->getModel('Tag');
+        $model = $this->getModel('Item');
         
         // Preset the redirect
-        $this->setRedirect('index.php?option=com_tags&view=tags');
+        $this->setRedirect('index.php?option=com_wsacarousel&view=item');
         
         return parent::batch($model);
     }

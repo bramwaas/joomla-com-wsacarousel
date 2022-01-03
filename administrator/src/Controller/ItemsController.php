@@ -1,9 +1,9 @@
 <?php
 /**
- * @version $Id: items.php 0.0.3 2018-02-17
+ * @version $Id: items.php 1.0.1 2022-01-03
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2018 Waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2018 - 2022 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
@@ -24,10 +24,10 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Controller;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Controller;
 
 // No direct access.
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Controller\AdminController;
 
 //jimport('joomla.application.component.controlleradmin');

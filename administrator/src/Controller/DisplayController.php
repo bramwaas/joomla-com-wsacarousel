@@ -1,21 +1,21 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_tags
+ * @subpackage  com_wsacarousel
  *
- * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2019 - 2022 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Controller;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Controller;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\BaseController;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Router\Route;
+// use Joomla\CMS\Language\Text;
+// use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-use Joomla\Component\Wsacarousel\Administrator\Helper\WsacarouselHelper;
+use WaasdorpSoekhan\Component\Wsacarousel\Administrator\Helper\WsacarouselHelper;
 
 /**
  * Wsacarousel view class for the Tags package.
@@ -42,12 +42,8 @@ class DisplayController extends BaseController
 	 *
 	 * @since   3.1
 	 */
-	public function display($cachable = false, $urlparams = false)
+	public function display($cachable = false, $urlparams = array())
 	{
-//	    $jinput = Factory::getApplication()->input;
-	    
-	    
-	    
 	    $db = Factory::getDBO();
 	    $db->setQuery("SELECT manifest_cache FROM #__extensions WHERE element='com_wsacarousel' LIMIT 1");
 	    $version = json_decode($db->loadResult());
@@ -73,9 +69,7 @@ class DisplayController extends BaseController
 			*/
 		}
 		// Load the submenu.
-		WsacarouselHelper::addSubmenu($vName);
-		parent::display();
-
-		return $this;
+		WsacarouselHelper::addSubmenu($view);
+		return parent::display($cachable, $urlparams );
 	}
 }

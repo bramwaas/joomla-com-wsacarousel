@@ -5,7 +5,7 @@
  *
  * @copyright   (C) 2021 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * 20-8-2021 copied from com_banners and adapted after mywalks component.
+ * 2022-01-02   copied from com_wsaonepage and adapted .
  */
 
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Extension;
@@ -23,7 +23,7 @@ use Psr\Container\ContainerInterface;  // TODO find a way to solve this eclipse 
 /**
  * Component class for com_wsacarousel
  *
- * @since  0.7.1  (Joomla 4.0.0)
+ * @since  1.0.1  (Joomla 4.0.0)
  */
 class WsacarouselComponent extends MVCComponent implements BootableExtensionInterface,  RouterServiceInterface
 {

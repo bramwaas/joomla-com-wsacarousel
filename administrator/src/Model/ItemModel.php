@@ -1,9 +1,9 @@
 <?php
 /**
- * @version 0.0.3
+ * @version 1.0.1
  * @package     Joomla.Administrator
  * @subpackage com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 -2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email: contact@waasdorpsoekhan.nl
@@ -28,14 +28,11 @@ namespace Joomla\Component\Wsacarousel\Administrator\Model;
 
 // No direct access
 defined('_JEXEC') or die;
-use Joomla\CMS\Access\Rules;
+//use Joomla\CMS\Access\Rules;
 use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
-use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\Registry\Registry;
-use Joomla\String\StringHelper;
 use Joomla\CMS\Table\Table;
 //use Joomla\CMS\Form\Form;
 

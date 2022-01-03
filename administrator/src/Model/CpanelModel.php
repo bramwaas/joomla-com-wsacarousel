@@ -1,11 +1,11 @@
 <?php
 /**
- * @version 0.0.4 $Id: CpanelModel.php 
+ * @version 1.0.1 $Id: CpanelModel.php 
  * @package     Joomla.Administrator
  * @subpackage  com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
- * @author url: https://waasdorpsoekhan.nl
+ * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
  * @developer A.H.C. Waasdorp
  *
@@ -24,14 +24,11 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Model;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Model;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 //use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-
-//jimport( 'joomla.application.component.model');
-
 
 class CpanelModel extends BaseDatabaseModel {
 
