@@ -2,6 +2,11 @@
 <extension type="component" version="2.5.5" method="upgrade" client="admin">
 <!-- 2022-01-02 1.0.1 start  adjustments for Joomla 4 to begin with correct namespaces and path src 
     with class directories for this component's Joomla 4 classes-->
+  <compatibility>
+    <include>
+      <versions from="3.10.0" to="4.99.99" />
+    </include>
+  </compatibility>
     <name>com_wsacarousel</name>
     <creationDate>17-02-2019</creationDate>
     <author>A.H.C. Waasdorp</author>
@@ -43,21 +48,23 @@
     	<files folder="administrator">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
-            <filename>controller.php</filename>
-         	<filename>dispatcher.php</filename>
 			<filename>index.html</filename>
+         	<filename>dispatcher.php</filename>
+			<!-- for Joomla 3.10 from v 1.0.1 -->
+            <filename>controller.php</filename>
         	<filename>wsacarousel.php</filename>
-			<folder>assets</folder>
 			<folder>controllers</folder>
 			<folder>forms</folder>
 			<folder>helpers</folder>
-			<folder>language</folder>
             <folder>models</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+			<!-- end for Joomla 3.10 -->
+			<folder>assets</folder>
+			<folder>language</folder>
             <folder>sql</folder>
             <folder>src</folder>
-            <folder>tables</folder>
-            <folder>tmpl</folder>
-            <folder>views</folder>
+             <folder>tmpl</folder>
         </files>
         
     </administration>

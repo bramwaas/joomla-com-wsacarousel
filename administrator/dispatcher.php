@@ -5,6 +5,7 @@
  *
  * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * Waarschijnlijk overbodig
  */
 
 defined('_JEXEC') or die;
@@ -26,5 +27,5 @@ class WsacarouselDispatcher extends Dispatcher
 	 * @since  4.0.0
 	 */
     
-	protected $namespace = 'Joomla\\Component\\Wsacarousel';
+	protected $namespace = 'WaasdorpSoekhan\\Component\\Wsacarousel';
 }
