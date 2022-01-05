@@ -18,7 +18,7 @@ use Joomla\CMS\Uri\Uri;
 use WaasdorpSoekhan\Component\Wsacarousel\Administrator\Helper\WsacarouselHelper;
 
 /**
- * Wsacarousel view class for the Tags package.
+ * Wsacarousel view class for the WsaCarousel package.
  *
  * @since  3.1
  */
@@ -53,12 +53,12 @@ class DisplayController extends BaseController
 	    
 	    
 	    
-	    $view   = $this->input->get('view', 'wsacarousel');
+	    $view   = $this->input->get('view', $this->default_view);
 		$layout = $this->input->get('layout', 'default');
 		$id     = $this->input->getInt('id');
 
 		// Check for edit form.
-		if ($view == 'wsacarousel' && $layout == 'edit' && !$this->checkEditId('com_wsacarousel.edit.item', $id))
+		if ($view == 'item' && $layout == 'edit' && !$this->checkEditId('com_wsacarousel.edit.item', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
 			/* nog even niet controleren
@@ -69,7 +69,7 @@ class DisplayController extends BaseController
 			*/
 		}
 		// Load the submenu.
-		WsacarouselHelper::addSubmenu($view);
+//		WsacarouselHelper::addSubmenu($view);
 		return parent::display($cachable, $urlparams );
 	}
 }
