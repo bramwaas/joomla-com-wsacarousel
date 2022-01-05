@@ -69,7 +69,7 @@ class DisplayController extends BaseController
 			*/
 		}
 		// Load the submenu.
-//		WsacarouselHelper::addSubmenu($view);
+		WsacarouselHelper::addSubmenu($view);
 		return parent::display($cachable, $urlparams );
 	}
 }

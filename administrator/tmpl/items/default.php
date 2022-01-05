@@ -207,9 +207,11 @@ if ($saveOrder && !empty($this->items))
 				<td class="text-center">
 					<?php if ($item->image) : ?>
 						<a href="#" data-toggle="tooltip" data-html="true"  
-							title='<?php echo htmlspecialchars($item->preview); ?>'>
-							<img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" />
+							data-x-title='<?php echo htmlspecialchars($item->preview); ?>' >
+							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" style="max-width:60px; max-height:40px;" />
 							</a>
+							<!-- tijdelijk zo opgelost, omdat item-preview tussen aanhalingstekens staat -->
+							<div role="tooltip"><img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" style="max-width:300px; max-height:200px;" /></div>
 					<?php endif; ?>
 				</td>
 				<td>
