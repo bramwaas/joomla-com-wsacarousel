@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 1.0.3
  * @package     Joomla.Administrator
  * @subpackage com_wsacarousel
  * @copyright Copyright (C) 2017 -2022 waasdorpsoekhan.nl, All rights reserved.
@@ -24,16 +24,17 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Model;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Model;
 
 // No direct access
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 //use Joomla\CMS\Access\Rules;
 use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Table\Table;
+use Joomla\CMS\Versioning\VersionableModelTrait;
 //use Joomla\CMS\Form\Form;
 
 /**
@@ -43,6 +44,14 @@ use Joomla\CMS\Table\Table;
  */
 class ItemModel extends AdminModel
 {
+    use VersionableModelTrait;
+    /**
+     * Name of the form
+     *
+     * @var string
+     * @since  4.0.0
+     */
+    protected $formName = 'item';
     /**
      * @var    string  The prefix to use with controller messages.
      * @since  3.1

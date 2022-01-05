@@ -28,7 +28,7 @@
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * 0.0.4 2018-04-25
- * 
+ * 1.0.2 2022-01-05
 
  */
 
@@ -46,10 +46,13 @@ use Joomla\CMS\Layout\LayoutHelper;
  */
 
 //// 
-HTMLHelper::_('behavior.formvalidator');
-HTMLHelper::_('behavior.keepalive');
+//HTMLHelper::_('behavior.formvalidator');
+//HTMLHelper::_('behavior.keepalive');
 //HTMLHelper::_('behavior.tabstate');
- 
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('keepalive')
+->useScript('form.validate');
+
 
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php
 $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associations');
@@ -57,7 +60,8 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 ?>
 
 
-<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
+<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post"
+    name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>

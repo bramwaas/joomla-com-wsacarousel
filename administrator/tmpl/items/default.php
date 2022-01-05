@@ -55,9 +55,7 @@ HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_t
 HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_CATEGORY')));
 
 //HTMLHelper::_('behavior.tabstate');
-
-$document = Factory::getDocument();
-$wa  = $document->getWebAssetManager();
+$wa = $this->document->getWebAssetManager();
 $wa   ->addInlineStyle(
     "
 .item-thumb {
