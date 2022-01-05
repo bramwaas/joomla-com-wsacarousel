@@ -1,10 +1,10 @@
 <?php
 /**
- * @version: 0.0.3 
+ * @version: 1.0.2 
  * $Id: HtmlView.php
  * @package Joomla.Administrator
  * @subpackage com_wsacarousel
- * @copyright Copyright (C) 2018 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2018 -2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -41,7 +41,7 @@ use Joomla\CMS\Language\Text;
 /**
  * HTML View class for the Wsacarousel component
  *
- * @since  0.0.3
+ * @since  1.0.1
  */
 class HtmlView extends BaseHtmlView
 {
