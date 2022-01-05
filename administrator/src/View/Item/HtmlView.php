@@ -25,7 +25,7 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace Joomla\Component\Wsacarousel\Administrator\View\Item;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Item;
 
 // Check to ensure this file is included in Joomla!
 \defined('_JEXEC') or die( 'Restricted access' );
