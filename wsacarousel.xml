@@ -14,7 +14,7 @@
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 	<description>WsaCarousel component</description>
     <namespace path="src/">WaasdorpSoekhan\Component\Wsacarousel</namespace>
 	
@@ -62,6 +62,7 @@
 			<!-- end for Joomla 3.10 -->
 			<folder>assets</folder>
 			<folder>language</folder>
+            <folder>services</folder>
             <folder>sql</folder>
             <folder>src</folder>
              <folder>tmpl</folder>
