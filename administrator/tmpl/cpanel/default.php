@@ -3,7 +3,7 @@
  * @version $Id: default.php 
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -31,8 +31,12 @@
  */
 
 
-defined('_JEXEC') or die('Restricted access'); 
+\defined('_JEXEC') or die('Restricted access'); 
 use Joomla\CMS\Language\Text;
+/**
+ *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Cpanel\HtmlView; $this
+ *  The class where this template is a part of
+ */
 
 ?>
 

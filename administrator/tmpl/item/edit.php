@@ -3,7 +3,7 @@
  * @version $Id: edit.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component edt item view.
- * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
@@ -33,17 +33,22 @@
  */
 
 // No direct access.
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 //use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Layout\LayoutHelper;
 
+/**
+ *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Item\HtmlView; $this
+ *  The class where this template is a part of
+ */
+
 //// 
 HTMLHelper::_('behavior.formvalidator');
 HTMLHelper::_('behavior.keepalive');
-HTMLHelper::_('behavior.tabstate');
+//HTMLHelper::_('behavior.tabstate');
  
 
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php

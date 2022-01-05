@@ -1,9 +1,9 @@
 <?php
 /**
- * @version $Id: edit_params.php 48 2017-08-04 11:41:27Z szymon $
+ * @version $Id: edit_params.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl

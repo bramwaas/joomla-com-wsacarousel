@@ -29,7 +29,11 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-// part of class WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items\HtmlView; 
+/**
+ *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items\HtmlView; $this
+ *  The class where this template is a part of
+ */
+ 
 \defined('_JEXEC') or die('Restricted access'); 
 
 use Joomla\CMS\Factory;
@@ -39,20 +43,19 @@ use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 
+
 // Include the component HTML helpers. (not yet available)
 // HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
 //HTMLHelper::_('behavior.tooltip');
-HTMLHelper::_('behavior.modal');
+//HTMLHelper::_('behavior.modal');
 HTMLHelper::_('behavior.multiselect');
 HTMLHelper::_('formbehavior.chosen', 'select');
 HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_TAG')));
 HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_CATEGORY')));
 
-HTMLHelper::_('behavior.tabstate');
+//HTMLHelper::_('behavior.tabstate');
 
-// Include javascript and css for BS4 tooltips with images.
-// why does behavior tootip this not ???
 $document = Factory::getDocument();
 $wa  = $document->getWebAssetManager();
 $wa   ->addInlineStyle(
