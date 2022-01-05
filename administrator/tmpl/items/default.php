@@ -3,7 +3,7 @@
  * @version $Id: default.php 
  * @package     Joomla.Administrator
  * @subpackage  com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -29,8 +29,8 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-defined('_JEXEC') or die('Restricted access'); 
+// part of class WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items\HtmlView; 
+\defined('_JEXEC') or die('Restricted access'); 
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -42,45 +42,49 @@ use Joomla\CMS\Session\Session;
 // Include the component HTML helpers. (not yet available)
 // HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
-HTMLHelper::_('behavior.tooltip');
+//HTMLHelper::_('behavior.tooltip');
 HTMLHelper::_('behavior.modal');
 HTMLHelper::_('behavior.multiselect');
 HTMLHelper::_('formbehavior.chosen', 'select');
-HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_TAG')));
-HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_CATEGORY')));
+HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_TAG')));
+HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_CATEGORY')));
 
 HTMLHelper::_('behavior.tabstate');
 
 // Include javascript and css for BS4 tooltips with images.
 // why does behavior tootip this not ???
 $document = Factory::getDocument();
-$document->addScript("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", array('version'=>''),
-    array('id'=>'popper.js' ));
-$decl =
+$wa  = $document->getWebAssetManager();
+$wa   ->addInlineStyle(
+    "
+.item-thumb {
+    border: 1px solid #ccc;
+    padding: 1px;
+}
+.tooltip-inner {
+    max-width: 100%;
+    width: inherit;
+}
+    
+",
+    ['position' => 'after'],
+    [],
+    []
+    )
+   ->registerAndUseScript('popper.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', ['version'=>'1.16.1'], ['integrity' => 'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', 'crossorigin' => 'anonymous', 'defer' => TRUE],[])
+   ->addInlineScript(
 "
 jQuery(document).ready(function(){
     jQuery('[data-toggle=\"tooltip\"]').tooltip({
     container: 'body',
     placement: 'bottom'
 });   
-});"
-;    
-$document->addScriptDeclaration($decl);
+});", 
+['position' => 'after'],
+[],
+['jquery', 'popper.js']
+);
 // make tooltipe wider to support images off 300 px width
-$decl= 
-"
-.item-thumb {
-    border: 1px solid #ccc; 
-    padding: 1px;
-}
-.tooltip-inner {
-    max-width: 100%; 
-    width: inherit;  
-}
-
-";
-$document->addStyleDeclaration($decl);
-
 
 
 $user		= Factory::getUser();
@@ -117,7 +121,7 @@ if ($saveOrder && !empty($this->items))
 				echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this));
 				?>
 				<?php if (empty($this->items)) : ?>
-					<joomla-alert type="warning"><?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></joomla-alert>
+					<joomla-alert type="warning"><?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></joomla-alert>
 				<?php else : ?>
 			
 	
