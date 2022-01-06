@@ -209,7 +209,6 @@ if ($saveOrder && !empty($this->items))
 							data-x-title='<?php echo htmlspecialchars($item->preview); ?>' >
 							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb"  />
 							</a>
-							<!-- tijdelijk zo opgelost, omdat item-preview tussen aanhalingstekens staat -->
 							<div role="tooltip"><?php echo $item->preview; ?></div>
 					<?php endif; ?>
 				</td>
