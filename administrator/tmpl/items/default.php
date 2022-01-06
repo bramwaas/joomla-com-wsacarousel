@@ -27,8 +27,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
- */
+  */
 /**
  *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items\HtmlView; $this
  *  The class where this template is a part of

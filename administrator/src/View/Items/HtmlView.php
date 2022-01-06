@@ -25,6 +25,7 @@
  * 2018-11-04 composed from views/items/view.html.php and J4 com_tags and com_banners /View/HtmlView.php
  * 2018-05-13
  * 2022-01-03 v1.0.1
+ * 2022-01-06
  */
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items;
 
