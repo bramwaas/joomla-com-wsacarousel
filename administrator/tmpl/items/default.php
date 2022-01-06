@@ -67,13 +67,11 @@ $wa   ->addInlineStyle(
     max-width: 100%;
     width: inherit;
 }
-    
 ",
     ['position' => 'after'],
     [],
     []
     )
-//   ->registerAndUseScript('popper.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', ['version'=>'1.16.1'], ['integrity' => 'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', 'crossorigin' => 'anonymous', 'defer' => TRUE],[])
    ->addInlineScript(
 "
 jQuery(document).ready(function(){
@@ -205,8 +203,7 @@ if ($saveOrder && !empty($this->items))
 				</td>
 				<td class="text-center">
 					<?php if ($item->image) : ?>
-						<a href="#" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-html="true"  
-							data-x-title='<?php echo htmlspecialchars($item->preview); ?>' >
+						<a href="#" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-html="true" >
 							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb"  />
 							</a>
 							<div role="tooltip"><?php echo $item->preview; ?></div>

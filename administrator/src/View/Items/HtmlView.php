@@ -86,7 +86,6 @@ class HtmlView extends BaseHtmlView
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
-//			JError::raiseError(500, implode("\n", $errors));   // no joomla 4.0 alternative use standard php.
 		    throw new \Exception(implode("\n", $errors), 500);
 			return false;
 		}
@@ -102,7 +101,7 @@ class HtmlView extends BaseHtmlView
 			if(strcasecmp(substr($item->image, 0, 4), 'http') != 0 && !empty($item->image)) {
 				$item->image = Uri::root(true).'/'.$item->image;
 			}
-			$item->preview = '<figure><img class="item-preview" src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" /><figcaption class="figure-caption">' .  $this->escape($item->title) . '</figcaption></figure>';
+			$item->preview = '<figure><img class="item-preview" src="'.$item->image.'" alt="'.$this->escape($item->title).'" /><figcaption class="item-caption">' .  $this->escape($item->title) . '</figcaption></figure>';
 		}
 		
 		$this->addToolbar();		
