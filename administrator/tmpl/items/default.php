@@ -52,13 +52,14 @@ HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeho
 $wa = $this->document->getWebAssetManager();
 $wa   ->addInlineStyle(
     "
-.item-thumb {
+.item-thumb,
+.item-preview {
     border: 1px solid #ccc;
     padding: 1px;
     max-width:60px;
     max-height:40px;
 }
-[role=tooltip] .item-thumb {
+[role=tooltip] .item-preview {
     max-width:300px;
     max-height:225px;
 } 
@@ -209,7 +210,7 @@ if ($saveOrder && !empty($this->items))
 							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb"  />
 							</a>
 							<!-- tijdelijk zo opgelost, omdat item-preview tussen aanhalingstekens staat -->
-							<div role="tooltip"><img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" " /></div>
+							<div role="tooltip"><?php echo $item->preview; ?></div>
 					<?php endif; ?>
 				</td>
 				<td>
