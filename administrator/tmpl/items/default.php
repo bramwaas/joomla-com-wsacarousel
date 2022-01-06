@@ -44,24 +44,24 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 
 
-// Include the component HTML helpers. (not yet available)
-// HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
-
-//HTMLHelper::_('behavior.tooltip');
-//HTMLHelper::_('behavior.modal');
 HTMLHelper::_('behavior.multiselect');
 HTMLHelper::_('formbehavior.chosen', 'select');
 HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_TAG')));
 HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_CATEGORY')));
 
-//HTMLHelper::_('behavior.tabstate');
 $wa = $this->document->getWebAssetManager();
 $wa   ->addInlineStyle(
     "
 .item-thumb {
     border: 1px solid #ccc;
     padding: 1px;
+    max-width:60px;
+    max-height:40px;
 }
+[role=tooltip] .item-thumb {
+    max-width:300px;
+    max-height:225px;
+} 
 .tooltip-inner {
     max-width: 100%;
     width: inherit;
@@ -72,7 +72,7 @@ $wa   ->addInlineStyle(
     [],
     []
     )
-   ->registerAndUseScript('popper.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', ['version'=>'1.16.1'], ['integrity' => 'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', 'crossorigin' => 'anonymous', 'defer' => TRUE],[])
+//   ->registerAndUseScript('popper.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', ['version'=>'1.16.1'], ['integrity' => 'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', 'crossorigin' => 'anonymous', 'defer' => TRUE],[])
    ->addInlineScript(
 "
 jQuery(document).ready(function(){
@@ -83,10 +83,8 @@ jQuery(document).ready(function(){
 });", 
 ['position' => 'after'],
 [],
-['jquery', 'popper.js']
+['jquery']
 );
-// make tooltipe wider to support images off 300 px width
-
 
 $user		= Factory::getUser();
 $userId		= $user->get('id');
@@ -206,12 +204,12 @@ if ($saveOrder && !empty($this->items))
 				</td>
 				<td class="text-center">
 					<?php if ($item->image) : ?>
-						<a href="#" data-toggle="tooltip" data-html="true"  
+						<a href="#" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-html="true"  
 							data-x-title='<?php echo htmlspecialchars($item->preview); ?>' >
-							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" style="max-width:60px; max-height:40px;" />
+							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb"  />
 							</a>
 							<!-- tijdelijk zo opgelost, omdat item-preview tussen aanhalingstekens staat -->
-							<div role="tooltip"><img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" style="max-width:300px; max-height:200px;" /></div>
+							<div role="tooltip"><img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" " /></div>
 					<?php endif; ?>
 				</td>
 				<td>
