@@ -216,27 +216,18 @@ class ItemTable extends Table
 			$this->modified_time = $date->toSql();
 		}
 		// Set publish_up, publish_down to null if not set
-		if (!$this->publish_up)
-		{
-		    $this->publish_up = null;
-		}
 		
-		if (!(int) $this->publish_up)
+		if (!$this->publish_up OR !(int) $this->publish_up)
 		{
 			$this->publish_up = $date->toSql();
 		}
 		
-		if (!$this->publish_down)
-		{
-		    $this->publish_down = null;
-		}
-		
-		
-		if (!(int) $this->publish_down)
-		{
-			$this->publish_down = $date->toSql();
-		}
 
+		if (!$this->publish_down OR !(int) $this->publish_down OR $this->publish_down <= ' ' )
+		{
+			$this->publish_down = NULL;
+		}
+		
 		return true;
 	}
 
