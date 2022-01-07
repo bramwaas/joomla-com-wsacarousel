@@ -217,13 +217,13 @@ class ItemTable extends Table
 		}
 		// Set publish_up, publish_down to null if not set
 		
-		if (!$this->publish_up OR !(int) $this->publish_up)
+		if (!(int) $this->publish_up)
 		{
 			$this->publish_up = $date->toSql();
 		}
 		
 
-		if (!$this->publish_down OR !(int) $this->publish_down OR $this->publish_down <= ' ' )
+		if ( !(int) $this->publish_down )
 		{
 			$this->publish_down = NULL;
 		}
@@ -240,7 +240,7 @@ class ItemTable extends Table
 	 *
 	 * @since   3.1
 	 */
-	public function store($updateNulls = false)
+	public function store($updateNulls = true)
 	{
 		$date = Factory::getDate();
 		$user = Factory::getUser();
