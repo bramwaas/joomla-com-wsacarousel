@@ -41,9 +41,19 @@ use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 use Joomla\CMS\Uri\Uri;
 
 
-
+/**
+ * Main "Wsacarousel" Admin View (Items)
+ */
 class HtmlView extends BaseHtmlView
 {
+    /**
+     * Is this view an Empty State
+     *
+     * @var  boolean
+     * @since 4.0.0
+     */
+    private $isEmptyState = false;
+    
 	protected $items;
 	protected $pagination;
 	protected $state;
@@ -84,6 +94,10 @@ class HtmlView extends BaseHtmlView
 		$this->state		= $this->get('State');
 		$this->filterForm    = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
+		if (!\count($this->items) && $this->isEmptyState = $this->get('IsEmptyState'))
+		{
+		    $this->setLayout('emptystate');
+		}
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {

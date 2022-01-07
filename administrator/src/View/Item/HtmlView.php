@@ -1,6 +1,6 @@
 <?php
 /**
- * @version: 1.0.2 
+ * @version: 1.0.3 
  * $Id: HtmlView.php
  * @package Joomla.Administrator
  * @subpackage com_wsacarousel
@@ -23,7 +23,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ 2022-01-06
  */
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Item;
 
@@ -92,7 +92,6 @@ class HtmlView extends BaseHtmlView
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
-		    //			JError::raiseError(500, implode("\n", $errors));   // no joomla 4.0 alternative use standard php.
 		    throw new \Exception(implode("\n", $errors), 500);
 		    return false;
 		}
