@@ -130,9 +130,8 @@ class ItemTable extends Table
 		// Check the publish down date is not earlier than publish up.
 		if ((int) $this->publish_down > 0 && $this->publish_down < $this->publish_up)
 		{
-			throw new \UnexpectedValueException(sprintf('End publish date is before start publish date.'));
+		    throw new \UnexpectedValueException(sprintf(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH')));
 		}
-
 		// Clean up keywords -- eliminate extra spaces between phrases
 		// and cr (\r) and lf (\n) characters from string
 		if (!empty($this->metakey))
@@ -216,12 +215,23 @@ class ItemTable extends Table
 		{
 			$this->modified_time = $date->toSql();
 		}
-
+		// Set publish_up, publish_down to null if not set
+		if (!$this->publish_up)
+		{
+		    $this->publish_up = null;
+		}
+		
 		if (!(int) $this->publish_up)
 		{
 			$this->publish_up = $date->toSql();
 		}
-
+		
+		if (!$this->publish_down)
+		{
+		    $this->publish_down = null;
+		}
+		
+		
 		if (!(int) $this->publish_down)
 		{
 			$this->publish_down = $date->toSql();
