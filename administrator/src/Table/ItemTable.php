@@ -98,7 +98,8 @@ class ItemTable extends Table
 	 */
 	public function check()
 	{
-		try
+	    $date = Factory::getDate()->toSql();
+	    try
 		{
 			parent::check();
 		}
@@ -169,7 +170,6 @@ class ItemTable extends Table
 		}
 
 		// Not Null sanity check
-		$date = Factory::getDate();
 
 		if (empty($this->params))
 		{
@@ -203,26 +203,26 @@ class ItemTable extends Table
 
 		if (!(int) $this->checked_out_time)
 		{
-			$this->checked_out_time = $date->toSql();
+			$this->checked_out_time = $date;
 		}
 
 		if (!(int) $this->modified_time)
 		{
-			$this->modified_time = $date->toSql();
+			$this->modified_time = $date;
 		}
 
 		if (!(int) $this->modified_time)
 		{
-			$this->modified_time = $date->toSql();
+			$this->modified_time = $date;
 		}
-		// Set publish_up, publish_down to null if not set
+		// Set publish_up to now and, publish_down to null if not set
 		
 		if (!(int) $this->publish_up)
 		{
-			$this->publish_up = $date->toSql();
+			$this->publish_up = $date;
 		}
 		
-
+		
 		if ( !(int) $this->publish_down )
 		{
 			$this->publish_down = NULL;
@@ -242,7 +242,7 @@ class ItemTable extends Table
 	 */
 	public function store($updateNulls = true)
 	{
-		$date = Factory::getDate();
+	    $date = Factory::getDate()->toSql();
 		$user = Factory::getUser();
 
 		$isNew = ($this->id==0 ? true : false);
@@ -253,7 +253,7 @@ class ItemTable extends Table
 		    $this->reorder('catid = '.$this->catid);
 		}
 		
-		$this->modified_time = $date->toSql();
+		$this->modified_time = $date;
 
 		if ($this->id)
 		{
@@ -266,7 +266,7 @@ class ItemTable extends Table
 			// so we don't touch either of these if they are set.
 			if (!(int) $this->created_time)
 			{
-				$this->created_time = $date->toSql();
+				$this->created_time = $date;
 			}
 
 			if (empty($this->created_user_id))
@@ -280,7 +280,7 @@ class ItemTable extends Table
 
 		if ($table->load(array('alias' => $this->alias)) && ($table->id != $this->id || $this->id == 0))
 		{
-			$this->setError(Text::_('COM_WSACAROUSEL_ERROR_UNIQUE_ALIAS'));
+		    throw new \UnexpectedValueException(sprintf(Text::_('COM_WSACAROUSEL_ERROR_UNIQUE_ALIAS')));
 
 			return false;
 		}
