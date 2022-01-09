@@ -6,6 +6,7 @@
  * @copyright   Copyright (C) 2005 - 2022 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * extended copy of administrator/tables/item.php
+ * 2022 01 09
  */
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Table;
 
@@ -16,24 +17,35 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Table\Table;
+use Joomla\CMS\Tag\TaggableTableInterface;
+use Joomla\CMS\Tag\TaggableTableTrait;
+use Joomla\CMS\Versioning\VersionableTableInterface;
 use Joomla\Database\DatabaseDriver;
 use Joomla\Registry\Registry;
 use Joomla\String\String as Stringhelper;
-
 
 /**
  * Wsacarousel Item table
  *
  * @since  3.1
  */
-class ItemTable extends Table
+class ItemTable extends Table implements VersionableTableInterface, TaggableTableInterface
 {
-	/**
+    use TaggableTableTrait;
+    /**
+     * Indicates that columns fully support the NULL value in the database
+     *
+     * @var    boolean
+     * @since  4.0.0
+     */
+    protected $_supportNullValue = true;
+    
+    /**
 	 * Constructor
 	 *
 	 * @param   DatabaseDriver  $db  A database connector object
 	 */
-	public function __construct(DatabaseDriver $db)
+    public function __construct(DatabaseDriver $db)
 	{
 		$this->typeAlias = 'com_wsacarousel.item';
 
@@ -128,47 +140,6 @@ class ItemTable extends Table
 			$this->alias = Factory::getDate()->format('Y-m-d-H-i-s');
 		}
 
-		// Check the publish down date is not earlier than publish up.
-		if ((int) $this->publish_down > 0 && $this->publish_down < $this->publish_up)
-		{
-		    throw new \UnexpectedValueException(sprintf(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH')));
-		}
-		// Clean up keywords -- eliminate extra spaces between phrases
-		// and cr (\r) and lf (\n) characters from string
-		if (!empty($this->metakey))
-		{
-			// Only process if not empty
-			// Define array of characters to remove
-			$bad_characters = array("\n", "\r", "\"", '<', '>');
-
-			// Remove bad characters
-			$after_clean = StringHelper::str_ireplace($bad_characters, '', $this->metakey);
-
-			// Create array using commas as delimiter
-			$keys = explode(',', $after_clean);
-			$clean_keys = array();
-
-			foreach ($keys as $key)
-			{
-				if (trim($key))
-				{
-					// Ignore blank keywords
-					$clean_keys[] = trim($key);
-				}
-			}
-
-			// Put array back together delimited by ", "
-			$this->metakey = implode(', ', $clean_keys);
-		}
-
-		// Clean up description -- eliminate quotes and <> brackets
-		if (!empty($this->metadesc))
-		{
-			// Only process if not empty
-			$bad_characters = array("\"", '<', '>');
-			$this->metadesc = StringHelper::str_ireplace($bad_characters, '', $this->metadesc);
-		}
-
 		// Not Null sanity check
 
 		if (empty($this->params))
@@ -210,11 +181,6 @@ class ItemTable extends Table
 		{
 			$this->modified_time = $date;
 		}
-
-		if (!(int) $this->modified_time)
-		{
-			$this->modified_time = $date;
-		}
 		// Set publish_up to now and, publish_down to null if not set
 		
 		if (!(int) $this->publish_up)
@@ -227,6 +193,52 @@ class ItemTable extends Table
 		{
 			$this->publish_down = NULL;
 		}
+
+		// Check the publish down date is not earlier than publish up.
+		if ((int) $this->publish_down > 0 && $this->publish_down < $this->publish_up)
+		{
+		    throw new \UnexpectedValueException(sprintf(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH')));
+		}
+		// Clean up keywords -- eliminate extra spaces between phrases
+		// and cr (\r) and lf (\n) characters from string
+		if (!empty($this->metakey))
+		{
+		    // Only process if not empty
+		    // Define array of characters to remove
+		    $bad_characters = array("\n", "\r", "\"", '<', '>');
+		    
+		    // Remove bad characters
+		    $after_clean = StringHelper::str_ireplace($bad_characters, '', $this->metakey);
+		    
+		    // Create array using commas as delimiter
+		    $keys = explode(',', $after_clean);
+		    $clean_keys = array();
+		    
+		    foreach ($keys as $key)
+		    {
+		        if (trim($key))
+		        {
+		            // Ignore blank keywords
+		            $clean_keys[] = trim($key);
+		        }
+		    }
+		    
+		    // Put array back together delimited by ", "
+		    $this->metakey = implode(', ', $clean_keys);
+		}
+		else
+		{
+		    $this->metakey = '';
+		}
+		
+		// Clean up description -- eliminate quotes and <> brackets
+		if (!empty($this->metadesc))
+		{
+		    // Only process if not empty
+		    $bad_characters = array("\"", '<', '>');
+		    $this->metadesc = StringHelper::str_ireplace($bad_characters, '', $this->metadesc);
+		}
+		
 		
 		return true;
 	}
@@ -287,5 +299,15 @@ class ItemTable extends Table
 
 		return parent::store($updateNulls);
 	}
-
+	/**
+	 * Get the type alias for UCM features
+	 *
+	 * @return  string  The alias as described above
+	 *
+	 * @since   4.0.0
+	 */
+	public function getTypeAlias()
+	{
+	    return $this->typeAlias;
+	}
 }
