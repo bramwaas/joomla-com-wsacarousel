@@ -22,7 +22,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ * 2022 01 09 removed getTable because it is unnecesary and it called the wrong J3 version of the table class
  */
 namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Model;
 
@@ -136,12 +136,6 @@ class ItemModel extends AdminModel
         $this->setState('params', $params);
     }
     
-    
-    public function getTable($type = 'Item', $prefix = 'WsaCarouselTable', $config = array())
-	{
-		return Table::getInstance($type, $prefix, $config);
-	}
-	
 	public function getForm($data = array(), $loadData = true)
 	{
 
