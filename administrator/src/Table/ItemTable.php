@@ -258,12 +258,6 @@ class ItemTable extends Table implements VersionableTableInterface, TaggableTabl
 		$user = Factory::getUser();
 
 		$isNew = ($this->id==0 ? true : false);
-		$success = parent::store($updateNulls);
-		$jinput = Factory::getApplication()->input;
-		//		if($isNew && $success && JRequest::getVar('view') == 'item') {
-		if($isNew && $success && $jinput->get('view') == 'item') {
-		    $this->reorder('catid = '.$this->catid);
-		}
 		
 		$this->modified_time = $date;
 
@@ -297,7 +291,12 @@ class ItemTable extends Table implements VersionableTableInterface, TaggableTabl
 			return false;
 		}
 
-		return parent::store($updateNulls);
+		$success = parent::store($updateNulls);
+		$jinput = Factory::getApplication()->input;
+		if($isNew && $success && $jinput->get('view') == 'item') {
+		    $this->reorder('catid = '.$this->catid);
+		}
+		return $success;
 	}
 	/**
 	 * Get the type alias for UCM features

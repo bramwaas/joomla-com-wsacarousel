@@ -102,25 +102,25 @@ class HtmlView extends BaseHtmlView
 	
 	protected function addToolbar()
 	{
-//		JRequest::setVar('hidemainmenu', true);
-	    $jinput = Factory::getApplication()->input;
-	    $jinput->set('hidemainmenu', true);
+	    Factory::getApplication()->input->set('hidemainmenu', true);
 	    
 		$user		= Factory::getUser();
 		$userId		= $user->get('id');
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
-		$canDo = $this->canDo;
+		// Since we don't track these assets at the item level, use the category id.
+		$canDo = ContentHelper::getActions('com_wsacarousel', 'category', $this->item->catid);
 		
 		$text = $isNew ? Text::_( 'COM_WSACAROUSEL_NEW' ) : Text::_( 'COM_WSACAROUSEL_EDIT' );
 		ToolBarHelper::title(   Text::_( 'COM_WSACAROUSEL_ITEM' ).': <small><small>[ ' . $text.' ]</small></small>', 'generic.png' );
 		
 //		if (version_compare(JVERSION, '4.0', '>=')) { // v4
+		
 		    if ($isNew) 
 		    {
-		          ToolbarHelper::saveGroup(
+		        ToolbarHelper::apply('item.apply');
+		        ToolbarHelper::saveGroup(
 		              [
-		                  ['apply', 'item.apply'],
 		                  ['save', 'item.save'],
 		                  ['save2new', 'item.save2new']
 		              ],
@@ -135,13 +135,13 @@ class HtmlView extends BaseHtmlView
                 // Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
                 //$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
                 $itemEditable = true;
-                
                 $toolbarButtons = [];
                 
                 // Can't save the record if it's checked out and editable
                 if (!$checkedOut && $itemEditable)
                 {
-                    $toolbarButtons[] = ['apply', 'item.apply'];
+                    ToolbarHelper::apply('item.apply');
+                   
                     $toolbarButtons[] = ['save', 'item.save'];
                     
                     //if ($canDo->get('core.create'))
