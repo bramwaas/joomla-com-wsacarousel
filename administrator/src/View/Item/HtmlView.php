@@ -1,10 +1,10 @@
 <?php
 /**
- * @version: 0.0.3 
+ * @version: 1.0.3 
  * $Id: HtmlView.php
  * @package Joomla.Administrator
  * @subpackage com_wsacarousel
- * @copyright Copyright (C) 2018 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2018 -2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -23,14 +23,15 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ 2022-01-06
  */
-namespace Joomla\Component\Wsacarousel\Administrator\View\Item;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Item;
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
+\defined('_JEXEC') or die( 'Restricted access' );
 use Joomla\CMS\Factory;
-use Joomla\CMS\Component\ComponentHelper;
+//use Joomla\CMS\Component\ComponentHelper;
+//use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
@@ -40,14 +41,14 @@ use Joomla\CMS\Language\Text;
 /**
  * HTML View class for the Wsacarousel component
  *
- * @since  0.0.3
+ * @since  1.0.1
  */
 class HtmlView extends BaseHtmlView
 {
     /**
-     * The \JForm object
+     * The Form object
      *
-     * @var  \JForm
+     * // @var  Joomla\CMS\Form\Form
      */
     protected $form;
     
@@ -61,7 +62,7 @@ class HtmlView extends BaseHtmlView
     /**
      * The model state
      *
-     * @var  \JObject
+     * //@var  \JObject
      */
     protected $state;
     
@@ -75,7 +76,7 @@ class HtmlView extends BaseHtmlView
     /**
      * The actions the user is authorised to perform
      *
-     * @var    \JObject
+     * //@var    \JObject
      * @since  4.0.0
      */
     protected $canDo;
@@ -91,7 +92,6 @@ class HtmlView extends BaseHtmlView
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
-		    //			JError::raiseError(500, implode("\n", $errors));   // no joomla 4.0 alternative use standard php.
 		    throw new \Exception(implode("\n", $errors), 500);
 		    return false;
 		}
@@ -102,25 +102,25 @@ class HtmlView extends BaseHtmlView
 	
 	protected function addToolbar()
 	{
-//		JRequest::setVar('hidemainmenu', true);
-	    $jinput = Factory::getApplication()->input;
-	    $jinput->set('hidemainmenu', true);
+	    Factory::getApplication()->input->set('hidemainmenu', true);
 	    
 		$user		= Factory::getUser();
 		$userId		= $user->get('id');
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
-		$canDo = $this->canDo;
+		// Since we don't track these assets at the item level, use the category id.
+		$canDo = ContentHelper::getActions('com_wsacarousel', 'category', $this->item->catid);
 		
 		$text = $isNew ? Text::_( 'COM_WSACAROUSEL_NEW' ) : Text::_( 'COM_WSACAROUSEL_EDIT' );
 		ToolBarHelper::title(   Text::_( 'COM_WSACAROUSEL_ITEM' ).': <small><small>[ ' . $text.' ]</small></small>', 'generic.png' );
 		
 //		if (version_compare(JVERSION, '4.0', '>=')) { // v4
+		
 		    if ($isNew) 
 		    {
-		          ToolbarHelper::saveGroup(
+		        ToolbarHelper::apply('item.apply');
+		        ToolbarHelper::saveGroup(
 		              [
-		                  ['apply', 'item.apply'],
 		                  ['save', 'item.save'],
 		                  ['save2new', 'item.save2new']
 		              ],
@@ -135,13 +135,13 @@ class HtmlView extends BaseHtmlView
                 // Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
                 //$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_user_id == $userId);
                 $itemEditable = true;
-                
                 $toolbarButtons = [];
                 
                 // Can't save the record if it's checked out and editable
                 if (!$checkedOut && $itemEditable)
                 {
-                    $toolbarButtons[] = ['apply', 'item.apply'];
+                    ToolbarHelper::apply('item.apply');
+                   
                     $toolbarButtons[] = ['save', 'item.save'];
                     
                     //if ($canDo->get('core.create'))

@@ -3,7 +3,7 @@
  * @version $Id: default.php 
  * @package     Joomla.Administrator
  * @subpackage  com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@waasdorpsoekhan.nl
@@ -27,10 +27,13 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+  */
+/**
+ *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items\HtmlView; $this
+ *  The class where this template is a part of
  */
-
-defined('_JEXEC') or die('Restricted access'); 
+ 
+\defined('_JEXEC') or die('Restricted access'); 
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -39,49 +42,47 @@ use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 
-// Include the component HTML helpers. (not yet available)
-// HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
-HTMLHelper::_('behavior.tooltip');
-HTMLHelper::_('behavior.modal');
 HTMLHelper::_('behavior.multiselect');
 HTMLHelper::_('formbehavior.chosen', 'select');
-HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_TAG')));
-HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => JText::_('JOPTION_SELECT_CATEGORY')));
+HTMLHelper::_('formbehavior.chosen', '.multipleTags', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_TAG')));
+HTMLHelper::_('formbehavior.chosen', '.multipleCategories', null, array('placeholder_text_multiple' => Text::_('JOPTION_SELECT_CATEGORY')));
 
-HTMLHelper::_('behavior.tabstate');
-
-// Include javascript and css for BS4 tooltips with images.
-// why does behavior tootip this not ???
-$document = Factory::getDocument();
-$document->addScript("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", array('version'=>''),
-    array('id'=>'popper.js' ));
-$decl =
+$wa = $this->document->getWebAssetManager();
+$wa   ->addInlineStyle(
+    "
+.item-thumb,
+.item-preview {
+    border: 1px solid #ccc;
+    padding: 1px;
+    max-width:60px;
+    max-height:40px;
+}
+[role=tooltip] .item-preview {
+    max-width:300px;
+    max-height:225px;
+} 
+.tooltip-inner {
+    max-width: 100%;
+    width: inherit;
+}
+",
+    ['position' => 'after'],
+    [],
+    []
+    )
+   ->addInlineScript(
 "
 jQuery(document).ready(function(){
     jQuery('[data-toggle=\"tooltip\"]').tooltip({
     container: 'body',
     placement: 'bottom'
 });   
-});"
-;    
-$document->addScriptDeclaration($decl);
-// make tooltipe wider to support images off 300 px width
-$decl= 
-"
-.item-thumb {
-    border: 1px solid #ccc; 
-    padding: 1px;
-}
-.tooltip-inner {
-    max-width: 100%; 
-    width: inherit;  
-}
-
-";
-$document->addStyleDeclaration($decl);
-
-
+});", 
+['position' => 'after'],
+[],
+['jquery']
+);
 
 $user		= Factory::getUser();
 $userId		= $user->get('id');
@@ -117,7 +118,7 @@ if ($saveOrder && !empty($this->items))
 				echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this));
 				?>
 				<?php if (empty($this->items)) : ?>
-					<joomla-alert type="warning"><?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></joomla-alert>
+					<joomla-alert type="warning"><?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></joomla-alert>
 				<?php else : ?>
 			
 	
@@ -201,10 +202,10 @@ if ($saveOrder && !empty($this->items))
 				</td>
 				<td class="text-center">
 					<?php if ($item->image) : ?>
-						<a href="#" data-toggle="tooltip" data-html="true"  
-							title='<?php echo htmlspecialchars($item->preview); ?>'>
-							<img src="<?php echo $item->thumb; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb" />
+						<a href="#" data-bs-toggle="tooltip" data-bs-html="true" data-toggle="tooltip" data-html="true" >
+							<img src="<?php echo $item->image; ?>" alt="<?php echo $this->escape($item->title); ?>"  class="item-thumb"  />
 							</a>
+							<div role="tooltip"><?php echo $item->preview; ?></div>
 					<?php endif; ?>
 				</td>
 				<td>

@@ -1,9 +1,9 @@
 <?php
 /**
- * @version 0.0.3
+ * @version 1.0.3
  * @package     Joomla.Administrator
  * @subpackage com_wsacarousel
- * @copyright Copyright (C) 2017 waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 -2022 waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email: contact@waasdorpsoekhan.nl
@@ -22,21 +22,19 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
- *
+ * 2022 01 09 removed getTable because it is unnecesary and it called the wrong J3 version of the table class
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Model;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Model;
 
 // No direct access
-defined('_JEXEC') or die;
-use Joomla\CMS\Access\Rules;
+\defined('_JEXEC') or die;
+//use Joomla\CMS\Access\Rules;
 use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
-use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\Registry\Registry;
-use Joomla\String\StringHelper;
 use Joomla\CMS\Table\Table;
+use Joomla\CMS\Versioning\VersionableModelTrait;
 //use Joomla\CMS\Form\Form;
 
 /**
@@ -46,6 +44,14 @@ use Joomla\CMS\Table\Table;
  */
 class ItemModel extends AdminModel
 {
+    use VersionableModelTrait;
+    /**
+     * Name of the form
+     *
+     * @var string
+     * @since  4.0.0
+     */
+    protected $formName = 'item';
     /**
      * @var    string  The prefix to use with controller messages.
      * @since  3.1
@@ -130,12 +136,6 @@ class ItemModel extends AdminModel
         $this->setState('params', $params);
     }
     
-    
-    public function getTable($type = 'Item', $prefix = 'WsaCarouselTable', $config = array())
-	{
-		return Table::getInstance($type, $prefix, $config);
-	}
-	
 	public function getForm($data = array(), $loadData = true)
 	{
 

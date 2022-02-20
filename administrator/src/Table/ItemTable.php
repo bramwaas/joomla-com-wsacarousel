@@ -1,39 +1,51 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_tags
+ * @subpackage  com_wsacarousel
  *
- * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2022 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * extended copy of administrator/tables/item.php
+ * 2022 01 09
  */
-namespace Joomla\Component\Wsacarousel\Administrator\Table;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\Table;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Table\Table;
+use Joomla\CMS\Tag\TaggableTableInterface;
+use Joomla\CMS\Tag\TaggableTableTrait;
+use Joomla\CMS\Versioning\VersionableTableInterface;
 use Joomla\Database\DatabaseDriver;
 use Joomla\Registry\Registry;
-use Joomla\String\StringHelper;
-
+use Joomla\String\String as Stringhelper;
 
 /**
  * Wsacarousel Item table
  *
  * @since  3.1
  */
-class ItemTable extends Table
+class ItemTable extends Table implements VersionableTableInterface, TaggableTableInterface
 {
-	/**
+    use TaggableTableTrait;
+    /**
+     * Indicates that columns fully support the NULL value in the database
+     *
+     * @var    boolean
+     * @since  4.0.0
+     */
+    protected $_supportNullValue = true;
+    
+    /**
 	 * Constructor
 	 *
-	 * @param   \JDatabaseDriver  $db  A database connector object
+	 * @param   DatabaseDriver  $db  A database connector object
 	 */
-	public function __construct(DatabaseDriver $db)
+    public function __construct(DatabaseDriver $db)
 	{
 		$this->typeAlias = 'com_wsacarousel.item';
 
@@ -49,7 +61,7 @@ class ItemTable extends Table
 	 *
 	 * @return  mixed  Null if operation was satisfactory, otherwise returns an error string
 	 *
-	 * @see     \JTable::bind
+	 * @see     Table::bind
 	 * @since   3.1
 	 */
 	public function bind($array, $ignore = '')
@@ -98,7 +110,8 @@ class ItemTable extends Table
 	 */
 	public function check()
 	{
-		try
+	    $date = Factory::getDate()->toSql();
+	    try
 		{
 			parent::check();
 		}
@@ -127,50 +140,7 @@ class ItemTable extends Table
 			$this->alias = Factory::getDate()->format('Y-m-d-H-i-s');
 		}
 
-		// Check the publish down date is not earlier than publish up.
-		if ((int) $this->publish_down > 0 && $this->publish_down < $this->publish_up)
-		{
-			throw new \UnexpectedValueException(sprintf('End publish date is before start publish date.'));
-		}
-
-		// Clean up keywords -- eliminate extra spaces between phrases
-		// and cr (\r) and lf (\n) characters from string
-		if (!empty($this->metakey))
-		{
-			// Only process if not empty
-			// Define array of characters to remove
-			$bad_characters = array("\n", "\r", "\"", '<', '>');
-
-			// Remove bad characters
-			$after_clean = StringHelper::str_ireplace($bad_characters, '', $this->metakey);
-
-			// Create array using commas as delimiter
-			$keys = explode(',', $after_clean);
-			$clean_keys = array();
-
-			foreach ($keys as $key)
-			{
-				if (trim($key))
-				{
-					// Ignore blank keywords
-					$clean_keys[] = trim($key);
-				}
-			}
-
-			// Put array back together delimited by ", "
-			$this->metakey = implode(', ', $clean_keys);
-		}
-
-		// Clean up description -- eliminate quotes and <> brackets
-		if (!empty($this->metadesc))
-		{
-			// Only process if not empty
-			$bad_characters = array("\"", '<', '>');
-			$this->metadesc = StringHelper::str_ireplace($bad_characters, '', $this->metadesc);
-		}
-
 		// Not Null sanity check
-		$date = Factory::getDate();
 
 		if (empty($this->params))
 		{
@@ -204,29 +174,72 @@ class ItemTable extends Table
 
 		if (!(int) $this->checked_out_time)
 		{
-			$this->checked_out_time = $date->toSql();
+			$this->checked_out_time = $date;
 		}
 
 		if (!(int) $this->modified_time)
 		{
-			$this->modified_time = $date->toSql();
+			$this->modified_time = $date;
 		}
-
-		if (!(int) $this->modified_time)
-		{
-			$this->modified_time = $date->toSql();
-		}
-
+		// Set publish_up to now and, publish_down to null if not set
+		
 		if (!(int) $this->publish_up)
 		{
-			$this->publish_up = $date->toSql();
+			$this->publish_up = $date;
 		}
-
-		if (!(int) $this->publish_down)
+		
+		
+		if ( !(int) $this->publish_down )
 		{
-			$this->publish_down = $date->toSql();
+			$this->publish_down = NULL;
 		}
 
+		// Check the publish down date is not earlier than publish up.
+		if ((int) $this->publish_down > 0 && $this->publish_down < $this->publish_up)
+		{
+		    throw new \UnexpectedValueException(sprintf(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH')));
+		}
+		// Clean up keywords -- eliminate extra spaces between phrases
+		// and cr (\r) and lf (\n) characters from string
+		if (!empty($this->metakey))
+		{
+		    // Only process if not empty
+		    // Define array of characters to remove
+		    $bad_characters = array("\n", "\r", "\"", '<', '>');
+		    
+		    // Remove bad characters
+		    $after_clean = StringHelper::str_ireplace($bad_characters, '', $this->metakey);
+		    
+		    // Create array using commas as delimiter
+		    $keys = explode(',', $after_clean);
+		    $clean_keys = array();
+		    
+		    foreach ($keys as $key)
+		    {
+		        if (trim($key))
+		        {
+		            // Ignore blank keywords
+		            $clean_keys[] = trim($key);
+		        }
+		    }
+		    
+		    // Put array back together delimited by ", "
+		    $this->metakey = implode(', ', $clean_keys);
+		}
+		else
+		{
+		    $this->metakey = '';
+		}
+		
+		// Clean up description -- eliminate quotes and <> brackets
+		if (!empty($this->metadesc))
+		{
+		    // Only process if not empty
+		    $bad_characters = array("\"", '<', '>');
+		    $this->metadesc = StringHelper::str_ireplace($bad_characters, '', $this->metadesc);
+		}
+		
+		
 		return true;
 	}
 
@@ -239,20 +252,14 @@ class ItemTable extends Table
 	 *
 	 * @since   3.1
 	 */
-	public function store($updateNulls = false)
+	public function store($updateNulls = true)
 	{
-		$date = Factory::getDate();
+	    $date = Factory::getDate()->toSql();
 		$user = Factory::getUser();
 
 		$isNew = ($this->id==0 ? true : false);
-		$success = parent::store($updateNulls);
-		$jinput = Factory::getApplication()->input;
-		//		if($isNew && $success && JRequest::getVar('view') == 'item') {
-		if($isNew && $success && $jinput->get('view') == 'item') {
-		    $this->reorder('catid = '.$this->catid);
-		}
 		
-		$this->modified_time = $date->toSql();
+		$this->modified_time = $date;
 
 		if ($this->id)
 		{
@@ -265,7 +272,7 @@ class ItemTable extends Table
 			// so we don't touch either of these if they are set.
 			if (!(int) $this->created_time)
 			{
-				$this->created_time = $date->toSql();
+				$this->created_time = $date;
 			}
 
 			if (empty($this->created_user_id))
@@ -279,12 +286,27 @@ class ItemTable extends Table
 
 		if ($table->load(array('alias' => $this->alias)) && ($table->id != $this->id || $this->id == 0))
 		{
-			$this->setError(Text::_('COM_WSACAROUSEL_ERROR_UNIQUE_ALIAS'));
+		    throw new \UnexpectedValueException(sprintf(Text::_('COM_WSACAROUSEL_ERROR_UNIQUE_ALIAS')));
 
 			return false;
 		}
 
-		return parent::store($updateNulls);
+		$success = parent::store($updateNulls);
+		$jinput = Factory::getApplication()->input;
+		if($isNew && $success && $jinput->get('view') == 'item') {
+		    $this->reorder('catid = '.$this->catid);
+		}
+		return $success;
 	}
-
+	/**
+	 * Get the type alias for UCM features
+	 *
+	 * @return  string  The alias as described above
+	 *
+	 * @since   4.0.0
+	 */
+	public function getTypeAlias()
+	{
+	    return $this->typeAlias;
+	}
 }

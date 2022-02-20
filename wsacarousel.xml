@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.5" method="upgrade" client="admin">
+<!-- 2022-01-02 1.0.1 start  adjustments for Joomla 4 to begin with correct namespaces and path src 
+    with class directories for this component's Joomla 4 classes-->
+  <compatibility>
+    <include>
+      <versions from="3.10.0" to="4.99.99" />
+    </include>
+  </compatibility>
     <name>com_wsacarousel</name>
     <creationDate>17-02-2019</creationDate>
     <author>A.H.C. Waasdorp</author>
-	<copyright>Copyright (C) 2018 -2019 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
+	<copyright>Copyright (C) 2018 -2022 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
 	<description>WsaCarousel component</description>
-	<namespace>Joomla\Component\Wsacarousel</namespace>
+    <namespace path="src/">WaasdorpSoekhan\Component\Wsacarousel</namespace>
 	
 	<install>
 		<sql>
@@ -41,25 +48,24 @@
     	<files folder="administrator">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
-            <filename>controller.php</filename>
-         	<filename>dispatcher.php</filename>
 			<filename>index.html</filename>
+         	<filename>dispatcher.php</filename>
+			<!-- for Joomla 3.10 from v 1.0.1 -->
+            <filename>controller.php</filename>
         	<filename>wsacarousel.php</filename>
-			<folder>assets</folder>
-			<folder>Controller</folder>
 			<folder>controllers</folder>
 			<folder>forms</folder>
-			<folder>Helper</folder>
 			<folder>helpers</folder>
-			<folder>language</folder>
-			<folder>Model</folder>
             <folder>models</folder>
-            <folder>sql</folder>
-			<folder>Table</folder>
             <folder>tables</folder>
-            <folder>tmpl</folder>
-			<folder>View</folder>
             <folder>views</folder>
+			<!-- end for Joomla 3.10 -->
+			<folder>assets</folder>
+			<folder>language</folder>
+            <folder>services</folder>
+            <folder>sql</folder>
+            <folder>src</folder>
+             <folder>tmpl</folder>
         </files>
         
     </administration>

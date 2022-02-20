@@ -3,7 +3,7 @@
  * @version $Id: /View/HtmlView.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component
- * @copyright Copyright (C) 2017 DJ-Extensions.com, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 waasdorpsoekhan.com, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: https://www.waasdorpsoekhan.nl
  * @author email contact@www.waasdorpsoekhan.nl
@@ -24,13 +24,16 @@
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * 2018-11-04 composed from views/items/view.html.php and J4 com_tags and com_banners /View/HtmlView.php
  * 2018-05-13
+ * 2022-01-03 v1.0.1
+ * 2022-01-06
  */
-namespace Joomla\Component\Wsacarousel\Administrator\View\Items;
+namespace WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Items;
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
+\defined('_JEXEC') or die( 'Restricted access' );
 
 // use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
@@ -38,16 +41,26 @@ use Joomla\CMS\Toolbar\ToolbarHelper;  // v4
 use Joomla\CMS\Uri\Uri;
 
 
-
+/**
+ * Main "Wsacarousel" Admin View (Items)
+ */
 class HtmlView extends BaseHtmlView
 {
+    /**
+     * Is this view an Empty State
+     *
+     * @var  boolean
+     * @since 4.0.0
+     */
+    private $isEmptyState = false;
+    
 	protected $items;
 	protected $pagination;
 	protected $state;
 	/**
 	 * Form object for search filters
 	 *
-	 * @var  \JForm
+	 * // @var  \JForm
 	 */
 	public $filterForm;
 	
@@ -81,16 +94,19 @@ class HtmlView extends BaseHtmlView
 		$this->state		= $this->get('State');
 		$this->filterForm    = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
+		if (!\count($this->items) && $this->isEmptyState = $this->get('IsEmptyState'))
+		{
+		    $this->setLayout('emptystate');
+		}
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
-//			JError::raiseError(500, implode("\n", $errors));   // no joomla 4.0 alternative use standard php.
 		    throw new \Exception(implode("\n", $errors), 500);
 			return false;
 		}
 
-		if (class_exists('\JHtmlSidebar')){
-			$this->sidebar = \JHtmlSidebar::render();
+		if (class_exists('Sidebar')){
+			$this->sidebar = Sidebar::render();
 		}
 		
 		foreach($this->items as $item) {
@@ -100,7 +116,7 @@ class HtmlView extends BaseHtmlView
 			if(strcasecmp(substr($item->image, 0, 4), 'http') != 0 && !empty($item->image)) {
 				$item->image = Uri::root(true).'/'.$item->image;
 			}
-			$item->preview = '<figure class="figure"><img src="'.$item->image.'" alt="'.$this->escape($item->title).'" width="300" /><figcaption class="figure-caption">' .  $this->escape($item->title) . '</figcaption></figure>';
+			$item->preview = '<figure><img class="item-preview" src="'.$item->image.'" alt="'.$this->escape($item->title).'" /><figcaption class="item-caption">' .  $this->escape($item->title) . '</figcaption></figure>';
 		}
 		
 		$this->addToolbar();		

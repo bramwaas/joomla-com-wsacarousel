@@ -3,7 +3,7 @@
  * @version $Id: edit.php
  * @package WsaCarousel
  * @subpackage WsaCarousel Component edt item view.
- * @copyright Copyright (C) 2017 Waasdorpsoekhan.nl, All rights reserved.
+ * @copyright Copyright (C) 2017 - 2022 Waasdorpsoekhan.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
  * @author url: http://Waasdorpsoekhan.nl
  * @author email contact@Waasdorpsoekhan.nl
@@ -28,23 +28,31 @@
  * You should have received a copy of the GNU General Public License
  * along with WsaCarousel. If not, see <http://www.gnu.org/licenses/>.
  * 0.0.4 2018-04-25
- * 
+ * 1.0.2 2022-01-05
 
  */
 
 // No direct access.
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 //use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Layout\LayoutHelper;
 
+/**
+ *  @var WaasdorpSoekhan\Component\Wsacarousel\Administrator\View\Item\HtmlView; $this
+ *  The class where this template is a part of
+ */
+
 //// 
-HTMLHelper::_('behavior.formvalidator');
-HTMLHelper::_('behavior.keepalive');
-HTMLHelper::_('behavior.tabstate');
- 
+//HTMLHelper::_('behavior.formvalidator');
+//HTMLHelper::_('behavior.keepalive');
+//HTMLHelper::_('behavior.tabstate');
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('keepalive')
+->useScript('form.validate');
+
 
 // Fieldsets to not automatically render by /layouts/joomla/edit/params.php
 $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associations');
@@ -52,7 +60,8 @@ $this->ignore_fieldsets = array('images',  'slide', 'jmetadata', 'item_associati
 ?>
 
 
-<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
+<form action="<?php echo Route::_('index.php?option=com_wsacarousel&layout=edit&id='.(int) $this->item->id); ?>" method="post"
+    name="adminForm" id="item-form" class="form-validate form-horizontal" data-version="v4.0">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 	<div>
