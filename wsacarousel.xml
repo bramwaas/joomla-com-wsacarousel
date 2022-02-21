@@ -8,13 +8,13 @@
     </include>
   </compatibility>
     <name>com_wsacarousel</name>
-    <creationDate>17-02-2019</creationDate>
+    <creationDate>21-02-2022</creationDate>
     <author>A.H.C. Waasdorp</author>
 	<copyright>Copyright (C) 2018 -2022 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 	<description>WsaCarousel component</description>
     <namespace path="src/">WaasdorpSoekhan\Component\Wsacarousel</namespace>
 	
