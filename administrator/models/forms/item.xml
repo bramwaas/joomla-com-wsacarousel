@@ -214,7 +214,7 @@
 				<option value="bookmark">bookmark</option>
 				<option value="help">help</option>
 				<option value="license">license</option>
-				<option value="lightbox">license</option>
+				<option value="lightbox">lightbox</option>
 				<option value="next">next</option>
 				<option value="nofollow">nofollow</option>
 				<option value="noreferrer">noreferrer</option>
