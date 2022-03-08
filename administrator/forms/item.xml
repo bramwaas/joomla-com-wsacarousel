@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- V 0.0.3 2018-04-04 -->
+<!-- V 1.0.8 2022-03-08 Joomla 3 -->
 <form>
 	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
 		<field name="id"
@@ -213,6 +213,7 @@
 				<option value="bookmark">bookmark</option>
 				<option value="help">help</option>
 				<option value="license">license</option>
+				<option value="lightbox">license</option>
 				<option value="next">next</option>
 				<option value="nofollow">nofollow</option>
 				<option value="noreferrer">noreferrer</option>
