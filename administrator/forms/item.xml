@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- V 1.0.8 2022-03-08 Joomla 3 -->
+<!-- V 1.0.8 2022-03-08 Joomla 4 -->
 <form>
-	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
+	<fieldset addfieldprefix="Joomla\Component\Categories\Administrator\Field">
 		<field name="id"
 			type="text"
 			label="JGLOBAL_FIELD_ID_LABEL"
@@ -101,7 +101,8 @@
 			
 	</fieldset>
 	<fieldset name="slide"
-			addfieldpath="/administrator/components/com_content/models/fields" 	>
+			addfieldpath="/administrator/components/com_content/models/fields" 
+			addfieldprefix="Joomla\Component\Content\Administrator\Field"	>
 		<field name="image"
 			type="media"
 			hide_none="1"
@@ -134,7 +135,8 @@
 		<fieldset name="attrs"	label="COM_WSACAROUSEL_IMAGE_ATTR_OPTIONS" 
 			class="col-md-9  fltlft span9 wel"
  	        description="COM_WSACAROUSEL_IMAGE_ATTRS_DESC"   
-			addfieldpath="/administrator/components/com_content/models/fields">
+			addfieldpath="/administrator/components/com_content/models/fields"
+			addfieldprefix="Joomla\Component\Content\Administrator\Field" >
 			<field name="alt_attr"
 				type="text"
 				label="COM_WSACAROUSEL_ALT_ATTR"
@@ -152,7 +154,8 @@
 		</fieldset>
 
 		<fieldset name="jbasic" label="COM_WSACAROUSEL_LINKING_OPTIONS"
-			addfieldpath="/administrator/components/com_content/models/fields">
+			addfieldpath="/administrator/components/com_content/models/fields"
+			addfieldprefix="Joomla\Component\Content\Administrator\Field" >
 		
 			<field name="link_type" 
 				type="list" 
