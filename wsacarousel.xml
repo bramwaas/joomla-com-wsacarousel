@@ -8,13 +8,13 @@
     </include>
   </compatibility>
     <name>com_wsacarousel</name>
-    <creationDate>17-02-2019</creationDate>
+    <creationDate>02-04-2022</creationDate>
     <author>A.H.C. Waasdorp</author>
 	<copyright>Copyright (C) 2018 -2022 www.waasdorpsoekhan.nl, All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses GNU/GPL</license>
 	<authorEmail>info@waasdorpsoekhan.nl</authorEmail>
 	<authorUrl>https://www.waasdorpsoekhan.nl</authorUrl>
-    <version>1.0.5</version>
+    <version>1.1.0</version>
 	<description>WsaCarousel component</description>
     <namespace path="src/">WaasdorpSoekhan\Component\Wsacarousel</namespace>
 	
@@ -54,12 +54,12 @@
             <filename>controller.php</filename>
         	<filename>wsacarousel.php</filename>
 			<folder>controllers</folder>
-			<folder>forms</folder>
 			<folder>helpers</folder>
             <folder>models</folder>
             <folder>tables</folder>
             <folder>views</folder>
 			<!-- end for Joomla 3.10 -->
+			<folder>forms</folder>
 			<folder>assets</folder>
 			<folder>language</folder>
             <folder>services</folder>
@@ -74,5 +74,8 @@
     
 	<config />
 	<files />
+	<updateservers>
+	<server type="extension" priority="1" name="WsaCarousel Slider / Carousel Component"><![CDATA[https://www.waasdorpsoekhan.nl/update/wsacarousel/com_wsacarousel-update.xml]]></server>
+    </updateservers>
 	
 </extension>
